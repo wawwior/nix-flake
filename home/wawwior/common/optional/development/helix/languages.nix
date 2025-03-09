@@ -15,13 +15,6 @@
           };
         };
       };
-      jdtls = {
-        command = "jdtls";
-        args = [
-          "-data"
-          "${hostSpec.home}/.cache/jdtls/workspace"
-        ];
-      };
     };
     language = [
       {
@@ -29,15 +22,6 @@
         auto-format = true;
         formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
         language-servers = [ "nixd" ];
-      }
-      {
-        name = "java";
-        scope = "source.java";
-        roots = [
-          "pom.xml"
-          "build.gradle"
-        ];
-        language-servers = [ "jdtls" ];
       }
     ];
   };

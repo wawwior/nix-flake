@@ -867,9 +867,30 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "rust-overlay": "rust-overlay",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "zen-browser": "zen-browser"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740882709,
+        "narHash": "sha256-VC+8GxWK4p08jjIbmsNfeFQajW2lsiOR/XQiOOvqgvs=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "f4d5a693c18b389f0d58f55b6f7be6ef85af186f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "sops-nix": {
@@ -905,22 +926,21 @@
         "nixpkgs": "nixpkgs_4",
         "nur": "nur",
         "systems": "systems_4",
-        "tinted-foot": "tinted-foot",
-        "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
+        "tinted-terminal": "tinted-terminal",
         "tinted-tmux": "tinted-tmux",
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1740734415,
-        "narHash": "sha256-QRux8OnLOvHoMB6jRlQgfffj9y3JEGSdWclB4blGLWM=",
-        "owner": "danth",
+        "lastModified": 1741357193,
+        "narHash": "sha256-x8k8LeUmkfwSf+Nm+lFJGqOMrgq9t8Bz+zhGfFwLwWI=",
+        "owner": "wawwior",
         "repo": "stylix",
-        "rev": "c74352a1459ac0d350b22a3a45bbaa18ab7b7e2d",
+        "rev": "1f4d892a7ba8e3388ba1f675bea4b0b97c93e39c",
         "type": "github"
       },
       "original": {
-        "owner": "danth",
+        "owner": "wawwior",
         "repo": "stylix",
         "type": "github"
       }
@@ -985,40 +1005,6 @@
         "type": "github"
       }
     },
-    "tinted-foot": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726913040,
-        "narHash": "sha256-+eDZPkw7efMNUf3/Pv0EmsidqdwNJ1TaOum6k7lngDQ=",
-        "owner": "tinted-theming",
-        "repo": "tinted-foot",
-        "rev": "fd1b924b6c45c3e4465e8a849e67ea82933fcbe4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "tinted-foot",
-        "rev": "fd1b924b6c45c3e4465e8a849e67ea82933fcbe4",
-        "type": "github"
-      }
-    },
-    "tinted-kitty": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716423189,
-        "narHash": "sha256-2xF3sH7UIwegn+2gKzMpFi3pk5DlIlM18+vj17Uf82U=",
-        "owner": "tinted-theming",
-        "repo": "tinted-kitty",
-        "rev": "eb39e141db14baef052893285df9f266df041ff8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "tinted-kitty",
-        "rev": "eb39e141db14baef052893285df9f266df041ff8",
-        "type": "github"
-      }
-    },
     "tinted-schemes": {
       "flake": false,
       "locked": {
@@ -1032,6 +1018,22 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "schemes",
+        "type": "github"
+      }
+    },
+    "tinted-terminal": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1741356557,
+        "narHash": "sha256-7bIl5wMflXy4q5Eh59Wx+hpW406r+qF6fGResKZVcrw=",
+        "owner": "wawwior",
+        "repo": "tinted-terminal",
+        "rev": "62afc41ea2f77d3d09be4f518e0d4b3f7c16e74e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wawwior",
+        "repo": "tinted-terminal",
         "type": "github"
       }
     },

@@ -1,1 +1,1 @@
-nix run .#genflake flake.nix
+(cd $HOME/.nixos; nix run .#genflake flake.nix)

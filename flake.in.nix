@@ -67,7 +67,12 @@
 
       sops-nix.url = "github:Mic92/sops-nix";
 
-      stylix.url = if unstable then "github:danth/stylix" else "github:danth/stylix/release-24.11";
+      rust-overlay = {
+        url = "github:oxalica/rust-overlay";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+      stylix.url = if unstable then "github:wawwior/stylix" else "github:danth/stylix/release-24.11";
 
       hyprland.url = if hyprland_pin then "github:hyprwm/Hyprland/v0.47.2" else "github:hyprwm/Hyprland";
 

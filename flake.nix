@@ -21,8 +21,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    rust-overlay = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:oxalica/rust-overlay";
+    };
     sops-nix.url = "github:Mic92/sops-nix";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:wawwior/stylix";
     zen-browser = {
       inputs.nixpkgs.follows = "nixpkgs-unstable";
       url = "github:0xc000022070/zen-browser-flake";

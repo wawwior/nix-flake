@@ -14,6 +14,7 @@
     ./kitty.nix
     ./tools
     ./ssh.nix
+    ./direnv.nix
 
     (map lib.custom.fromTop [
       "modules/common/host-spec.nix"
@@ -40,6 +41,10 @@
     pictures = "${config.home.homeDirectory}/media/images";
     download = "${config.home.homeDirectory}/downloads";
     documents = "${config.home.homeDirectory}/documents";
+    extraConfig = {
+      XDG_PUBLICSHARE_DIR = "/var/empty";
+      XDG_TEMPLATES_DIR = "/var/empty";
+    };
   };
   xdg.mime.enable = true;
   xdg.mimeApps.enable = true;
