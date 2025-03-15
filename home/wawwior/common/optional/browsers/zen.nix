@@ -1,11 +1,11 @@
 { pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
-    inputs.zen-browser.packages.${system}.twilight
+    inputs.zen-browser.packages.${system}.default
   ];
   xdg.mimeApps.defaultApplications = {
-    "text/html" = [ "zen_twilight.desktop" ];
-    "text/xml" = [ "zen_twilight.desktop" ];
-    "x-scheme-handler/http" = [ "zen_twilight.desktop" ];
+    "text/html" = [ "zen.desktop" ];
+    "text/xml" = [ "zen.desktop" ];
+    "x-scheme-handler/http" = [ "zen.desktop" ];
   };
 }

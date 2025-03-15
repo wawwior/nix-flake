@@ -12,5 +12,6 @@
   home.packages = with pkgs; [
     ripgrep
     eza
+    nvtopPackages.full
   ];
 }

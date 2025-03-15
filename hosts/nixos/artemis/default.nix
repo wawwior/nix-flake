@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   lib,
-  config,
   ...
 }:
 {
@@ -48,6 +47,25 @@
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  hardware.nvidia = {
+    open = false;
+    modesetting.enable = true;
+    prime = {
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+    };
+  };
+
   environment.systemPackages = [
     pkgs.brightnessctl
   ];
