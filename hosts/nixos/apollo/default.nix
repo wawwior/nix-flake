@@ -52,6 +52,7 @@
   boot = {
     loader = {
       grub.device = "nodev";
+      efi.canTouchEfiVariables = true;
     };
   };
 
