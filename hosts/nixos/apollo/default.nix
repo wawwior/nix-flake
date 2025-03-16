@@ -8,7 +8,18 @@
 
     inputs.nixos-facter-modules.nixosModules.facter
 
-    ./filesystem.nix
+    inputs.disko.nixosModules.disko
+    (lib.custom.fromTop "hosts/common/disks/lvm-simple.nix")
+    {
+      _module.args = {
+        bootDisk = "/dev/nvme0n1";
+        disks = [
+          "/dev/sda"
+        ];
+        withSwap = true;
+        swapSize = "16";
+      };
+    }
 
     (map lib.custom.fromTop [
       "hosts/common/core"
