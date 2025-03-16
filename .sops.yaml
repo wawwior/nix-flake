@@ -2,6 +2,7 @@ keys:
   - &wawwior age1m6mszkt83fdx63hqmlgkcc3jm2rtztvxr73fw8nwlk4sdqgh7quqqw5zl5
   - &hosts:
     - &artemis age1j4yy6e7x783c83n3lxvd5fzwlpevnm0fnznmlrg0asawudjfyd0q0664yu
+    - &apollo age1c7hg9uvzq90xeugd7gvt77j38sea4mmukju3sd49a0h30ymgq9uqt7cw5z
 creation_rules:
   - path_regex: secrets.yaml
     key_groups:
