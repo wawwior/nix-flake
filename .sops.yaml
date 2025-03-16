@@ -8,6 +8,7 @@ creation_rules:
     key_groups:
       - age:
           - *artemis
+          - *apollo
           - *wawwior
   - path_regex: keys.yaml
     key_groups:
