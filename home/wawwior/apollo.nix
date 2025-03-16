@@ -8,4 +8,8 @@
     ./common/optional/tools
     ./common/optional/gnome-keyring.nix
   ];
+
+  display = {
+    name = "DP-1";
+  };
 }
