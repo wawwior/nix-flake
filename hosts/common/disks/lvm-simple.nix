@@ -36,7 +36,7 @@ let
             size = "100%";
             content = {
               type = "lvm_pv";
-              vg = "mainpool";
+              vg = "pool";
             };
           };
         };
@@ -50,7 +50,7 @@ let
       device = "${disk}";
       content = {
         type = "lvm_pv";
-        vg = "mainpool";
+        vg = "pool";
       };
     };
   };
@@ -63,12 +63,11 @@ in
   disko.devices = {
     disk = mkDisks disks bootDisk;
     lvm_vg = {
-      mainpool = {
+      pool = {
         type = "lvm_vg";
         lvs = {
           root = {
             size = "100%";
-            pool = "mainpool";
             content = {
               type = "filesystem";
               format = "ext4";
