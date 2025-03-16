@@ -49,6 +49,12 @@
     modesetting.enable = true;
   };
 
+  boot = {
+    loader = {
+      grub.device = "nodev";
+    };
+  };
+
   system.stateVersion = "24.11";
 
   console.useXkbConfig = true;
