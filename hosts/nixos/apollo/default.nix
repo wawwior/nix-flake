@@ -62,9 +62,11 @@
 
   boot = {
     loader = {
-      grub.device = "nodev";
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      timeout = 3;
     };
+    initrd.systemd.enable = true;
   };
 
   system.stateVersion = "24.11";
