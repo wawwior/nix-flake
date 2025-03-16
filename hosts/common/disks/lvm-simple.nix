@@ -64,6 +64,7 @@ in
     disk = mkDisks disks bootDisk;
     lvm_vg = {
       mainpool = {
+        type = "lvm_vg";
         lvs = {
           root = {
             size = "100%";
