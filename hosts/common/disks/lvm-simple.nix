@@ -28,7 +28,7 @@ let
             size = "${swapSize}G";
             content = {
               type = "swap";
-              disardPolicy = "both";
+              discardPolicy = "both";
               resumeDevice = true;
             };
           };
@@ -57,7 +57,7 @@ let
 
   mkDisks =
     _disks: _bootDisk:
-    lib.foldl (acc: set: acc // set) mkBootDisk _bootDisk (lib.map (disk: mkDisk disk) _disks);
+    lib.foldl (acc: set: acc // set) (mkBootDisk _bootDisk) (lib.map (disk: mkDisk disk) _disks);
 in
 {
   disko.devices = {
