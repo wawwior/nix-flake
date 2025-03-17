@@ -8,8 +8,7 @@
 {
   imports = lib.flatten [
 
-    # TODO: FIX facter
-    # inputs.nixos-facter-modules.nixosModules.facter
+    inputs.nixos-facter-modules.nixosModules.facter
 
     inputs.disko.nixosModules.disko
     (lib.custom.fromTop "hosts/common/disks/lvm-simple.nix")
@@ -27,23 +26,20 @@
     (map lib.custom.fromTop [
       "hosts/common/core"
       "hosts/common/optional/services/openssh.nix"
-      # "hosts/common/optional/services/cpufreq.nix"
-      # "hosts/common/optional/services/gnome-keyring.nix"
-      # "hosts/common/optional/services/thermald.nix"
+      "hosts/common/optional/services/gnome-keyring.nix"
 
       # PONDER_THE_ORB: is this the best way to do this?
       "hosts/common/optional/stylix/catppuccin-mocha"
 
-      # "hosts/common/optional/audio.nix"
-      # "hosts/common/optional/sddm.nix"
-      # "hosts/common/optional/hyprland.nix"
+      "hosts/common/optional/audio.nix"
+      "hosts/common/optional/sddm.nix"
+      "hosts/common/optional/hyprland.nix"
     ])
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
-  # TODO: FIX facter
-  # facter.reportPath = ./facter.json;
+  facter.reportPath = ./facter.json;
 
   hostSpec = {
     hostName = "apollo";
@@ -55,17 +51,16 @@
   };
 
 
-  # TODO: FIX nvidia
-  # services.xserver.videoDrivers = [ "nvidia" ];
-  # 
-  # hardware.graphics = {
-  #   enable = true;
-  # };
-  #
-  # hardware.nvidia = {
-  #   open = true;
-  #   modesetting.enable = true;
-  # };
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.graphics = {
+   enable = true;
+  };
+
+  hardware.nvidia = {
+   open = true;
+   modesetting.enable = true;
+  };
 
   boot = {
     loader = {
@@ -76,8 +71,6 @@
     initrd.systemd.enable = true;
   };
 
-  system.stateVersion = "24.11";
-
   console.useXkbConfig = true;
 
   services.xserver = {
@@ -86,4 +79,6 @@
       variant = "nodeadkeys";
     };
   };
+
+  system.stateVersion = "24.11";
 }
