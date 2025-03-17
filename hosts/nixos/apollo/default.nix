@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   config,
   ...
@@ -30,11 +31,11 @@
       "hosts/common/optional/services/thermald.nix"
 
       # PONDER_THE_ORB: is this the best way to do this?
-      "hosts/common/optional/stylix/catppuccin-mocha"
+      # "hosts/common/optional/stylix/catppuccin-mocha"
 
       "hosts/common/optional/audio.nix"
-      "hosts/common/optional/sddm.nix"
-      "hosts/common/optional/hyprland.nix"
+      # "hosts/common/optional/sddm.nix"
+      # "hosts/common/optional/hyprland.nix"
     ])
   ];
 
@@ -70,6 +71,7 @@
       timeout = 3;
     };
     initrd.systemd.enable = true;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_10;
   };
 
   system.stateVersion = "24.11";
