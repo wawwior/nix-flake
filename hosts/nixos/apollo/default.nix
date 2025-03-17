@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  config,
   ...
 }:
 {
@@ -56,8 +57,10 @@
   };
 
   hardware.nvidia = {
-    open = true;
+    open = false;
     modesetting.enable = true;
+    powerManagement.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
 
   boot = {
