@@ -17,7 +17,7 @@
           };
           modules = [
             ./hosts/nixos/${host}
-            lix.nixosModules.default
+            # lix.nixosModules.default
           ];
 
           lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
