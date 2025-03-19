@@ -81,6 +81,7 @@
       };
 
       env = [
+        "ELECTRON_OZONE_PLATFORM_HINT,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
