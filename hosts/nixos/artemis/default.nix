@@ -77,6 +77,8 @@
       timeout = 3;
     };
     initrd.systemd.enable = true;
+    kernelParams = [ "quiet" ];
+    plymouth.enable = true;
   };
 
   system.stateVersion = "24.11";
