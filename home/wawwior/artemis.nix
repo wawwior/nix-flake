@@ -9,6 +9,7 @@
     ./common/optional/communication
     ./common/optional/media
     ./common/optional/tools
+    ./common/optional/games
     ./common/optional/gnome-keyring.nix
   ];
 
