@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   lib,
-  config,
   ...
 }:
 {
@@ -37,8 +36,6 @@
       "hosts/common/optional/steam.nix"
     ])
   ];
-
-  nixpkgs.hostPlatform = "x86_64-linux";
 
   facter.reportPath = ./facter.json;
 

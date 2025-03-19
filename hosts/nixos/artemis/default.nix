@@ -81,8 +81,6 @@
     plymouth.enable = true;
   };
 
-  system.stateVersion = "24.11";
-
   console.useXkbConfig = true;
 
   services.xserver = {
@@ -102,4 +100,5 @@
   #   serviceConfig.Type = "simple";
   # };
 
+  system.stateVersion = "24.11";
 }
