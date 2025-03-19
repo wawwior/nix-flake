@@ -23,6 +23,8 @@ in
       (ifTheyExist [
         "networkmanager"
         "input"
+        "git"
+        "docker"
       ])
     ];
   };
