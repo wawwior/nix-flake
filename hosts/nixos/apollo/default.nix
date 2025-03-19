@@ -34,6 +34,7 @@
       "hosts/common/optional/audio.nix"
       "hosts/common/optional/sddm.nix"
       "hosts/common/optional/hyprland.nix"
+      "hosts/common/optional/steam.nix"
     ])
   ];
 
@@ -50,16 +51,15 @@
     enableIPv6 = true;
   };
 
-
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.graphics = {
-   enable = true;
+    enable = true;
   };
 
   hardware.nvidia = {
-   open = true;
-   modesetting.enable = true;
+    open = true;
+    modesetting.enable = true;
   };
 
   boot = {

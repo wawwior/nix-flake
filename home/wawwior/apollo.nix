@@ -5,6 +5,10 @@
     ./common/optional/sops.nix
     ./common/optional/display
     ./common/optional/browsers/zen.nix
+    ./common/optional/development
+    ./common/optional/communication
+    ./common/optional/media
+    ./common/optional/games
     # ./common/optional/tools
     ./common/optional/gnome-keyring.nix
   ];
