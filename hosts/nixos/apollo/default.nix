@@ -53,16 +53,21 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      egl-wayland
+    ];
+  };
+
+  environment.variables = {
+    NVD_BACKEND = "direct";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    egl-wayland
-  ];
 
   boot = {
     loader = {
