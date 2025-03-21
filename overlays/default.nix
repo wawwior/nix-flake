@@ -1,6 +1,13 @@
 { inputs, ... }:
 let
 
+  additions =
+    final: prev:
+    (prev.lib.packagesFromDirectoryRecursive {
+      callPackage = prev.lib.callPackageWith final;
+      directory = ../pkgs/common;
+    });
+
   stable-packages = final: _prev: {
     stable = import inputs.nixpkgs-stable {
       inherit (final) system;
@@ -20,5 +27,8 @@ in
 {
   default =
     final: prev:
-    (stable-packages final prev) // (unstable-packages final prev) // (rust-overlay final prev);
+    (additions final prev)
+    // (stable-packages final prev)
+    // (unstable-packages final prev)
+    // (rust-overlay final prev);
 }
