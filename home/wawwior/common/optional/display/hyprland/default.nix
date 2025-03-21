@@ -15,6 +15,10 @@
     systemd.enable = true;
     settings = {
 
+      exec-once = [
+        "gnome-keyring-daemon --start --components=secrets"
+      ];
+
       monitor = "${config.display.name},${config.display.mode},0x0,${builtins.toString config.display.scale}";
 
       xwayland = {

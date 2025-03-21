@@ -13,10 +13,6 @@
       url = "github:nix-community/home-manager";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    lix-module = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
-    };
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";

@@ -8,8 +8,6 @@
       inherit (self) outputs;
       inherit (nixpkgs) lib;
 
-      lix = inputs.lix-module;
-
       mkHost = host: {
         ${host} = lib.nixosSystem {
           specialArgs = {
@@ -17,7 +15,6 @@
           };
           modules = [
             ./hosts/nixos/${host}
-            # lix.nixosModules.default
           ];
 
           lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
@@ -38,7 +35,6 @@
   inputs =
     let
       unstable = true;
-      hyprland_pin = false;
     in
     rec {
 
@@ -47,11 +43,6 @@
       nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
       nixpkgs = if unstable then nixpkgs-unstable else nixpkgs-stable;
-
-      lix-module = {
-        url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
 
       nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
@@ -74,7 +65,7 @@
 
       stylix.url = if unstable then "github:wawwior/stylix" else "github:danth/stylix/release-24.11";
 
-      hyprland.url = if hyprland_pin then "github:hyprwm/Hyprland/v0.47.2" else "github:hyprwm/Hyprland";
+      hyprland.url = "github:hyprwm/Hyprland";
 
       zen-browser = {
         url = "github:0xc000022070/zen-browser-flake";
