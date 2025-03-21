@@ -1,6 +1,4 @@
 {
-  inputs,
-  pkgs,
   config,
   ...
 }:
@@ -12,9 +10,9 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = null;
+    portalPackage = null;
     systemd.enable = true;
-    xwayland.enable = true;
     settings = {
 
       monitor = "${config.display.name},${config.display.mode},0x0,${builtins.toString config.display.scale}";
@@ -81,10 +79,6 @@
       };
 
       env = [
-        "LIBVA_DRIVER_NAME,nvidia"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "__GLX_ALLOW_FXAA_USAGE,0"
-        "NIXOS_OZONE_WL,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"

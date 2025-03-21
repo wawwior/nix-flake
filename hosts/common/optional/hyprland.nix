@@ -1,13 +1,21 @@
 { inputs, pkgs, ... }:
 let
-  pkgs-hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+  hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+  hyprland-pkg = (
+    hyprland.hyprland.override {
+      # Unused right now
+    }
+  );
 in
 {
   programs.hyprland = {
     enable = true;
-    package = pkgs-hyprland.hyprland;
-    portalPackage = pkgs-hyprland.xdg-desktop-portal-hyprland;
+    package = hyprland-pkg;
+    portalPackage = hyprland.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
     withUWSM = true;
+  };
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
   };
 }
