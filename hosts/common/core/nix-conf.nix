@@ -39,7 +39,7 @@
       }
     ];
 
-    distributedBuilds = true;
+    distributedBuilds = false;
 
     optimise.automatic = true;
 

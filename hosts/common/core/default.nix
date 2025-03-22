@@ -32,6 +32,8 @@
     pkgs.openssh
   ];
 
+  services.xserver.updateDbusEnvironment = true;
+
   home-manager.backupFileExtension = "bk";
 
   nixpkgs = {

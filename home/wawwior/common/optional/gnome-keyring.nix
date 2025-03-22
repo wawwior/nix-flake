@@ -6,22 +6,10 @@
       SSH_ASKPASS = "${pkgs.seahorse}/libexec/seahorse/ssh-askpass";
     };
 
-    packages = [ pkgs.seahorse ];
+    packages = [
+      pkgs.seahorse
+    ];
   };
 
-  systemd.user.services.gnome-keyring = {
-    Unit = {
-      Description = "GNOME Keyring";
-      PartOf = [ "graphical-session-pre.target" ];
-    };
-
-    Service = {
-      ExecStart = "/run/wrappers/bin/gnome-keyring-daemon --start --foreground";
-      Restart = "on-abort";
-    };
-
-    Install = {
-      WantedBy = [ "graphical-session-pre.target" ];
-    };
-  };
+  services.gnome-keyring.enable = true;
 }
