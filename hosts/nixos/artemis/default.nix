@@ -22,7 +22,7 @@
     (map lib.custom.fromTop [
       "hosts/common/core"
       "hosts/common/optional/services/openssh.nix"
-      "hosts/common/optional/services/cpufreq.nix"
+      # "hosts/common/optional/services/cpufreq.nix"
       "hosts/common/optional/services/gnome-keyring.nix"
       "hosts/common/optional/services/thermald.nix"
 
