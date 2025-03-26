@@ -32,7 +32,9 @@
       "hosts/common/optional/audio.nix"
       "hosts/common/optional/sddm.nix"
       "hosts/common/optional/hyprland.nix"
+      "hosts/common/optional/fonts.nix"
       "hosts/common/optional/steam.nix"
+      "hosts/common/optional/flatpak.nix"
     ])
   ];
 
@@ -63,6 +65,9 @@
     open = true;
     modesetting.enable = true;
   };
+
+  # Should load by default, but doesn't.
+  boot.kernelModules = [ "nvidia-uvm" ];
 
   boot = {
     loader = {

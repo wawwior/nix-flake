@@ -1,18 +1,16 @@
 { pkgs, ... }:
 {
 
-  environment.systemPackages = [ pkgs.libsecret ];
-
-  services.gnome.gnome-keyring = {
-    enable = true;
+  programs.seahorse.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services = {
+    sddm.enableGnomeKeyring = true;
+    login.enableGnomeKeyring = true;
   };
 
-  programs.dconf.enable = true;
-
-  programs.seahorse.enable = true;
-
-  programs.ssh.askPassword = "${pkgs.seahorse}/libexec/seahorse/ssh-askpass";
-
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  services.dbus.packages = [
+    pkgs.gnome-keyring
+    pkgs.gcr
+  ];
 
 }

@@ -10,5 +10,7 @@
         };
       }
     ];
+
+    kernelPackages = pkgs.linuxPackages_6_14;
   };
 }

@@ -5,7 +5,6 @@
     ./wofi.nix
     ./waybar.nix
     ./services/mako.nix
-    ./fonts.nix
   ];
 
   home.packages = [

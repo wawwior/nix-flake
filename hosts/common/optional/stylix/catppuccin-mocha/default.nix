@@ -33,10 +33,6 @@ in
 
   imports = [ inputs.stylix.nixosModules.stylix ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.dejavu-sans-mono
-  ];
-
   stylix = {
 
     enable = true;
@@ -67,6 +63,7 @@ in
       };
     };
   };
+
   home-manager.users."${hostSpec.username}".stylix = {
 
     enable = true;
@@ -84,5 +81,23 @@ in
       dark = "Adwaita";
       light = "Adwaita";
     };
+
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.dejavu-sans-mono;
+        name = "DejaVuSansM Nerd Font Mono";
+      };
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      serif = config.stylix.fonts.sansSerif;
+      emoji = {
+        package = pkgs.twemoji-color-font;
+        name = "Twitter Color Emoji";
+      };
+    };
+
+    targets.gtk.flatpakSupport.enable = false;
   };
 }

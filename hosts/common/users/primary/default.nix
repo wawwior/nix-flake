@@ -25,6 +25,7 @@ in
         "input"
         "git"
         "docker"
+        "gamemode"
       ])
     ];
   };

@@ -22,13 +22,9 @@ let
     };
   };
 
-  rust-overlay = final: prev: inputs.rust-overlay.overlays.default final prev;
 in
 {
   default =
     final: prev:
-    (additions final prev)
-    // (stable-packages final prev)
-    // (unstable-packages final prev)
-    // (rust-overlay final prev);
+    (additions final prev) // (stable-packages final prev) // (unstable-packages final prev);
 }

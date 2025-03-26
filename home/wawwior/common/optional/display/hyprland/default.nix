@@ -90,6 +90,12 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "CLUTTER_BACKEND,wayland"
       ];
+
+      windowrulev2 = [
+        "suppressevent maximize, class: .*"
+        "renderunfocused, class:^(steam_app_)\d*"
+        "renderunfocused, class:^com\.mojang\.minecraft"
+      ];
     };
   };
 }

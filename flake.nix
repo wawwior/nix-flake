@@ -3,6 +3,10 @@
 {
   description = "Nix Flake";
   inputs = {
+    declarative-flatpak = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:in-a-dil-emma/declarative-flatpak";
+    };
     disko = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
@@ -17,10 +21,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    rust-overlay = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:oxalica/rust-overlay";
-    };
     sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:wawwior/stylix";
     zen-browser = {

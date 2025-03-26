@@ -51,17 +51,17 @@
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
+      declarative-flatpak = {
+        url = "github:in-a-dil-emma/declarative-flatpak";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+
       home-manager = {
         url = "github:nix-community/home-manager" + (if unstable then "" else "/release-24.11");
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
       sops-nix.url = "github:Mic92/sops-nix";
-
-      rust-overlay = {
-        url = "github:oxalica/rust-overlay";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
 
       stylix.url = if unstable then "github:wawwior/stylix" else "github:danth/stylix/release-24.11";
 

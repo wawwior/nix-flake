@@ -9,8 +9,11 @@
     ./common/optional/communication
     ./common/optional/media
     ./common/optional/games
-    ./common/optional/tools
+    ./common/optional/tools/libreoffice.nix
+    ./common/optional/tools/obsidian.nix
+    ./common/optional/tools/files.nix
     ./common/optional/gnome-keyring.nix
+    ./common/optional/flatpak.nix
   ];
 
   display = {
