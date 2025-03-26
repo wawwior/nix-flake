@@ -12,6 +12,11 @@
   fonts.fontDir.enable = true;
 
   fonts.fontconfig = {
-
+    defaultFonts = {
+      serif = [ "Noto Sans" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "DejaVuSansM Nerd Font Mono" ];
+      emoji = [ "Twitter Color Emoji" ];
+    };
   };
 }
