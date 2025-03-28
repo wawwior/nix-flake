@@ -15,6 +15,10 @@ in
     xwayland.enable = true;
     withUWSM = true;
   };
+  environment.systemPackages = with pkgs; [
+    # Experimental
+    waypipe
+  ];
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };

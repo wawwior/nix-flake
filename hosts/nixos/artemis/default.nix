@@ -32,6 +32,8 @@
       "hosts/common/optional/audio.nix"
       "hosts/common/optional/sddm.nix"
       "hosts/common/optional/hyprland.nix"
+      "hosts/common/optional/fonts.nix"
+      "hosts/common/optional/steam.nix"
     ])
   ];
 
