@@ -18,6 +18,8 @@ in
   environment.systemPackages = with pkgs; [
     # Experimental
     waypipe
+    wayvnc
+    realvnc-vnc-viewer
   ];
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
