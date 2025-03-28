@@ -57,10 +57,6 @@ in
         name = "Noto Sans";
       };
       serif = config.stylix.fonts.sansSerif;
-      emoji = {
-        package = pkgs.twemoji-color-font;
-        name = "Twitter Color Emoji";
-      };
     };
   };
 
@@ -80,22 +76,6 @@ in
       package = pkgs.adwaita-icon-theme;
       dark = "Adwaita";
       light = "Adwaita";
-    };
-
-    fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.dejavu-sans-mono;
-        name = "DejaVuSansM Nerd Font Mono";
-      };
-      sansSerif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans";
-      };
-      serif = config.stylix.fonts.sansSerif;
-      emoji = {
-        package = pkgs.twemoji-color-font;
-        name = "Twitter Color Emoji";
-      };
     };
 
     targets.gtk.flatpakSupport.enable = false;

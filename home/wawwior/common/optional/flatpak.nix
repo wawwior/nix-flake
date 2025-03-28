@@ -11,8 +11,7 @@
       "flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     };
 
-    packages = [ "flathub:app/io.github.limo_app.limo/x86_64/stable" ];
-    runOnActivation = true;
+    packages = [ ];
   };
 
   xdg.systemDirs.data = [

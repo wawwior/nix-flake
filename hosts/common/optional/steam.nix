@@ -7,6 +7,8 @@
     ];
   };
 
+  environment.systemPackages = with pkgs; [ limo ];
+
   programs.gamemode = {
     enable = true;
     settings = {
@@ -15,9 +17,7 @@
   };
 
   users.groups = {
-    gamemode = {
-
-    };
+    gamemode = { };
   };
 
   services.udev.packages = [
