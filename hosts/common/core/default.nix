@@ -40,9 +40,11 @@
     overlays = [
       outputs.overlays.default
     ];
-    config = {
-      allowUnfree = true;
-    };
+    config.allowUnfree = true;
+  };
+
+  environment.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
 
   # basic shell for root

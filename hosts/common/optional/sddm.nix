@@ -1,12 +1,19 @@
 { pkgs, ... }:
 {
 
-  environment.systemPackages = with pkgs; [ catppuccin-sddm-corners ];
+  environment.systemPackages = with pkgs; [
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      font = "Noto Sans";
+      fontSize = "9";
+    })
+  ];
 
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
     enableHidpi = true;
-    theme = "catppuccin-sddm-corners";
+    package = pkgs.kdePackages.sddm;
+    theme = "catppuccin-mocha";
   };
 }

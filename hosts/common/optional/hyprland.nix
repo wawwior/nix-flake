@@ -16,10 +16,8 @@ in
     withUWSM = true;
   };
   environment.systemPackages = with pkgs; [
-    # Experimental
-    waypipe
-    wayvnc
-    realvnc-vnc-viewer
+    egl-wayland
+    xwayland
   ];
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";

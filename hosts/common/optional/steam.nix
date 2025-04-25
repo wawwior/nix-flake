@@ -20,7 +20,4 @@
     gamemode = { };
   };
 
-  services.udev.packages = [
-    pkgs.steamcontroller-udev-rules
-  ];
 }

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    prismlauncher
+    (prismlauncher.override {
+      jdk21 = pkgs.temurin-bin-21;
+    })
   ];
 }

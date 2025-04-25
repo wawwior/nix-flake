@@ -57,6 +57,7 @@
       misc = {
         disable_hyprland_logo = true;
         force_default_wallpaper = 0;
+        enable_anr_dialog = false;
       };
 
       input = {
@@ -69,6 +70,13 @@
           natural_scroll = true;
         };
       };
+
+      device = [
+        {
+          name = "sony-interactive-entertainment-dualsense-wireless-controller-touchpad";
+          enabled = false;
+        }
+      ];
 
       gestures = {
         workspace_swipe = true;
@@ -95,6 +103,7 @@
         "suppressevent maximize, class: .*"
         "renderunfocused, class:^(steam_app_)\d*"
         "renderunfocused, class:^com\.mojang\.minecraft"
+        "renderunfocused, initialTitle:^Minecraft"
       ];
     };
   };

@@ -15,6 +15,14 @@
           };
         };
       };
+      jdtls = {
+        command = "jdtls";
+        config.java = {
+          symbols = {
+            includeSourceMethodDeclarations = true;
+          };
+        };
+      };
     };
     language = [
       {
@@ -22,6 +30,17 @@
         auto-format = true;
         formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
         language-servers = [ "nixd" ];
+      }
+      {
+        name = "java";
+        scope = "source.java";
+        file-types = [ "java" ];
+        roots = [
+          "pom.xml"
+          "build.gradle"
+          ".git"
+        ];
+        language-servers = [ "jdtls" ];
       }
     ];
   };
