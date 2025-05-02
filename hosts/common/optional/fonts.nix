@@ -5,6 +5,12 @@
     noto-fonts-cjk-sans
     corefonts
     nerd-fonts.dejavu-sans-mono
+    (google-fonts.override {
+      fonts = [
+        "Cardo"
+        "Didact Gothic"
+      ];
+    })
   ];
 
   fonts.fontDir.enable = true;
