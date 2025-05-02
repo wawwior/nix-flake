@@ -11,6 +11,7 @@
     ./common/optional/tools/libreoffice.nix
     ./common/optional/tools/obsidian.nix
     ./common/optional/tools/files.nix
+    ./common/optional/tools/ardour.nix
     ./common/optional/games
     ./common/optional/gnome-keyring.nix
   ];
