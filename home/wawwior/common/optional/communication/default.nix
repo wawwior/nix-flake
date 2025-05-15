@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    signal-desktop-source
+    signal-desktop
     vesktop
     element-desktop
   ];
