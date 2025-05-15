@@ -101,8 +101,8 @@
 
       windowrulev2 = [
         "suppressevent maximize, class: .*"
-        "renderunfocused, class:^(steam_app_)\d*"
-        "renderunfocused, class:^com\.mojang\.minecraft"
+        "renderunfocused, initialClass:^(steam_app_)\\d*"
+        "renderunfocused, class:^com\\.mojang\\.minecraft"
         "renderunfocused, initialTitle:^Minecraft"
       ];
     };
