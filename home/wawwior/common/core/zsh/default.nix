@@ -1,4 +1,9 @@
-{ pkgs, hostSpec, ... }:
+{
+  pkgs,
+  lib,
+  hostSpec,
+  ...
+}:
 {
 
   imports = [
@@ -32,12 +37,21 @@
       {
         name = "sudo";
         src = pkgs.fetchFromGitHub {
-          "owner" = "zap-zsh";
-          "repo" = "sudo";
-          "rev" = "b3e86492d6d48c669902b9fb5699a75894cfcebc";
-          "sha256" = "sha256-+yMZO4HRF+dS1xOP/19Fneto8JxdVj5GiX3sXOoRdlM=";
+          owner = "zap-zsh";
+          repo = "sudo";
+          rev = "b3e86492d6d48c669902b9fb5699a75894cfcebc";
+          sha256 = "sha256-+yMZO4HRF+dS1xOP/19Fneto8JxdVj5GiX3sXOoRdlM=";
         };
       }
+      # {
+      #   name = "zsh-helix-mode";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "Multirious";
+      #     repo = "zsh-helix-mode";
+      #     rev = "97bbe550dbbeba3c402b6b3cda0abddf6e12f73c";
+      #     sha256 = "sha256-9AXeKtZw3iXxBO+jgYvFv/y7fZo+ebR5CfoZIemG47I=";
+      #   };
+      # }
     ];
   };
 }
