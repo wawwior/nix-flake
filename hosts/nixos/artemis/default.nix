@@ -25,6 +25,7 @@
       # "hosts/common/optional/services/cpufreq.nix"
       "hosts/common/optional/services/gnome-keyring.nix"
       "hosts/common/optional/services/thermald.nix"
+      "hosts/common/optional/services/bluetooth.nix"
 
       # PONDER_THE_ORB: is this the best way to do this?
       "hosts/common/optional/stylix/catppuccin-mocha"
