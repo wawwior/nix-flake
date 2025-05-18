@@ -23,5 +23,6 @@ in
     NIXOS_OZONE_WL = "1";
   };
 
-  security.polkit.package = pkgs.hyprpolkitagent;
+  # TODO: Hyprpolkit for 25.05!!
+  # security.polkit.package = pkgs.hyprpolkitagent;
 }

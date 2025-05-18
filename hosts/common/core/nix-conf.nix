@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 {
 
   nix = {
@@ -15,11 +15,10 @@
       ];
     };
 
-    extraOptions =
-      # !include ${config.sops.secrets.nix-github-token.path}
-      ''
-        builders-use-substitutes = true
-      '';
+    extraOptions = ''
+      !include ${config.sops.templates."nix-access-tokens.conf".path}
+      builders-use-substitutes = true
+    '';
 
     buildMachines = [
       {

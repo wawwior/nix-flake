@@ -2,11 +2,11 @@
 {
 
   imports = [
-    inputs.declarative-flatpak.homeManagerModules.declarative-flatpak
+    inputs.declarative-flatpak.homeModule
   ];
 
   services.flatpak = {
-    enableModule = true;
+    enable = true;
     remotes = {
       "flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     };

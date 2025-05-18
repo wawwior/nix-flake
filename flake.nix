@@ -3,10 +3,7 @@
 {
   description = "Nix Flake";
   inputs = {
-    declarative-flatpak = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:in-a-dil-emma/declarative-flatpak";
-    };
+    declarative-flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
     disko = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
@@ -14,7 +11,7 @@
     flakegen.url = "github:jorsn/flakegen";
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
     };
     hyprland.url = "github:hyprwm/Hyprland";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";

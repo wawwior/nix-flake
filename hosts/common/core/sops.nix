@@ -1,7 +1,7 @@
 {
   inputs,
-  lib,
   config,
+  lib,
   ...
 }:
 {
@@ -25,6 +25,15 @@
       };
       "passwords/root" = {
         neededForUsers = true;
+      };
+      "tokens/github" = { };
+    };
+
+    templates = {
+      "nix-access-tokens.conf" = {
+        content = ''
+          access-tokens = github.com=${config.sops.placeholder."tokens/github"}
+        '';
       };
     };
   };

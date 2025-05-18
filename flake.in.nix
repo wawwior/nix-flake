@@ -51,13 +51,10 @@
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
-      declarative-flatpak = {
-        url = "github:in-a-dil-emma/declarative-flatpak";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
+      declarative-flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
 
       home-manager = {
-        url = "github:nix-community/home-manager" + (if unstable then "" else "/release-24.11");
+        url = "github:nix-community/home-manager/release-25.05";
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
