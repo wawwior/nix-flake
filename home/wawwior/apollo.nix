@@ -12,9 +12,9 @@
     ./common/optional/tools/libreoffice.nix
     ./common/optional/tools/obsidian.nix
     ./common/optional/tools/files.nix
-    ./common/optional/tools/ardour.nix
+    ./common/optional/production/audio.nix
     ./common/optional/gnome-keyring.nix
-    ./common/optional/flatpak.nix
+    # ./common/optional/flatpak.nix
   ];
 
   display = {
