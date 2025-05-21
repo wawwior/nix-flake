@@ -99,11 +99,12 @@
         "CLUTTER_BACKEND,wayland"
       ];
 
-      windowrulev2 = [
+      windowrule = [
         "suppressevent maximize, class: .*"
         "renderunfocused, initialClass:^(steam_app_)\\d*"
-        "renderunfocused, class:^com\\.mojang\\.minecraft"
-        "renderunfocused, initialTitle:^Minecraft"
+        "renderunfocused, class:^com\\.mojang\\.minecraft.*"
+        "renderunfocused, initialTitle:^Minecraft.*"
+        "noinitialfocus, xwayland:1"
       ];
     };
   };
