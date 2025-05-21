@@ -21,6 +21,7 @@ in
     extraGroups = lib.flatten [
       "wheel"
       (ifTheyExist [
+        "audio"
         "networkmanager"
         "input"
         "git"
