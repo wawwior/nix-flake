@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   fromTop = lib.path.append ../.;
+  hostOptional = lib.path.append ../hosts/common/optional/.;
   scanPaths =
     path:
     builtins.map (f: (path + "/${f}")) (
