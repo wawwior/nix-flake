@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
 
   imports = [
@@ -13,5 +13,10 @@
     ripgrep
     eza
     nvtopPackages.full
+    (lib.hiPrio uutils-coreutils-noprefix)
+    fd
+    hyperfine
+    tokei
+    mprocs
   ];
 }
