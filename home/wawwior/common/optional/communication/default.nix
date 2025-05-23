@@ -1,8 +1,11 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     signal-desktop
     vesktop
-    element-desktop
+    insecure.fluffychat
   ];
 }
