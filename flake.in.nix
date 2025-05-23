@@ -32,43 +32,39 @@
       nixosConfigurations = mkHostConfigs hosts;
     };
 
-  inputs =
-    let
-      unstable = true;
-    in
-    rec {
+  inputs = {
 
-      nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs";
 
-      nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs";
 
-      nixpkgs = if unstable then nixpkgs-unstable else nixpkgs-stable;
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
-      nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-      disko = {
-        url = "github:nix-community/disko";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
-
-      declarative-flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
-
-      home-manager = {
-        url = "github:nix-community/home-manager/release-25.05";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
-
-      sops-nix.url = "github:Mic92/sops-nix";
-
-      stylix.url = if unstable then "github:wawwior/stylix" else "github:danth/stylix/release-24.11";
-
-      hyprland.url = "github:hyprwm/Hyprland";
-
-      zen-browser = {
-        url = "github:0xc000022070/zen-browser-flake";
-        inputs.nixpkgs.follows = "nixpkgs-unstable";
-      };
-
-      musnix.url = "github:musnix/musnix";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    declarative-flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-nix.url = "github:Mic92/sops-nix";
+
+    stylix.url = "github:nix-community/stylix";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    musnix.url = "github:musnix/musnix";
+  };
 }
