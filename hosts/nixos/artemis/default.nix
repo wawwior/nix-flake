@@ -21,7 +21,6 @@
 
     (map lib.custom.fromTop [
       "hosts/common/core"
-      "hosts/common/optional/services/openssh.nix"
       # "hosts/common/optional/services/cpufreq.nix"
       "hosts/common/optional/services/gnome-keyring.nix"
       "hosts/common/optional/services/thermald.nix"
@@ -41,6 +40,7 @@
   facter.reportPath = ./facter.json;
 
   hostSpec = {
+    username = "wawwior";
     hostName = "artemis";
   };
 
@@ -82,6 +82,7 @@
     initrd.systemd.enable = true;
     kernelParams = [ "quiet" ];
     plymouth.enable = true;
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
   console.useXkbConfig = true;

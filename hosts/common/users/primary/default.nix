@@ -16,7 +16,7 @@ in
     home = hostSpec.home;
     isNormalUser = true;
     shell = pkgs.zsh;
-    hashedPasswordFile = config.sops.secrets."passwords/${hostSpec.username}".path;
+    hashedPasswordFile = config.sops.secrets.password-user.path;
 
     extraGroups = lib.flatten [
       "wheel"
@@ -33,7 +33,7 @@ in
 
   users.users.root = {
     shell = pkgs.zsh;
-    hashedPasswordFile = config.sops.secrets."passwords/root".path;
+    hashedPasswordFile = config.sops.secrets."password-root".path;
   };
 
   users.mutableUsers = false;

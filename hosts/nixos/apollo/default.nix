@@ -24,7 +24,6 @@
     (lib.custom.fromTop "hosts/common/core")
 
     (map lib.custom.hostOptional [
-      "services/openssh.nix"
       "services/gnome-keyring.nix"
 
       # PONDER_THE_ORB: is this the best way to do this?
@@ -42,6 +41,7 @@
   facter.reportPath = ./facter.json;
 
   hostSpec = {
+    username = "wawwior";
     hostName = "apollo";
   };
 
