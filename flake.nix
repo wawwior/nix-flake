@@ -16,7 +16,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
     musnix.url = "github:musnix/musnix";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";

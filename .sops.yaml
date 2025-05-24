@@ -1,5 +1,6 @@
 keys:
   - &wawwior age1m6mszkt83fdx63hqmlgkcc3jm2rtztvxr73fw8nwlk4sdqgh7quqqw5zl5
+  - &recovery age1359480kd4q88mq3n3hgas9j29xle7slnm8d7jnut233xmkycpg7sefv9wf
   - &hosts:
     - &artemis age1j4yy6e7x783c83n3lxvd5fzwlpevnm0fnznmlrg0asawudjfyd0q0664yu
     - &apollo age1c7hg9uvzq90xeugd7gvt77j38sea4mmukju3sd49a0h30ymgq9uqt7cw5z
@@ -10,7 +11,36 @@ creation_rules:
           - *artemis
           - *apollo
           - *wawwior
+          - *recovery
   - path_regex: keys.yaml
     key_groups:
       - age:
           - *wawwior
+          - *recovery
+  - path_regex: .secrets/users/wawwior/default.yaml
+    key_groups:
+      - age:
+          - *wawwior
+          - *recovery
+  - path_regex: .secrets/users/wawwior/password.yaml
+    key_groups:
+      - age:
+          - *artemis
+          - *apollo
+          - *recovery
+  - path_regex: .secrets/hosts/common.yaml
+    key_groups:
+      - age:
+          - *artemis
+          - *apollo
+          - *recovery
+  - path_regex: .secrets/hosts/artemis/default.yaml
+    key_groups:
+      - age:
+          - *artemis
+          - *recovery
+  - path_regex: .secrets/hosts/apollo/default.yaml
+    key_groups:
+      - age:
+          - *apollo
+          - *recovery

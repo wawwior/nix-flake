@@ -1,7 +1,6 @@
 {
   inputs,
   outputs,
-  pkgs,
   lib,
   config,
   ...
@@ -11,10 +10,10 @@
     inputs.home-manager.nixosModules.home-manager
 
     ./sops.nix
-    ./gnupg.nix
     ./nh.nix
     ./kernel.nix
     ./nix-conf.nix
+    ./openssh.nix
 
     (map lib.custom.fromTop [
       "modules/common"
@@ -22,15 +21,7 @@
     ])
   ];
 
-  hostSpec = {
-    username = "wawwior";
-  };
-
   networking.hostName = config.hostSpec.hostName;
-
-  environment.systemPackages = [
-    pkgs.openssh
-  ];
 
   services.xserver.updateDbusEnvironment = true;
 
