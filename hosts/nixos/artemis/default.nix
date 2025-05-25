@@ -22,7 +22,6 @@
     (lib.custom.fromTop "hosts/common/core")
 
     (map lib.custom.hostOptional [
-      "services/openssh.nix"
       "services/gnome-keyring.nix"
 
       "services/thermald.nix"
