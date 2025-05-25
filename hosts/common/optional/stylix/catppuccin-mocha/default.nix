@@ -11,6 +11,18 @@ in
 
   imports = [ inputs.stylix.nixosModules.stylix ];
 
+  environment.systemPackages = with pkgs; [
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      font = "Noto Sans";
+      fontSize = "9";
+    })
+  ];
+
+  services.displayManager.sddm = {
+    theme = "catppuccin-mocha";
+  };
+
   stylix = {
 
     enable = true;
@@ -43,15 +55,17 @@ in
     };
   };
 
-  home-manager.users."${hostSpec.username}".stylix = {
+  home-manager.users."${hostSpec.username}" = {
+    stylix = {
+      iconTheme = {
+        enable = true;
+        package = pkgs.adwaita-icon-theme;
+        dark = "Adwaita";
+        light = "Adwaita";
+      };
 
-    iconTheme = {
-      enable = true;
-      package = pkgs.adwaita-icon-theme;
-      dark = "Adwaita";
-      light = "Adwaita";
+      targets.gtk.flatpakSupport.enable = false;
     };
-
-    targets.gtk.flatpakSupport.enable = false;
+    programs.oh-my-posh.useTheme = "catppuccin_mocha";
   };
 }
