@@ -26,6 +26,8 @@
     (map lib.custom.hostOptional [
       "services/gnome-keyring.nix"
 
+      "services/bluetooth.nix"
+
       # PONDER_THE_ORB: is this the best way to do this?
       "stylix/catppuccin-mocha"
 
