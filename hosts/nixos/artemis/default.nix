@@ -19,21 +19,23 @@
       };
     }
 
-    (map lib.custom.fromTop [
-      "hosts/common/core"
-      # "hosts/common/optional/services/cpufreq.nix"
-      "hosts/common/optional/services/gnome-keyring.nix"
-      "hosts/common/optional/services/thermald.nix"
-      "hosts/common/optional/services/bluetooth.nix"
+    (lib.custom.fromTop "hosts/common/core")
+
+    (map lib.custom.hostOptional [
+      "services/openssh.nix"
+      "services/gnome-keyring.nix"
+
+      "services/thermald.nix"
+      "services/bluetooth.nix"
 
       # PONDER_THE_ORB: is this the best way to do this?
-      "hosts/common/optional/stylix/catppuccin-mocha"
+      "stylix/catppuccin-mocha"
 
-      "hosts/common/optional/audio.nix"
-      "hosts/common/optional/sddm.nix"
-      "hosts/common/optional/hyprland.nix"
-      "hosts/common/optional/fonts.nix"
-      "hosts/common/optional/steam.nix"
+      "audio.nix"
+      "sddm.nix"
+      "hyprland.nix"
+      "fonts.nix"
+      "steam.nix"
     ])
   ];
 
