@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   hostSpec,
   ...
 }:
@@ -23,15 +22,8 @@
     shellAliases = {
       os = "${hostSpec.home}/.nixos/genflake; nh os";
       fetch = "hyfetch";
+      ssh = "kitten ssh";
     };
-
-    initExtra = ''
-      # fixes EDITOR being set to nano no matter what
-      # i dont know what causes this bug
-      # it used to work before i updated my flake.lock (Mar. 11 2025)
-      # so now here we are
-      export EDITOR=hx
-    '';
 
     plugins = [
       {

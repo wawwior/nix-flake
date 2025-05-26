@@ -29,7 +29,6 @@
   home.sessionVariables = {
     EDITOR = "hx";
     VISUAL = "hx";
-    TERM = "kitty";
   };
 
   xdg.enable = true;

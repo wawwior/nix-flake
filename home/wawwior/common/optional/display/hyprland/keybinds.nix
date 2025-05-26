@@ -2,8 +2,9 @@
 {
   wayland.windowManager.hyprland.settings =
     let
-      terminal = config.home.sessionVariables.TERM;
       # v TODO: do something about this v
+      terminal = "kitty";
+      # v TODO: do something about this to v
       runner = "wofi --show drun";
 
       mainMod = "Super";
