@@ -9,11 +9,12 @@
   imports = lib.flatten [
     inputs.home-manager.nixosModules.home-manager
 
-    ./sops.nix
-    ./nh.nix
     ./kernel.nix
-    ./nix-conf.nix
+    ./sops.nix
     ./openssh.nix
+    ./tmux.nix
+    ./nix-conf.nix
+    ./nh.nix
 
     (map lib.custom.fromTop [
       "modules/common"

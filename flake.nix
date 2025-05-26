@@ -14,6 +14,10 @@
       url = "github:nix-community/home-manager";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    minimal-tmux = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:niksingh710/minimal-tmux-status";
+    };
     musnix.url = "github:musnix/musnix";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     nixpkgs.url = "github:nixos/nixpkgs";

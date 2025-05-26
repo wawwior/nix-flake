@@ -66,5 +66,10 @@
     };
 
     musnix.url = "github:musnix/musnix";
+
+    minimal-tmux = {
+      url = "github:niksingh710/minimal-tmux-status";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
