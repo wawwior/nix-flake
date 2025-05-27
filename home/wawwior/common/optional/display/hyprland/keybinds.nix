@@ -2,12 +2,26 @@
 {
   wayland.windowManager.hyprland.settings =
     let
-      # v TODO: do something about this v
-      terminal = "kitty";
-      # v TODO: do something about this to v
-      runner = "wofi --show drun";
 
       mainMod = "Super";
+
+      # v TODO: do something about these v
+
+      terminal = # sh
+        ''
+          kitty
+        '';
+
+      runner = # sh
+        ''
+          wofi --show drun
+        '';
+
+      screenshot = # sh
+        ''
+          grim -g "$(slurp)" - | wl-copy
+        '';
+
     in
     {
 
@@ -17,6 +31,8 @@
 
         "${mainMod}, Space, exec, ${terminal}"
         "${mainMod}, a, exec, ${runner}"
+
+        "${mainMod}+Shift, s, exec, ${screenshot}"
 
         "${mainMod}, h, movefocus, l"
         "${mainMod}, l, movefocus, r"

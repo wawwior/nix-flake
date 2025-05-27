@@ -18,6 +18,8 @@ in
   environment.systemPackages = with pkgs; [
     egl-wayland
     xwayland
+    grim
+    slurp
   ];
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
