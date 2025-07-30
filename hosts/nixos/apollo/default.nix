@@ -31,6 +31,9 @@
       # PONDER_THE_ORB: is this the best way to do this?
       "stylix/catppuccin-mocha"
 
+      "server/minecraft.nix"
+      "server/http.nix"
+
       "audio-extra.nix"
       "sddm.nix"
       "hyprland.nix"
