@@ -7,6 +7,7 @@
     ./bat.nix
     ./lazygit.nix
     ./btop.nix
+    ./comma.nix
   ];
 
   home.packages = with pkgs; [
@@ -18,5 +19,7 @@
     hyperfine
     tokei
     mprocs
+    caligula
+    tldr
   ];
 }
