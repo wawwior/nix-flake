@@ -16,6 +16,10 @@
           select = "underline";
         };
         color-modes = true;
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics = {
+          cursor-line = "error";
+        };
       };
       keys = {
         normal = {
