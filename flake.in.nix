@@ -34,7 +34,7 @@
 
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs";
 
@@ -47,7 +47,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    declarative-flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -60,6 +61,8 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    declarative-flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -71,5 +74,8 @@
       url = "github:niksingh710/minimal-tmux-status";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
   };
 }
