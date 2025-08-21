@@ -26,7 +26,7 @@
 
   services.xserver.updateDbusEnvironment = true;
 
-  home-manager.backupFileExtension = "bk";
+  home-manager.backupFileExtension = "hm-backup";
 
   nixpkgs = {
     overlays = [
