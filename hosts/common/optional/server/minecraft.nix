@@ -88,20 +88,20 @@ in
           motd = "NixOS Minecraft server!";
         };
       };
-      manic-pixie-dreamgirl =
+      corporate-hell =
         let
           modpack = pkgs.fetchPackwizModpack {
-            pname = "manic-pixie-dreamgirl-pack";
+            pname = "corporate-hell-pack";
             version = "latest";
-            url = "https://raw.githubusercontent.com/wawwior/manic-pixie-dreamgirl/main/pack.toml";
-            packHash = "sha256-QPkdIcPQGUDDvNwar/vipvbifVQxZhdhwen/iifMgfQ=";
+            url = "https://raw.githubusercontent.com/wawwior/corporate-hell/create-5/pack.toml";
+            packHash = "sha256-4SzK9yKTvZs9Z9Q8QWyvw18pQX+rj2FTEWxhj6xRI9U=";
           };
           inherit (inputs.nix-minecraft.lib) collectFilesAt;
         in
         {
-          enable = false;
+          enable = true;
           autoStart = false;
-          package = mkForgeServer "1.20.1" "47.4.0" "sha256-EtqyOX9REjT5sCxm2s+dhSzXnIvuFEhdFqlwgVbEugw=";
+          package = mkForgeServer "1.20.1" "47.4.6" "sha256-tW4cI1Sry8G6V6k6jvXxzadyIGmf6ttga+K2Biq2Kgg=";
           serverProperties = {
             server-port = 25565;
             motd = "NixOS Minecraft server!";
