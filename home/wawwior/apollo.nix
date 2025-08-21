@@ -13,7 +13,9 @@
     ./common/optional/tools/obsidian.nix
     ./common/optional/tools/files.nix
     ./common/optional/production/audio.nix
+    ./common/optional/production/image.nix
     ./common/optional/gnome-keyring.nix
+    ./common/optional/blockbench.nix
     # ./common/optional/flatpak.nix
   ];
 
