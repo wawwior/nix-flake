@@ -35,6 +35,7 @@
       "server/http.nix"
 
       "audio-extra.nix"
+      "scarlett.nix"
       "sddm.nix"
       "hyprland.nix"
       "fonts.nix"
