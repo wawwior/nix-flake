@@ -1,12 +1,10 @@
 {
   inputs,
   pkgs,
+  lib,
   config,
   ...
 }:
-let
-  hostSpec = config.hostSpec;
-in
 {
 
   imports = [ inputs.stylix.nixosModules.stylix ];
@@ -14,13 +12,14 @@ in
   environment.systemPackages = with pkgs; [
     (catppuccin-sddm.override {
       flavor = "mocha";
+      accent = "mauve";
       font = "Noto Sans";
       fontSize = "9";
     })
   ];
 
   services.displayManager.sddm = {
-    theme = "catppuccin-mocha";
+    theme = "catppuccin-mocha-mauve";
   };
 
   stylix = {
@@ -55,17 +54,23 @@ in
     };
   };
 
-  home-manager.users."${hostSpec.username}" = {
-    stylix = {
-      iconTheme = {
-        enable = true;
-        package = pkgs.adwaita-icon-theme;
-        dark = "Adwaita";
-        light = "Adwaita";
-      };
+  home-manager.users =
+    with builtins;
+    (mapAttrs (
+      name: value:
+      lib.mkIf value.graphical {
+        stylix = {
+          iconTheme = {
+            enable = true;
+            package = pkgs.adwaita-icon-theme;
+            dark = "Adwaita";
+            light = "Adwaita";
+          };
 
-      targets.gtk.flatpakSupport.enable = false;
-    };
-    programs.oh-my-posh.useTheme = "catppuccin_mocha";
-  };
+          targets.gtk.flatpakSupport.enable = false;
+          targets.zen-browser.profileNames = [ "${name}" ];
+        };
+        programs.oh-my-posh.useTheme = "catppuccin_mocha";
+      }
+    ) config.userSpec.users);
 }

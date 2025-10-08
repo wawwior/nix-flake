@@ -1,6 +1,6 @@
 {
   pkgs,
-  hostSpec,
+  config,
   ...
 }:
 {
@@ -20,7 +20,8 @@
     };
 
     shellAliases = {
-      os = "${hostSpec.home}/.nixos/genflake; nh os";
+      # TODO: change this to a root dir
+      os = "${config.home.homeDirectory}/.nixos/genflake; nh os";
       fetch = "hyfetch";
       ssh = "kitten ssh";
     };

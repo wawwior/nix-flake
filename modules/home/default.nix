@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./display.nix
+    ./home-spec.nix
   ];
 }

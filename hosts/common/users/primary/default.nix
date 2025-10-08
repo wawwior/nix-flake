@@ -7,65 +7,108 @@
 }:
 let
   hostSpec = config.hostSpec;
+  userSpec = config.userSpec;
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in
 {
+  users.users =
+    with builtins;
+    (mapAttrs (name: value: {
+      name = name;
 
-  users.users.${hostSpec.username} = {
-    name = hostSpec.username;
-    home = hostSpec.home;
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    hashedPasswordFile = config.sops.secrets.password-user.path;
+      hashedPasswordFile = config.sops.secrets."password-${name}".path;
 
-    extraGroups = lib.flatten [
-      "wheel"
-      (ifTheyExist [
-        "audio"
-        "networkmanager"
-        "input"
-        "git"
-        "docker"
-        "gamemode"
-      ])
-    ];
-  };
+      shell = pkgs.zsh;
 
-  users.users.root = {
-    shell = pkgs.zsh;
-    hashedPasswordFile = config.sops.secrets."password-root".path;
-  };
+      extraGroups =
+        value.extraGroups
+        ++ (ifTheyExist value.optionalGroups)
+        ++ (if value.isWheel then [ "wheel" ] else [ ]);
+
+      isNormalUser = true;
+      home = if pkgs.stdenv.isLinux then "/home/${name}" else "/Users/${name}";
+    }) userSpec.users)
+    // {
+      root = {
+        shell = pkgs.zsh;
+        hashedPasswordFile = config.sops.secrets."password-root".path;
+      };
+    };
+
+  # users.users.${hostSpec.username} = {
+  #   name = hostSpec.username;
+  #   home = hostSpec.home;
+  #   isNormalUser = true;
+  #   shell = pkgs.zsh;
+  #   hashedPasswordFile = config.sops.secrets.password-user.path;
+
+  #   extraGroups = lib.flatten [
+  #     "wheel"
+  #     (ifTheyExist [
+  #       "audio"
+  #       "networkmanager"
+  #       "input"
+  #       "git"
+  #       "docker"
+  #       "gamemode"
+  #     ])
+  #   ];
+  # };
 
   users.mutableUsers = false;
 
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs pkgs hostSpec;
+      inherit inputs pkgs;
     };
-    users.root = {
-      programs.zsh.enable = true;
-      home.stateVersion = "24.11";
-    };
-    users.${hostSpec.username} = {
-      home = {
-        username = config.hostSpec.username;
-        homeDirectory = config.hostSpec.home;
-        stateVersion = "24.11";
+    users =
+      with builtins;
+      (mapAttrs (
+        name: value:
+        let
+          homeDir = if pkgs.stdenv.isLinux then "/home/${name}" else "/Users/${name}";
+        in
+        {
+          home = {
+            username = name;
+            homeDirectory = homeDir;
+            stateVersion = "24.11";
+          };
+          imports = lib.flatten [
+            (
+              { config, ... }:
+              import (lib.custom.fromTop "home/${name}/${hostSpec.hostName}.nix") {
+                inherit
+                  inputs
+                  pkgs
+                  lib
+                  config
+                  ;
+              }
+
+            )
+            (
+              { ... }:
+              {
+                homeSpec = {
+                  hostName = lib.mkForce hostSpec.hostName;
+                  user = {
+                    name = lib.mkForce name;
+                    home = lib.mkForce homeDir;
+                    graphical = lib.mkForce value.graphical;
+                  };
+                  display = lib.mkForce hostSpec.display;
+                };
+              }
+            )
+          ];
+        }
+      ) userSpec.users)
+      // {
+        root = {
+          programs.zsh.enable = true;
+          home.stateVersion = "24.11";
+        };
       };
-      imports = lib.flatten [
-        (
-          { config, ... }:
-          import (lib.custom.fromTop "home/${hostSpec.username}/${hostSpec.hostName}.nix") {
-            inherit
-              inputs
-              pkgs
-              lib
-              config
-              hostSpec
-              ;
-          }
-        )
-      ];
-    };
   };
 }

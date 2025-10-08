@@ -27,7 +27,7 @@ let
   };
 
   insecure-packages = final: _prev: {
-    insecure = import inputs.nixpkgs-unstable {
+    insecure = import inputs.nixpkgs-stable {
       inherit (final) system;
       config = {
         allowUnfree = true;
@@ -43,5 +43,6 @@ in
     (additions final prev)
     // (packages final prev)
     // (unstable-packages final prev)
-    // (insecure-packages final prev);
+    // (insecure-packages final prev)
+    // (inputs.vintagestory-nix.overlays.default final prev);
 }

@@ -47,13 +47,39 @@
   facter.reportPath = ./facter.json;
 
   hostSpec = {
-    username = "wawwior";
     hostName = "apollo";
+    display = {
+      name = "DP-3";
+      mode = "1920x1080@119.98";
+    };
+  };
+
+  userSpec = {
+    users = {
+      "wawwior" = {
+        isWheel = true;
+        optionalGroups = [
+          "audio"
+          "video"
+          "networkmanager"
+          "input"
+          "git"
+          "docker"
+          "gamemode"
+        ];
+        graphical = true;
+      };
+    };
   };
 
   networking = {
     networkmanager.enable = true;
     enableIPv6 = true;
+    extraHosts = ''
+      35.186.224.24 api.spotify.com
+    '';
+    firewall.allowedTCPPorts = [ 42420 ];
+    firewall.allowedUDPPorts = [ 42420 ];
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -62,11 +88,11 @@
     enable = true;
   };
 
-  environment.variables = {
-    NVD_BACKEND = "direct";
-    LIBVA_DRIVER_NAME = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  };
+  # environment.variables = {
+  #   NVD_BACKEND = "direct";
+  #   LIBVA_DRIVER_NAME = "nvidia";
+  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  # };
 
   hardware.nvidia = {
     open = true;
@@ -85,6 +111,7 @@
     initrd.systemd.enable = true;
     kernelParams = [ "quiet" ];
     plymouth.enable = true;
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
   console.useXkbConfig = true;

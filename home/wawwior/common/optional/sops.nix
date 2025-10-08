@@ -16,6 +16,7 @@
       "sign/private" = {
         path = "/home/wawwior/.ssh/id_sign_ed25519_key";
       };
+      "spotify-client-id" = { };
     };
   };
 }

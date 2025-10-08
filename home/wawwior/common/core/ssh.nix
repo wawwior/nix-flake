@@ -8,13 +8,13 @@
 
       enable = true;
 
-      controlMaster = "auto";
-      controlPath = "${config.home.homeDirectory}/.ssh/sockets/S.%r@%h:%p";
-      controlPersist = "20m";
-
-      addKeysToAgent = "yes";
-
       matchBlocks = {
+        "*" = {
+          controlMaster = "auto";
+          controlPath = "${config.home.homeDirectory}/.ssh/sockets/S.%r@%h:%p";
+          controlPersist = "20m";
+          addKeysToAgent = "yes";
+        };
         "git" = {
           host = "github.com";
           user = "git";

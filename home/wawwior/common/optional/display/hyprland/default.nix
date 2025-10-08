@@ -15,7 +15,7 @@
     systemd.enable = true;
     settings = {
 
-      monitor = "${config.display.name},${config.display.mode},0x0,${builtins.toString config.display.scale}";
+      monitor = "${config.homeSpec.display.name},${config.homeSpec.display.mode},0x0,${builtins.toString config.homeSpec.display.scale}";
 
       xwayland = {
         force_zero_scaling = true;
@@ -78,9 +78,10 @@
         }
       ];
 
-      gestures = {
-        workspace_swipe = true;
-      };
+      # TODO: update
+      # gestures = {
+      #   workspace_swipe = true;
+      # };
 
       cursor = {
         no_hardware_cursors = false;

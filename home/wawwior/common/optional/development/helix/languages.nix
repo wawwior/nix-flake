@@ -1,4 +1,4 @@
-{ pkgs, hostSpec, ... }:
+{ pkgs, config, ... }:
 {
   programs.helix.languages = {
     language-server = {
@@ -10,7 +10,7 @@
           };
           options = {
             nixos = {
-              expr = "(builtins.getFlake \"${hostSpec.home}/.nixos\").nixosConfigurations.${hostSpec.hostName}.options";
+              expr = "(builtins.getFlake \"${config.home.homeDirectory}/.nixos\").nixosConfigurations.${config.homeSpec.hostName}.options";
             };
           };
         };

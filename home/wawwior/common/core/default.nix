@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  hostSpec,
   ...
 }:
 {
@@ -21,8 +20,6 @@
       "modules/home"
     ])
   ];
-
-  inherit hostSpec;
 
   programs.home-manager.enable = true;
 

@@ -18,9 +18,4 @@
     ./common/optional/blockbench.nix
     # ./common/optional/flatpak.nix
   ];
-
-  display = {
-    name = "DP-3";
-    mode = "1920x1080@119.98";
-  };
 }

@@ -14,7 +14,7 @@
 
       commit.gpgsign = true;
       gpg.format = "ssh";
-      user.signingkey = "${config.hostSpec.home}/.ssh/id_sign_ed25519_key.pub";
+      user.signingkey = "${config.home.homeDirectory}/.ssh/id_sign_ed25519_key.pub";
     };
 
   };
