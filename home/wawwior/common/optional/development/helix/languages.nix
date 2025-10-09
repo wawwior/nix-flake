@@ -23,6 +23,21 @@
           };
         };
       };
+      tinymist = {
+        command = "tinymist";
+        config = {
+          exportPdf = "onSave";
+          outputPath = "$root/target/$dir/$name";
+          preview.background = {
+            enabled = true;
+            args = [
+              "--data-plane-host=127.0.0.1:0"
+              "--invert-colors=never"
+              "--open"
+            ];
+          };
+        };
+      };
     };
     language = [
       {
@@ -41,6 +56,10 @@
           ".git"
         ];
         language-servers = [ "jdtls" ];
+      }
+      {
+        name = "typst";
+        language-servers = [ "tinymist" ];
       }
     ];
   };
