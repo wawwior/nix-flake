@@ -11,9 +11,9 @@
         command = "cat";
         args = [ config.homeSpec.spotifyClientIdPath ];
       };
-      default_device = "apollo";
+      default_device = config.homeSpec.hostName;
       device = {
-        name = "apollo";
+        name = config.homeSpec.hostName;
         device_type = "computer";
         volume = 70;
         bitrate = 320;
