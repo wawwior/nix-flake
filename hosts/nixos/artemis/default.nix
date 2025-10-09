@@ -30,7 +30,10 @@
       # PONDER_THE_ORB: is this the best way to do this?
       "stylix/catppuccin-mocha"
 
-      "audio.nix"
+      "server/http.nix"
+
+      "audio-extra.nix"
+      "scarlett.nix"
       "sddm.nix"
       "hyprland.nix"
       "fonts.nix"
@@ -46,7 +49,12 @@
   };
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      plugins = with pkgs; [
+        networkmanager-openconnect
+      ];
+      enable = true;
+    };
     enableIPv6 = true;
   };
 

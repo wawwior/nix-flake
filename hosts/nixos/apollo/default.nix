@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   ...
 }:
@@ -73,7 +74,12 @@
   };
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      plugins = with pkgs; [
+        networkmanager-openconnect
+      ];
+      enable = true;
+    };
     enableIPv6 = true;
     extraHosts = ''
       35.186.224.24 api.spotify.com
