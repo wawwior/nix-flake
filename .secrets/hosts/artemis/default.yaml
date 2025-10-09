@@ -1,5 +1,7 @@
 passwords:
     root: ENC[AES256_GCM,data:q/bs4hctSpcUrDYUQ6wkaPzMXTpjZWXLKOK04TcAx9xbGRpDCf6bT3v3Th33K1QFP1NMG88OBuJxn+h+hzUx/wCLRDZSNkh4QeY+D9VrKxv2OW5ZIBGYrpseh8CRn598YoF554dH+k/mpw==,iv:0oUUuMa+dc76VkqQtc67vhLoN5p6LHE1LhiTXpE/4ic=,tag:x9Ornus8LdbPQKxDArKQQA==,type:str]
+tokens:
+    spotify-client-id: ENC[AES256_GCM,data:MCfdTYPrZEhKjVHYfM4ryNf2yEkbEqYPe0xcJGQ2unw=,iv:qtV7V9UqxfZBYa+iMKGMfSiE8M37kaR6QURmJPBBmTk=,tag:gXBCnjmAOCW3qsFXaUj2YA==,type:str]
 sops:
     age:
         - recipient: age1j4yy6e7x783c83n3lxvd5fzwlpevnm0fnznmlrg0asawudjfyd0q0664yu
@@ -20,7 +22,7 @@ sops:
             bkp4VjJ0MnJEc29sUFZ2ak5SUmRZeWsKWG8DE0QT31Gatro8oGvpSZD0KwqlE/oC
             eDOeWrO27oU0rFHaw+Uoql0K13bpwjl9LR3uvK/j+hB8TViPRuddjw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-05-24T21:28:58Z"
-    mac: ENC[AES256_GCM,data:JeAAorDN3Zmtu+T3WcT1r6UjyIDAkqZpAlnDHJCb7mvmR2OpvcfHgmMC0VIGZ2GaFRdzY55oScKc1R3mf+csbOAz81L4Ek8ZKmRnObS9s02WP67t+p1RtG1xkXf1GMGLqz7nG78El2qJk+tu+jpPGvb6PYPS4gNWrUFsWahKihk=,iv:WKoORtil/oNSKT2lAOIh5R2bi40D7Ytu7wH0mih7an8=,tag:RRsr4ACYths4vFy4DB6uzw==,type:str]
+    lastmodified: "2025-10-09T07:41:42Z"
+    mac: ENC[AES256_GCM,data:zCoBx/HlGKHtl00azFI92OBvGYE3pepjIbU9LGZCCoiCQfMxefjPg/C5G1VGRN1uv8XrhfjzZgs25hNG1U4eSgVGo1m8Lt8MsoUe5EZcTm47v4liadXWz+PvXzAZQf9hQPXgLB41+UVVETOrmy4ogvnPAqoeneZSQkp83PM5if8=,iv:uiKAxH5xoMO8WA+TFcoM6U+8Gu14/4c10R2cYV4BPRw=,tag:xqWv2KKbdRE5qj9qlPwCbg==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.10.2

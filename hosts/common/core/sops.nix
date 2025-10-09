@@ -61,6 +61,11 @@
           neededForUsers = true;
         };
         "tokens/github" = { };
+        spotify-client-id = {
+          sopsFile = lib.custom.fromTop ".secrets/hosts/${config.hostSpec.hostName}/default.yaml";
+          key = "tokens/spotify-client-id";
+          mode = "444";
+        };
       };
 
     templates = {

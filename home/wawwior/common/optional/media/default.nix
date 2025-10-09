@@ -9,7 +9,7 @@
     settings = {
       client_id_command = {
         command = "cat";
-        args = [ config.sops.secrets.spotify-client-id.path ];
+        args = [ config.homeSpec.spotifyClientIdPath ];
       };
       default_device = "apollo";
       device = {

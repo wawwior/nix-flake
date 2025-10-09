@@ -36,5 +36,9 @@
         default = 1.0;
       };
     };
+    spotifyClientIdPath = lib.mkOption {
+      type = lib.types.path;
+      description = "Spotify client_id path provided by sops-nix";
+    };
   };
 }

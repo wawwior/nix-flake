@@ -98,6 +98,7 @@ in
                     graphical = lib.mkForce value.graphical;
                   };
                   display = lib.mkForce hostSpec.display;
+                  spotifyClientIdPath = lib.mkForce config.sops.secrets.spotify-client-id.path;
                 };
               }
             )
