@@ -15,9 +15,4 @@
     ./common/optional/games
     ./common/optional/gnome-keyring.nix
   ];
-
-  display = {
-    name = "eDP-1";
-    scale = 1.25;
-  };
 }

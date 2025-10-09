@@ -44,8 +44,29 @@
   facter.reportPath = ./facter.json;
 
   hostSpec = {
-    username = "wawwior";
     hostName = "artemis";
+    display = {
+      name = "eDP-1";
+      scale = 1.25;
+    };
+  };
+
+  userSpec = {
+    users = {
+      "wawwior" = {
+        isWheel = true;
+        optionalGroups = [
+          "audio"
+          "video"
+          "networkmanager"
+          "input"
+          "git"
+          "docker"
+          "gamemode"
+        ];
+        graphical = true;
+      };
+    };
   };
 
   networking = {
