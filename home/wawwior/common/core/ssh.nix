@@ -15,8 +15,8 @@
           controlPersist = "20m";
           addKeysToAgent = "yes";
         };
-        "git" = {
-          host = "github.com";
+        "github" = {
+          host = "github.com gitlab.*";
           user = "git";
           forwardAgent = true;
           identitiesOnly = true;
