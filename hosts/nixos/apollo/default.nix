@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  outputs,
   ...
 }:
 {
@@ -53,6 +54,13 @@
       name = "DP-3";
       mode = "1920x1080@119.98";
     };
+  };
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.unfree-insecure
+    ];
+    config.allowUnfree = true;
   };
 
   userSpec = {

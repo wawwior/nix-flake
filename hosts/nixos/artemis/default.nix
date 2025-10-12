@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  outputs,
   ...
 }:
 {
@@ -49,6 +50,13 @@
       name = "eDP-1";
       scale = 1.25;
     };
+  };
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.unfree-insecure
+    ];
+    config.allowUnfree = true;
   };
 
   userSpec = {
