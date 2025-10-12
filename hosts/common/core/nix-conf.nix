@@ -19,27 +19,7 @@
       builders-use-substitutes = true
     '';
 
-    buildMachines = [
-      {
-        hostName = "192.168.178.35";
-        system = "x86_64-linux";
-        protocol = "ssh-ng";
-        maxJobs = 16;
-        speedFactor = 5;
-        supportedFeatures = [
-          "kvm"
-          "benchmark"
-          "big-parallel"
-          "nixos-test"
-        ];
-        mandatoryFeatures = [ ];
-
-      }
-    ];
-
     distributedBuilds = false;
-
-    optimise.automatic = true;
 
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
