@@ -36,10 +36,11 @@
       "server/minecraft.nix"
       "server/http.nix"
 
+      "wayland/hyprland.nix"
+
       "audio-extra.nix"
       "scarlett.nix"
       "sddm.nix"
-      "hyprland.nix"
       "fonts.nix"
       "steam.nix"
       # "flatpak.nix"
@@ -52,7 +53,11 @@
     hostName = "apollo";
     display = {
       name = "DP-3";
-      mode = "1920x1080@119.98";
+      mode = {
+        width = 1920;
+        height = 1080;
+        refresh = 119.98;
+      };
     };
   };
 

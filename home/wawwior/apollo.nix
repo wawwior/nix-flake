@@ -3,7 +3,6 @@
   imports = [
     ./common/core
     ./common/optional/sops.nix
-    ./common/optional/display
     ./common/optional/development
     ./common/optional/communication
     ./common/optional/media

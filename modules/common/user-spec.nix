@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -28,7 +27,7 @@
             };
             graphical = lib.mkOption {
               type = lib.types.bool;
-              description = "configures a graphical environment";
+              description = "configures stylix";
               default = false;
             };
           };

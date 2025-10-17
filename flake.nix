@@ -25,6 +25,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:musnix/musnix";
     };
+    niri = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sodiboo/niri-flake";
+    };
     nix-index-database = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nix-index-database";

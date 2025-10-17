@@ -78,6 +78,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     declarative-flatpak = {
       url = "github:in-a-dil-emma/declarative-flatpak";
     };

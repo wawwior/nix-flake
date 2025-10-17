@@ -33,10 +33,11 @@
 
       "server/http.nix"
 
+      "wayland/hyprland.nix"
+
       "audio-extra.nix"
       "scarlett.nix"
       "sddm.nix"
-      "hyprland.nix"
       "fonts.nix"
       "steam.nix"
     ])
