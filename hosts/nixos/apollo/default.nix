@@ -38,6 +38,7 @@
 
       "wayland/hyprland.nix"
 
+      "virt-manager.nix"
       "audio-extra.nix"
       "scarlett.nix"
       "sddm.nix"
@@ -80,6 +81,7 @@
           "git"
           "docker"
           "gamemode"
+          "libvirtd"
         ];
         graphical = true;
       };
