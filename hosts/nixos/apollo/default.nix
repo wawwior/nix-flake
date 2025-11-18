@@ -109,12 +109,6 @@
     enable = true;
   };
 
-  # environment.variables = {
-  #   NVD_BACKEND = "direct";
-  #   LIBVA_DRIVER_NAME = "nvidia";
-  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  # };
-
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
