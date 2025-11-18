@@ -209,11 +209,11 @@ in
               ];
 
               windowrule = [
-                "suppressevent maximize, class: .*"
-                "renderunfocused, initialClass:^(steam_app_)\\d*"
-                "renderunfocused, class:^com\\.mojang\\.minecraft.*"
-                "renderunfocused, initialTitle:^Minecraft.*"
-                "noinitialfocus, xwayland:1"
+                "match:class .*, suppress_event maximize"
+                "match:initial_class ^(steam_app_)\\d*, render_unfocused true"
+                "match:initial_class ^com\\.mojang\\.minecraft.*, render_unfocused true"
+                "match:initial_class ^Minecraft.*, render_unfocused true"
+                "match:xwayland true, no_initial_focus true"
               ];
 
               bind = [
