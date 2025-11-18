@@ -1,0 +1,19 @@
+name: sync repository to gitlab
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch_depth: 0
+    - uses: keninkujovic/gitlab-sync@2.1.0
+      with:
+        gitlab_url: ${{ secrets.GITLAB_URL }}
+        username: ${{ secrets.USERNAME }}
+        gitlab_pat: ${{ secrets.GITLAB_PAT }}
