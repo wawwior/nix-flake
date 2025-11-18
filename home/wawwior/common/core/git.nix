@@ -3,10 +3,11 @@
   programs.git = {
 
     enable = true;
-    userName = "wawwior";
-    userEmail = "45405580+wawwior@users.noreply.github.com";
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "wawwior";
+        email = "45405580+wawwior@users.noreply.github.com";
+      };
 
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
