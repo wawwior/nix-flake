@@ -17,7 +17,6 @@
 
     (map lib.custom.fromTop [
       "modules/common/host-spec.nix"
-      "modules/home"
     ])
   ];
 
