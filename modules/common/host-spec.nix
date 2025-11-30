@@ -24,7 +24,7 @@
         };
         refresh = lib.mkOption {
           type = lib.types.float;
-          default = 60;
+          default = 60.00;
         };
       };
       scale = lib.mkOption {
