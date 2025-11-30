@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
 
   programs.seahorse.enable = true;
@@ -7,10 +7,4 @@
     sddm.enableGnomeKeyring = true;
     login.enableGnomeKeyring = true;
   };
-
-  services.dbus.packages = [
-    pkgs.gnome-keyring
-    pkgs.gcr
-  ];
-
 }

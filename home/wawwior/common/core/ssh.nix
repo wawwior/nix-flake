@@ -27,6 +27,10 @@
 
     };
 
+  services.ssh-agent = {
+    enable = true;
+  };
+
   home.file = {
     ".ssh/sockets/.keep".text = "# Managed by home-manager";
   };
