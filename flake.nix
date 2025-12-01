@@ -3,7 +3,6 @@
 {
   description = "Nix Flake";
   inputs = {
-    declarative-flatpak.url = "github:in-a-dil-emma/declarative-flatpak";
     disko = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";

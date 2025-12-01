@@ -83,9 +83,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    declarative-flatpak = {
-      url = "github:in-a-dil-emma/declarative-flatpak";
-    };
+    # declarative-flatpak = {
+    #   url = "github:in-a-dil-emma/declarative-flatpak";
+    # };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
