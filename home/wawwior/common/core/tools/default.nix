@@ -13,7 +13,7 @@
   home.packages = with pkgs; [
     ripgrep
     eza
-    nvtopPackages.full
+    # nvtopPackages.full
     (lib.hiPrio uutils-coreutils-noprefix)
     fd
     hyperfine
