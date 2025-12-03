@@ -38,6 +38,8 @@
 
       "wayland/hyprland.nix"
 
+      "tailscale.nix"
+
       "virt-manager.nix"
       "audio-extra.nix"
       "scarlett.nix"
