@@ -35,6 +35,8 @@
 
       "wayland/hyprland.nix"
 
+      "tailscale.nix"
+
       "audio-extra.nix"
       "scarlett.nix"
       "sddm.nix"
