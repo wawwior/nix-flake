@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   lib,
   outputs,
   ...
@@ -92,8 +91,7 @@
 
   networking = {
     networkmanager = {
-      plugins = with pkgs; [
-        networkmanager-openconnect
+      plugins = [
       ];
       enable = true;
     };
@@ -101,8 +99,6 @@
     extraHosts = ''
       35.186.224.24 api.spotify.com
     '';
-    firewall.allowedTCPPorts = [ 42420 ];
-    firewall.allowedUDPPorts = [ 42420 ];
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
