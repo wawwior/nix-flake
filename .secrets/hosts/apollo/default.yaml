@@ -1,5 +1,5 @@
 passwords:
-    root: ENC[AES256_GCM,data:OYv6r5NsxJrGl6+yj3kXe29JqBaXZm4Oe7u44wnB5ynEPUTaHPimbafYcPyHMTvhsPHi4z0PC6d8I7y3B2vCszaNYz1RuwwB0SZgbZ9Zm4J+a097p3BtsVWbmQbSyXbc4PQII8va+A23Gg==,iv:aKC1UFDmurjgtcgjfenMFSLgfrTsPZswWvqChUGLpew=,tag:uevJf5uElvsKQRfb6y4urw==,type:str]
+    root: ENC[AES256_GCM,data:cC0jSLFG3XAH6vS817Bfi34zh+NcAEq207uJyUD+1t/dIBlybIQ9xhEEjOdkNJVST+1z29BymrBx57pioMcyHaKG2eVuCv3kGg==,iv:q2ttGZJQwGHdywRFgGyJm7CwKFtk/tvM0+V+7GkSxps=,tag:uDeW2BJBlgfOQFyzi48dcg==,type:str]
 tokens:
     spotify-client-id: ENC[AES256_GCM,data:yfG4TojVwwsOtldqcPVu7ecZf+B4UVxa1Khh79jVTPA=,iv:yYNC4WNPqNoC2Uuv5rRA0AbbVMprh53q+we9Ue5jW2Y=,tag:ZqAR7iNzIjol/7ndozbtLA==,type:str]
 sops:
@@ -22,7 +22,7 @@ sops:
             b1NsWncrY0JEeFdvZE9ZanhwQUlhbEkKT2FWTXd+8vF0nLyJSB8JCek6wxf9r3ZS
             mO+zlPxWK1eDFDfJDAp29AX9YomeQMM/8R/G4WCVmJaRtp1GzW5DHw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-10-09T07:40:18Z"
-    mac: ENC[AES256_GCM,data:TRhjRc/ea0YXalVdR5Qvy2cZDExtxfLFdBOw99rK4xnaPYLvih8s2U0d1D/i34SFgPYst+iJfSu2PBRrP3Hu7DtvHvPqk23XffviNKALz5iMKua0anqIJ6ozXZRRMZS/D58fwUcGj85KByzyItHMJMK1NvJTVjWX0jPn3x17eic=,iv:ZBYvXrqg3zsUSddxdhSM1gkd6rWliiRD5441iF8kCX4=,tag:ciI0NMBBCGmb3VK2srhq5Q==,type:str]
+    lastmodified: "2025-12-07T12:17:18Z"
+    mac: ENC[AES256_GCM,data:sP24EmthGIeps0jH5k6iX6JtrLQFaau5varXUzgFLyhSoWO8YST8BmQiq44rzxZGSgKq/AnVHmnaYcrXXVDpmxV4fr9n9sZvwbDs+VNX8qJOdVNMXo3G06dIpbxxx+L9fJpGkS32LeuR2N13/OLa8uliL+L2OeSB1hXkpK9A/Ak=,iv:LT0IIEQJ+Ryk3Ifs/jvcU4v2zL1jyTrT3e1dVmZZlrE=,tag:dykShQiYyldr+Ljy2tgevQ==,type:str]
     unencrypted_suffix: _unencrypted
-    version: 3.10.2
+    version: 3.11.0
