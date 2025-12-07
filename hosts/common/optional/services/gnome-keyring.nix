@@ -6,5 +6,7 @@
   security.pam.services = {
     sddm.enableGnomeKeyring = true;
     login.enableGnomeKeyring = true;
+    sshd.enableGnomeKeyring = true;
+    su.enableGnomeKeyring = true;
   };
 }

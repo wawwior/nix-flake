@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, config, ... }:
 {
   services.openssh = {
     enable = true;
@@ -15,4 +15,13 @@
       }
     ];
   };
+
+  users.users =
+    with builtins;
+    (mapAttrs (name: value: {
+      openssh.authorizedKeys.keys = [
+        (readFile (lib.custom.fromTop ".ssh/${name}/id_auth_ed25519_key.pub"))
+      ];
+    }) config.userSpec.users);
+
 }
