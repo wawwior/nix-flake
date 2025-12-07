@@ -1,4 +1,4 @@
-{ config, ... }:
+{ lib, config, ... }:
 {
   programs.ssh =
     let
@@ -31,7 +31,14 @@
     enable = true;
   };
 
-  home.file = {
-    ".ssh/sockets/.keep".text = "# Managed by home-manager";
-  };
+  home.file =
+    let
+      pubKey = p: lib.custom.fromTop ".ssh/${config.home.username}" + p;
+    in
+    {
+      ".ssh/sockets/.keep".text = "# Managed by home-manager";
+      ".ssh/authorized_keys".source = pubKey "/id_auth_ed25519_key.pub";
+      ".ssh/id_auth_ed25519_key.pub".source = pubKey "/id_auth_ed25519_key.pub";
+      ".ssh/id_sign_ed25519_key.pub".source = pubKey "/id_sign_ed25519_key.pub";
+    };
 }
