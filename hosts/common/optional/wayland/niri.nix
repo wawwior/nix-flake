@@ -42,11 +42,6 @@ let
           }) set.prefix) set.suffix
         )
     );
-
-  screenshot = # sh
-    ''
-      grim -g "$(slurp)" - | wl-copy
-    '';
 in
 {
   imports = [ inputs.niri.nixosModules.niri ];
@@ -250,7 +245,7 @@ in
                   "Mod+Space".action = spawn "kitty";
                   "Mod+A".action = spawn "wofi" "--show" "drun";
 
-                  "Mod+Shift+S".action = spawn-sh screenshot;
+                  "Mod+Shift+S".action.screenshot = { };
 
                   "Mod+J".action = focus-window-or-workspace-down;
                   "Mod+K".action = focus-window-or-workspace-up;
