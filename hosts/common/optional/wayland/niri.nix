@@ -54,8 +54,7 @@ in
   environment.systemPackages = [
     pkgs.xwayland-satellite
     pkgs.wl-clipboard-rs
-    pkgs.grim
-    pkgs.slurp
+    pkgs.swaybg
   ];
   home-manager.users =
     with builtins;
@@ -167,7 +166,18 @@ in
               };
 
               spawn-at-startup = [
+                {
 
+                  command = [
+                    (lib.getExe pkgs.swaybg)
+                    "-i"
+                    "${pkgs.fetchurl {
+                      name = "wallpaper.png";
+                      url = "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/refs/heads/main/os/nix-black-4k.png";
+                      sha256 = "sha256-HRZYeKDmfA53kb3fZxuNWvR8cE96tLrqPZhX4+z4lZA=";
+                    }}"
+                  ];
+                }
               ];
 
               prefer-no-csd = true;
