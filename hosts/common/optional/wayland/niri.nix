@@ -180,6 +180,10 @@ in
                 }
               ];
 
+              gestures = {
+                hot-corners.enable = false;
+              };
+
               prefer-no-csd = true;
 
               input = {
