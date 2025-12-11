@@ -33,7 +33,7 @@
 
       "server/http.nix"
 
-      "wayland/hyprland.nix"
+      "wayland/niri.nix"
 
       "tailscale.nix"
 
