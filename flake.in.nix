@@ -83,6 +83,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    vicinae = {
+      url = "github:vicinaehq/vicinae";
+    };
+
+    vicinae-extensions = {
+      url = "github:vicinaehq/extensions";
+      inputs.vicinae.follows = "vicinae";
+    };
+
     # declarative-flatpak = {
     #   url = "github:in-a-dil-emma/declarative-flatpak";
     # };

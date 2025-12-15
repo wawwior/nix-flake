@@ -65,6 +65,10 @@ in
         in
         {
 
+          imports = [
+            inputs.vicinae.homeManagerModules.default
+          ];
+
           programs.wofi.enable = true;
 
           programs.waybar = {
@@ -149,6 +153,21 @@ in
               border-radius = 5;
               default-timeout = 3000;
             };
+          };
+
+          services.vicinae = {
+            enable = true;
+            autoStart = true;
+            settings = {
+            };
+            extensions =
+              let
+                exts = inputs.vicinae-extensions.packages.${pkgs.system};
+              in
+              [
+                exts.niri
+                exts.nix
+              ];
           };
 
           programs.niri = {
@@ -257,7 +276,7 @@ in
                   "Mod+Shift+Escape".action = quit;
 
                   "Mod+Space".action = spawn "kitty";
-                  "Mod+A".action = spawn "wofi" "--show" "drun";
+                  "Mod+A".action = spawn "vicinae" "toggle";
 
                   "Mod+Shift+S".action.screenshot = { };
 

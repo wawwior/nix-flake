@@ -48,6 +48,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/stylix";
     };
+    vicinae.url = "github:vicinaehq/vicinae";
+    vicinae-extensions = {
+      inputs.vicinae.follows = "vicinae";
+      url = "github:vicinaehq/extensions";
+    };
     vintagestory-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:PierreBorine/vintagestory-nix";
