@@ -40,7 +40,7 @@
       "tailscale.nix"
 
       "virt-manager.nix"
-      "audio-extra.nix"
+      # "audio-extra.nix"
       "scarlett.nix"
       "sddm.nix"
       "fonts.nix"
