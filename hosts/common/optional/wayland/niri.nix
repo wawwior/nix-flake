@@ -56,6 +56,7 @@ in
     pkgs.wl-clipboard-rs
     pkgs.swaybg
   ];
+  security.pam.services.hyprlock = { };
   home-manager.users =
     with builtins;
     (mapAttrs (
@@ -70,6 +71,8 @@ in
           ];
 
           programs.wofi.enable = true;
+
+          programs.hyprlock.enable = true;
 
           programs.waybar = {
             systemd.enable = true;
@@ -273,17 +276,21 @@ in
                   "Mod+Q".action = close-window;
                   "Mod+Shift+Return".action = fullscreen-window;
                   # "Mod+?".action = show-hotkey-overlay;
-                  "Mod+Shift+Escape".action = quit;
+                  "Mod+Shift+Escape".action = spawn "hyprlock";
 
                   "Mod+Space".action = spawn "kitty";
                   "Mod+A".action = spawn "vicinae" "toggle";
 
                   "Mod+Shift+S".action.screenshot = { };
 
+                  "Mod+H".action = focus-column-left;
                   "Mod+J".action = focus-window-or-workspace-down;
                   "Mod+K".action = focus-window-or-workspace-up;
+                  "Mod+L".action = focus-column-right;
+                  "Mod+Shift+H".action = move-column-left;
                   "Mod+Shift+J".action = move-window-down-or-to-workspace-down;
                   "Mod+Shift+K".action = move-window-up-or-to-workspace-up;
+                  "Mod+Shift+L".action = move-column-right;
                   "Mod+WheelScrollDown".action = focus-workspace-down;
                   "Mod+WheelScrollUp".action = focus-workspace-up;
 
@@ -300,16 +307,6 @@ in
                   "XF86MonBrightnessUp".action = spawn-sh "brightnessctl set 10%+";
                   "XF86MonBrightnessDown".action = spawn-sh "brightnessctl set 10%-";
                 }
-                // (binds {
-                  prefix = {
-                    "Mod" = "focus";
-                    "Mod+Shift" = "move";
-                  };
-                  suffix = {
-                    "H" = "column-left";
-                    "L" = "column-right";
-                  };
-                })
                 // builtins.listToAttrs (
                   builtins.genList (x: {
                     name = "Mod+${builtins.toString (mod (x + 1) 10)}";
