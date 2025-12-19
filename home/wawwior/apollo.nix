@@ -8,7 +8,7 @@
     ./common/optional/media
     ./common/optional/games
     ./common/optional/browsers/zen.nix
-    ./common/optional/tools/libreoffice.nix
+    # ./common/optional/tools/libreoffice.nix
     ./common/optional/tools/files.nix
     ./common/optional/production/audio.nix
     ./common/optional/production/image.nix

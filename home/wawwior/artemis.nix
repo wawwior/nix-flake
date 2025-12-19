@@ -7,7 +7,7 @@
     ./common/optional/development
     ./common/optional/communication
     ./common/optional/media
-    ./common/optional/tools/libreoffice.nix
+    # ./common/optional/tools/libreoffice.nix
     # ./common/optional/tools/obsidian.nix
     ./common/optional/tools/files.nix
     # ./common/optional/production/audio.nix
