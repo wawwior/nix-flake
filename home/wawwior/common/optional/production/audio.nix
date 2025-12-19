@@ -7,7 +7,7 @@
     distrho-ports
     calf
     lsp-plugins
-    guitarix
+    # guitarix
     gxplugins-lv2
 
     yabridge
