@@ -26,6 +26,14 @@
 
   services.xserver.updateDbusEnvironment = true;
 
+  services.udev.extraRules = ''
+    ACTION!="remove", KERNEL=="event[0-9]*", \
+       ENV{ID_VENDOR_ID}=="054c", \
+       ENV{ID_MODEL_ID}=="0ce6", \
+       ENV{ID_INPUT_TOUCHPAD}="0", \
+       ENV{LIBINPUT_IGNORE_DEVICE}="1"
+  '';
+
   home-manager.backupFileExtension = "hm-backup";
 
   nixpkgs = {
