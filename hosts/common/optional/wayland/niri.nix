@@ -210,7 +210,10 @@ in
 
               input = {
                 focus-follows-mouse.enable = true;
-                mouse.accel-profile = "flat";
+                mouse = {
+                  accel-speed = 0.0;
+                  accel-profile = "flat";
+                };
                 keyboard.xkb = {
                   layout = "de";
                   variant = "nodeadkeys";
