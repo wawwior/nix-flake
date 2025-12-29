@@ -165,7 +165,7 @@ in
             };
             extensions =
               let
-                exts = inputs.vicinae-extensions.packages.${pkgs.system};
+                exts = inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system};
               in
               [
                 exts.niri

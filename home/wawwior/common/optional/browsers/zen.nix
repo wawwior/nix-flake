@@ -39,7 +39,7 @@
     let
       value =
         let
-          zen-browser = inputs.zen-browser.packages.${pkgs.system}.twilight; # or twilight
+          zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight; # or twilight
         in
         zen-browser.meta.desktopFileName;
 

@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  minimal-tmux = inputs.minimal-tmux.packages.${pkgs.system}.default;
+  minimal-tmux = inputs.minimal-tmux.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
 
