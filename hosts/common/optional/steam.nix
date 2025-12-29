@@ -7,7 +7,12 @@
     ];
   };
 
-  environment.systemPackages = with pkgs; [ limo ];
+  environment.systemPackages = with pkgs; [
+    limo
+    winetricks
+    gamescope
+    sambaFull
+  ];
 
   programs.gamemode = {
     enable = true;
