@@ -19,6 +19,8 @@
       enable = true;
     };
 
+    dotDir = "${config.xdg.configHome}/zsh";
+
     shellAliases = {
       # TODO: change this to a root dir
       os = "${config.home.homeDirectory}/.nixos/genflake; nh os";
