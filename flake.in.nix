@@ -41,7 +41,7 @@
     };
 
     nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-25.05";
+      url = "github:nixos/nixpkgs/nixos-25.11";
     };
 
     nixos-facter-modules = {
