@@ -160,8 +160,16 @@ in
 
           services.vicinae = {
             enable = true;
-            autoStart = true;
+            systemd = {
+              enable = true;
+              autoStart = true;
+            };
             settings = {
+              theme = {
+                dark = {
+                  name = "stylix";
+                };
+              };
             };
             extensions =
               let
