@@ -217,7 +217,10 @@ in
               prefer-no-csd = true;
 
               input = {
-                focus-follows-mouse.enable = true;
+                focus-follows-mouse = {
+                  enable = true;
+                  max-scroll-amount = "1%";
+                };
                 mouse = {
                   accel-speed = 0.0;
                   accel-profile = "flat";
