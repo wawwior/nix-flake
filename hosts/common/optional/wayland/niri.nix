@@ -170,6 +170,9 @@ in
                   name = "stylix";
                 };
               };
+              launcher_window = {
+                opacity = 1.0;
+              };
             };
             extensions =
               let
