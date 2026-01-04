@@ -6,7 +6,7 @@
 
     distrho-ports
     calf
-    lsp-plugins
+    # lsp-plugins
     # guitarix
     gxplugins-lv2
 
