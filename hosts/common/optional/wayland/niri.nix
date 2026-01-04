@@ -200,6 +200,11 @@ in
 
               spawn-at-startup = [
                 {
+                  command = [
+                    "qpwgraph"
+                  ];
+                }
+                {
 
                   command = [
                     (lib.getExe pkgs.swaybg)
