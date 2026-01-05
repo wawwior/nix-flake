@@ -174,15 +174,18 @@ in
                 opacity = 1.0;
               };
             };
-            extensions =
-              let
-                exts = inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system};
-              in
-              [
-                exts.niri
-                exts.nix
-              ];
+            extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
+              niri
+              nix
+              bluetooth
+              power-profile
+              pulseaudio
+            ];
           };
+
+          home.packages = [
+            pkgs.pulseaudio
+          ];
 
           programs.niri = {
             settings = {
