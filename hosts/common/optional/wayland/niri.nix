@@ -57,6 +57,7 @@ in
     pkgs.swaybg
   ];
   security.pam.services.hyprlock = { };
+  services.power-profiles-daemon.enable = true;
   home-manager.users =
     with builtins;
     (mapAttrs (
