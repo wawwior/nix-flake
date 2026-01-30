@@ -16,6 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:hyprwm/Hyprland";
     };
+    hytale-launcher.url = "github:TNAZEP/HytaleLauncherFlake";
     minimal-tmux = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:niksingh710/minimal-tmux-status";

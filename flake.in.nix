@@ -121,5 +121,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hytale-launcher.url = "github:TNAZEP/HytaleLauncherFlake";
+
   };
 }
