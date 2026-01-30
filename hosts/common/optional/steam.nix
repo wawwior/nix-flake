@@ -12,6 +12,7 @@
     winetricks
     gamescope
     sambaFull
+    mangohud
   ];
 
   programs.gamemode = {
