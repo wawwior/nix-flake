@@ -3,6 +3,8 @@
   home.packages = with pkgs; [
     termusic
     yt-dlp
+    beets
+    rsgain
   ];
   programs.spotify-player = {
     enable = true;
