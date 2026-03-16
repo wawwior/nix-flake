@@ -3,6 +3,7 @@
 
   home.packages = [
     pkgs.fastfetch
+    pkgs.nitch
   ];
 
   programs.hyfetch = {

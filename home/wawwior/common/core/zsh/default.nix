@@ -24,7 +24,7 @@
     shellAliases = {
       # TODO: change this to a root dir
       os = "${config.home.homeDirectory}/.nixos/genflake; nh os";
-      fetch = "hyfetch";
+      fetch = "nitch";
       ssh = "kitten ssh";
     };
 
