@@ -335,7 +335,7 @@ in
                 }
                 // builtins.listToAttrs (
                   builtins.genList (x: {
-                    name = "Mod+${builtins.toString (mod (x + 1) 10)}";
+                    name = "Mod+${toString (mod (x + 1) 10)}";
                     value.action = focus-workspace (x + 1);
                   }) 10
                 );
