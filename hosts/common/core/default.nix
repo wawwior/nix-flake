@@ -12,7 +12,8 @@
     ./kernel.nix
     ./sops.nix
     ./openssh.nix
-    ./tmux.nix
+    ./man.nix
+    # ./tmux.nix
     ./nix-conf.nix
     ./nh.nix
 
