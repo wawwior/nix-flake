@@ -39,8 +39,8 @@
     download = "${config.home.homeDirectory}/downloads";
     documents = "${config.home.homeDirectory}/documents";
     extraConfig = {
-      XDG_PUBLICSHARE_DIR = "/var/empty";
-      XDG_TEMPLATES_DIR = "/var/empty";
+      PUBLICSHARE = "/var/empty";
+      TEMPLATES = "/var/empty";
     };
   };
   xdg.mime.enable = true;
