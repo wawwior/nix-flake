@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     ardour
-    guitarix
 
     distrho-ports
     calf
