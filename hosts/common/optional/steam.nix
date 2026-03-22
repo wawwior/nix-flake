@@ -11,7 +11,7 @@
     limo
     winetricks
     gamescope
-    sambaFull
+    # sambaFull
     mangohud
   ];
 
