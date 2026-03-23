@@ -18,5 +18,7 @@
       user.signingkey = "${config.home.homeDirectory}/.ssh/id_sign_ed25519_key.pub";
     };
 
+    signing.format = "openpgp";
+
   };
 }

@@ -11,6 +11,6 @@
 
     yabridge
     yabridgectl
-    wineWowPackages.stable
+    wineWow64Packages.stable
   ];
 }
