@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
     };
+    firefox-addons = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    };
     flakegen.url = "github:jorsn/flakegen";
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,7 +65,10 @@
       url = "github:PierreBorine/vintagestory-nix";
     };
     zen-browser = {
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
       url = "github:0xc000022070/zen-browser-flake";
     };
   };
