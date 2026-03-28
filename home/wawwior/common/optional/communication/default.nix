@@ -5,6 +5,7 @@
 {
   home.packages = with pkgs; [
     signal-desktop
+    telegram-desktop
     # insecure.cinny-desktop
   ];
   programs.vesktop = {
