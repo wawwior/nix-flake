@@ -67,9 +67,11 @@
             light = "Adwaita";
           };
 
-          targets.gtk.flatpakSupport.enable = false;
-          targets.vesktop.enable = false;
-          targets.zen-browser.profileNames = [ "${name}" ];
+          targets = {
+            gtk.flatpakSupport.enable = false;
+            vesktop.enable = false;
+            zen-browser.profileNames = [ "${name}" ];
+          };
         };
         programs.oh-my-posh.useTheme = "catppuccin_mocha";
       }
