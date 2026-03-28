@@ -18,7 +18,7 @@
           identityFile = authKey;
         };
         "git" = {
-          host = "github.com gitlab.*";
+          host = "github.com gitlab.* git.*";
           user = "git";
           forwardAgent = true;
           identitiesOnly = true;
