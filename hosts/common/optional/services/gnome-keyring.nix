@@ -5,6 +5,7 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services = {
     sddm.enableGnomeKeyring = true;
+    ly.enableAppArmor = true;
     login.enableGnomeKeyring = true;
     sshd.enableGnomeKeyring = true;
     su.enableGnomeKeyring = true;

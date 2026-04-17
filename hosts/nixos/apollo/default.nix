@@ -43,7 +43,7 @@
       "virt-manager.nix"
       "audio-extra.nix"
       "scarlett.nix"
-      "sddm.nix"
+      "ly.nix"
       "fonts.nix"
       "steam.nix"
       # "flatpak.nix"

@@ -76,7 +76,7 @@ in
           programs.hyprlock.enable = true;
 
           programs.waybar = {
-            systemd.enable = true;
+            # systemd.enable = true;
             enable = true;
             settings = [
               {
@@ -203,6 +203,11 @@ in
               };
 
               spawn-at-startup = [
+                {
+                  command = [
+                    "waybar"
+                  ];
+                }
                 {
                   command = [
                     "qpwgraph"
