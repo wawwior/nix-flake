@@ -33,11 +33,11 @@
         package = pkgs.nerd-fonts.dejavu-sans-mono;
         name = "DejaVuSansM Nerd Font Mono";
       };
-      # sansSerif = {
-      #   package = pkgs.noto-fonts;
-      #   name = "Noto Sans";
-      # };
-      # serif = config.stylix.fonts.sansSerif;
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      serif = config.stylix.fonts.sansSerif;
       sizes = {
         applications = 12;
         desktop = 10;
@@ -61,7 +61,33 @@
           };
 
           targets = {
-            gtk.flatpakSupport.enable = false;
+            gnome = {
+              fonts.override =
+                let
+                  sans = {
+                    package = pkgs.dejavu_fonts;
+                    name = "DejaVu Sans";
+                  };
+                in
+                {
+                  sansSerif = sans;
+                  serif = sans;
+                };
+            };
+            gtk = {
+              flatpakSupport.enable = false;
+              fonts.override =
+                let
+                  sans = {
+                    package = pkgs.dejavu_fonts;
+                    name = "DejaVu Sans";
+                  };
+                in
+                {
+                  sansSerif = sans;
+                  serif = sans;
+                };
+            };
             vesktop.enable = false;
             zen-browser.profileNames = [ "${name}" ];
           };
