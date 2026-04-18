@@ -9,19 +9,6 @@
 
   imports = [ inputs.stylix.nixosModules.stylix ];
 
-  environment.systemPackages = with pkgs; [
-    (catppuccin-sddm.override {
-      flavor = "mocha";
-      accent = "mauve";
-      font = "Noto Sans";
-      fontSize = "9";
-    })
-  ];
-
-  services.displayManager.sddm = {
-    theme = "catppuccin-mocha-mauve";
-  };
-
   stylix = {
 
     enable = true;
@@ -46,11 +33,17 @@
         package = pkgs.nerd-fonts.dejavu-sans-mono;
         name = "DejaVuSansM Nerd Font Mono";
       };
-      sansSerif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans";
+      # sansSerif = {
+      #   package = pkgs.noto-fonts;
+      #   name = "Noto Sans";
+      # };
+      # serif = config.stylix.fonts.sansSerif;
+      sizes = {
+        applications = 12;
+        desktop = 10;
+        popups = 10;
+        terminal = 12;
       };
-      serif = config.stylix.fonts.sansSerif;
     };
   };
 
@@ -73,7 +66,9 @@
             zen-browser.profileNames = [ "${name}" ];
           };
         };
+
         programs.oh-my-posh.useTheme = "catppuccin_mocha";
+        gtk.gtk4.theme = null;
       }
     ) config.userSpec.users);
 }
