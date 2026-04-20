@@ -61,32 +61,32 @@
           };
 
           targets = {
-            gnome = {
-              fonts.override =
-                let
-                  sans = {
-                    package = pkgs.dejavu_fonts;
-                    name = "DejaVu Sans";
-                  };
-                in
-                {
-                  sansSerif = sans;
-                  serif = sans;
-                };
-            };
+            # gnome = {
+            #   fonts.override =
+            #     let
+            #       sans = {
+            #         package = pkgs.dejavu_fonts;
+            #         name = "DejaVu Sans";
+            #       };
+            #     in
+            #     {
+            #       sansSerif = sans;
+            #       serif = sans;
+            #     };
+            # };
             gtk = {
               flatpakSupport.enable = false;
-              fonts.override =
-                let
-                  sans = {
-                    package = pkgs.dejavu_fonts;
-                    name = "DejaVu Sans";
-                  };
-                in
-                {
-                  sansSerif = sans;
-                  serif = sans;
-                };
+              # fonts.override =
+              #   let
+              #     sans = {
+              #       package = pkgs.dejavu_fonts;
+              #       name = "DejaVu Sans";
+              #     };
+              #   in
+              #   {
+              #     sansSerif = sans;
+              #     serif = sans;
+              #   };
             };
             vesktop.enable = false;
             zen-browser.profileNames = [ "${name}" ];

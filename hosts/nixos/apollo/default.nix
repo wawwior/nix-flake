@@ -44,7 +44,7 @@
       "audio-extra.nix"
       "scarlett.nix"
       "ly.nix"
-      "fonts.nix"
+      # "fonts.nix"
       "steam.nix"
       # "flatpak.nix"
     ])
