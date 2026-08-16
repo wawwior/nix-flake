@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   lib,
   outputs,
   ...
@@ -109,7 +110,7 @@
   };
 
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
     open = true;
     modesetting.enable = true;
   };
