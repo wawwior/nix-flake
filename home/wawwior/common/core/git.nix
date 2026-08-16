@@ -2,6 +2,8 @@
 {
   programs.git = {
 
+    lfs.enable = true;
+
     enable = true;
     settings = {
       user = {
