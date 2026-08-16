@@ -1,7 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    lutris
+    # bottles
     winetricks
+    protontricks
+    # umu-launcher
   ];
 }
