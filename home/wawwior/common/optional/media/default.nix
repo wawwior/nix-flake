@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     termusic
-    yt-dlp
+    # yt-dlp
     beets
     rsgain
   ];
