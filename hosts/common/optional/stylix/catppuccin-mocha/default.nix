@@ -94,7 +94,6 @@
         };
 
         programs.oh-my-posh.useTheme = "catppuccin_mocha";
-        gtk.gtk4.theme = null;
       }
     ) config.userSpec.users);
 }
