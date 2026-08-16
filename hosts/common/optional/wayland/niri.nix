@@ -178,7 +178,7 @@ in
             extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
               niri
               nix
-              bluetooth
+              # bluetooth
               power-profile
               pulseaudio
             ];
