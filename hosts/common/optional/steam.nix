@@ -9,6 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     limo
+    protontricks
     winetricks
     gamescope
     # sambaFull
