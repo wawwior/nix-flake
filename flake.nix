@@ -20,6 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:vic/import-tree";
+    niri-flake = {
+      url = "github:epireyn/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
