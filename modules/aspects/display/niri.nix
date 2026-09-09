@@ -50,7 +50,7 @@
             scale = 1.0;
           };
         in
-        {
+        { capabilities, ... }: {
           programs.niri = {
             settings = {
               outputs = builtins.mapAttrs (
@@ -99,7 +99,7 @@
                 };
               };
 
-              screenshot-path = "~/media/images/screenshots/Screenshot+%Y-%m-%d+%H-%M-%S";
+              screenshot-path = "~/media/images/screenshots/screenshot+%Y-%m-%d+%H-%M-%S";
 
               window-rules = [
                 {
@@ -111,8 +111,8 @@
                   };
                   clip-to-geometry = true;
                   open-maximized = true;
-                  # open-maximized-to-edges = false;
                 }
+                # TODO: uhh all terminals? (capability?)
                 {
                   matches = [
                     {
@@ -125,44 +125,51 @@
 
               hotkey-overlay.skip-at-startup = true;
 
-              binds = {
+              binds =
+                let
+                  commands = capabilities.commands or { };
+                  bind =
+                    bind: cmd:
+                    lib.optionalAttrs (commands.${cmd} or null != null) {
+                      ${bind}.action.spawn-sh = commands.${cmd};
+                    };
+                in
+                {
 
-                "Mod+Q".action.close-window = [ ];
-                "Mod+Shift+Return".action.fullscreen-window = [ ];
+                  "Mod+Q".action.close-window = [ ];
+                  "Mod+Shift+Return".action.fullscreen-window = [ ];
 
-                # TODO: compat aspects
-                "Mod+Space".action.spawn = "kitty";
-                "Mod+A".action.spawn-sh = "vicinae toggle";
+                  "Mod+Shift+S".action.screenshot = { };
 
-                "Mod+Shift+S".action.screenshot = { };
+                  "Mod+H".action.focus-column-left = [ ];
+                  "Mod+J".action.focus-window-or-workspace-down = [ ];
+                  "Mod+K".action.focus-window-or-workspace-up = [ ];
+                  "Mod+L".action.focus-column-right = [ ];
+                  "Mod+Shift+H".action.move-column-left = [ ];
+                  "Mod+Shift+J".action.move-window-down-or-to-workspace-down = [ ];
+                  "Mod+Shift+K".action.move-window-up-or-to-workspace-up = [ ];
+                  "Mod+Shift+L".action.move-column-right = [ ];
+                  "Mod+WheelScrollDown".action.focus-workspace-down = [ ];
+                  "Mod+WheelScrollUp".action.focus-workspace-up = [ ];
 
-                "Mod+H".action.focus-column-left = [ ];
-                "Mod+J".action.focus-window-or-workspace-down = [ ];
-                "Mod+K".action.focus-window-or-workspace-up = [ ];
-                "Mod+L".action.focus-column-right = [ ];
-                "Mod+Shift+H".action.move-column-left = [ ];
-                "Mod+Shift+J".action.move-window-down-or-to-workspace-down = [ ];
-                "Mod+Shift+K".action.move-window-up-or-to-workspace-up = [ ];
-                "Mod+Shift+L".action.move-column-right = [ ];
-                "Mod+WheelScrollDown".action.focus-workspace-down = [ ];
-                "Mod+WheelScrollUp".action.focus-workspace-up = [ ];
+                  "Mod+O".action.toggle-window-floating = [ ];
+                  "Mod+I".action.switch-preset-column-width = [ ];
+                  "Mod+Return".action.maximize-column = [ ];
 
-                "Mod+O".action.toggle-window-floating = [ ];
-                "Mod+I".action.switch-preset-column-width = [ ];
-                "Mod+Return".action.maximize-column = [ ];
+                  "Mod+Escape".action.toggle-overview = [ ];
+                }
+                // builtins.foldl' (acc: set: acc // set) { } [
+                  (bind "Mod+Space" "terminal")
+                  (bind "Mod+A" "launcher")
 
-                "Mod+Escape".action.toggle-overview = [ ];
+                  (bind "XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+")
+                  (bind "XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-")
+                  (bind "XF86AudioMute" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+                  (bind "XF86AudioMicMute" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
 
-                # TODO: compat aspects
-                "XF86AudioRaiseVolume".action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
-                "XF86AudioLowerVolume".action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
-                "XF86AudioMute".action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-                "XF86AudioMicMute".action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
-
-                # TODO: compat aspects
-                "XF86MonBrightnessUp".action.spawn-sh = "brightnessctl set 10%+";
-                "XF86MonBrightnessDown".action.spawn-sh = "brightnessctl set 10%-";
-              };
+                  (bind "XF86MonBrightnessUp" "brightnessctl set 10%+")
+                  (bind "XF86MonBrightnessDown" "brightnessctl set 10%-")
+                ];
             };
           };
         };
