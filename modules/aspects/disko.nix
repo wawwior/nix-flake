@@ -92,13 +92,8 @@
                     device = disk;
                     type = "disk";
                     content = {
-                      primary = {
-                        size = "100%";
-                        content = {
-                          type = "lvm_pv";
-                          vg = "pool";
-                        };
-                      };
+                      type = "lvm_pv";
+                      vg = "pool";
                     };
                   };
                 }) disks'
