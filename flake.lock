@@ -38,11 +38,11 @@
     },
     "flake-bundles": {
       "locked": {
-        "lastModified": 1788963200,
-        "narHash": "sha256-o2ZAtafg4Z0G9jWSnsIdVMUzlr7ljWlA1p9E85F+d6A=",
+        "lastModified": 1789070284,
+        "narHash": "sha256-+MsTQXjB37SB+ZKxS0YCqnzQyKzPVpwFTveL+/fK3Pw=",
         "owner": "wawwior",
         "repo": "flake-bundles",
-        "rev": "a767840788568f93b7e5f9aa4f773a6fd99ebada",
+        "rev": "dfae68155206646d15ff2eba55ed87437dde701a",
         "type": "github"
       },
       "original": {
