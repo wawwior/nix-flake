@@ -164,13 +164,13 @@
                   (bind "Mod+Space" "terminal")
                   (bind "Mod+A" "launcher")
 
-                  (bind "XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+")
-                  (bind "XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-")
-                  (bind "XF86AudioMute" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-                  (bind "XF86AudioMicMute" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
+                  (bind "XF86AudioRaiseVolume" "raiseVolume")
+                  (bind "XF86AudioLowerVolume" "lowerVolume")
+                  (bind "XF86AudioMute" "mute")
+                  (bind "XF86AudioMicMute" "micMute")
 
-                  (bind "XF86MonBrightnessUp" "brightnessctl set 10%+")
-                  (bind "XF86MonBrightnessDown" "brightnessctl set 10%-")
+                  (bind "XF86MonBrightnessUp" "brightnessUp")
+                  (bind "XF86MonBrightnessDown" "brightnessDown")
                 ];
             };
           };

@@ -13,5 +13,13 @@
         qpwgraph
       ];
     };
+    home = {
+      capabilities.commands = {
+        raiseVolume = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
+        lowerVolume = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
+        mute = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        micMute = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+      };
+    };
   };
 }
