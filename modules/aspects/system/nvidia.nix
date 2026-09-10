@@ -7,6 +7,7 @@
       ...
     }:
     {
+      name = "nvidia";
 
       nixos =
         { config, ... }:

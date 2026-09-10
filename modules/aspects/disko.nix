@@ -18,6 +18,8 @@
       disks' = lib.drop 1 disks;
     in
     {
+      name = "disko";
+
       nixos = {
         imports = [
           inputs.disko.nixosModules.disko

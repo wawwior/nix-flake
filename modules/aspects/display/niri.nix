@@ -15,6 +15,8 @@
       ...
     }:
     {
+      name = "niri";
+
       nixos = { pkgs, ... }: {
         imports = [ inputs.niri-flake.nixosModules.niri ];
         niri-flake.cache.enable = false;
