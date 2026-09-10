@@ -51,7 +51,8 @@
         };
         extensions = with pkgs.vicinae-extensions; [
           nix
-          bluetooth
+          # TODO: PR
+          # bluetooth
           pulseaudio
           power-profile
         ];
