@@ -1,10 +1,12 @@
-{
+{ config, ... }: {
 
   flake-bundles.bundles.hermes = {
     users = {
       root = {
-        keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE7waydMiBAzBnktyhdNijO7BOHOC9P28Q77YeuIblHJ"
+        aspects = with config.flake.aspects; [
+          # user aspects
+          wheel
+          keys
         ];
       };
     };
