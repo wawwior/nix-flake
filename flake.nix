@@ -28,6 +28,7 @@
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-secrets.url = "git+file:/home/wawwior/projects/nix/secrets-flake?rev=98193909e888322e74f0739fc3dff94aca1e0b0d";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     vicinae = {
       url = "github:vicinaehq/vicinae";

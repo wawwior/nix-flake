@@ -21,15 +21,19 @@
         name = "hermes";
         version = "26.11";
       })
+
       (disko {
         disks = [
           "/dev/vda"
         ];
         swap = "4G";
       })
+
       (facter ./hermes/facter.json)
 
       # trivial aspects
+
+      inputs.nix-secrets.aspects.hermes
 
       helix
     ];
