@@ -3,11 +3,16 @@
   flake-file.inputs = {
     vicinae = {
       url = "github:vicinaehq/vicinae";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
-      inputs.vicinae.follows = "vicinae";
+      inputs = {
+        vicinae.follows = "vicinae";
+        nixpkgs.follows = "vicinae/nixpkgs";
+        systems.follows = "vicinae/systems";
+      };
     };
   };
 

@@ -29,10 +29,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    vicinae.url = "github:vicinaehq/vicinae";
+    vicinae = {
+      url = "github:vicinaehq/vicinae";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
-      inputs.vicinae.follows = "vicinae";
+      inputs = {
+        nixpkgs.follows = "vicinae/nixpkgs";
+        systems.follows = "vicinae/systems";
+        vicinae.follows = "vicinae";
+      };
     };
   };
 }
