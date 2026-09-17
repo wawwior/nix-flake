@@ -1,16 +1,37 @@
 {
   "nodes": {
+    "dendritic": {
+      "inputs": {
+        "flake-aspects": "flake-aspects",
+        "flake-parts": [
+          "flake-parts"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789684949,
+        "narHash": "sha256-zDaZem8zLHePpuGkMQ8dr02hz4hfGaczwxemgxVuNBo=",
+        "owner": "wawwior",
+        "repo": "dendritic",
+        "rev": "53ee18fee503769c0427345c628ff5dce2db3707",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wawwior",
+        "repo": "dendritic",
+        "type": "github"
+      }
+    },
     "flake-aspects": {
       "locked": {
         "lastModified": 1788209328,
         "narHash": "sha256-LTU8Ea+VbDtPtOFOAufZHe+cW1ISdEt96Au0+cIUZ4Y=",
-        "owner": "vic",
+        "owner": "denful",
         "repo": "flake-aspects",
         "rev": "e5bbf7be955e8289d545c783673808b18d48c780",
         "type": "github"
       },
       "original": {
-        "owner": "vic",
+        "owner": "denful",
         "repo": "flake-aspects",
         "type": "github"
       }
@@ -83,7 +104,7 @@
     },
     "root": {
       "inputs": {
-        "flake-aspects": "flake-aspects",
+        "dendritic": "dendritic",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",

@@ -4,7 +4,10 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    flake-aspects.url = "github:vic/flake-aspects";
+    dendritic = {
+      url = "github:wawwior/dendritic";
+      inputs.flake-parts.follows = "flake-parts";
+    };
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

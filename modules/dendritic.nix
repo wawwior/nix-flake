@@ -9,12 +9,17 @@
     import-tree.url = "github:vic/import-tree";
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-aspects.url = "github:vic/flake-aspects";
+    dendritic = {
+      url = "github:wawwior/dendritic";
+      inputs = lib.genAttrs [ "flake-parts" ] (input: {
+        follows = input;
+      });
+    };
   };
 
   imports = [
     inputs.flake-file.flakeModules.default
-    inputs.flake-aspects.flakeModule
+    inputs.dendritic.flakeModule
   ];
 
   flake-file.outputs = "dendritic";
