@@ -5,14 +5,17 @@
         "flake-aspects": "flake-aspects",
         "flake-parts": [
           "flake-parts"
+        ],
+        "import-tree": [
+          "import-tree"
         ]
       },
       "locked": {
-        "lastModified": 1789684949,
-        "narHash": "sha256-zDaZem8zLHePpuGkMQ8dr02hz4hfGaczwxemgxVuNBo=",
+        "lastModified": 1789763974,
+        "narHash": "sha256-I1wJN/LNWR9ceaHLnsp9dsy6ggn308RtTs+pTFUvu7M=",
         "owner": "wawwior",
         "repo": "dendritic",
-        "rev": "53ee18fee503769c0427345c628ff5dce2db3707",
+        "rev": "a6365107ecc0724cc951bd708a0844dd6264d3f7",
         "type": "github"
       },
       "original": {

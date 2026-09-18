@@ -6,7 +6,10 @@
   inputs = {
     dendritic = {
       url = "github:wawwior/dendritic";
-      inputs.flake-parts.follows = "flake-parts";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        import-tree.follows = "import-tree";
+      };
     };
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
