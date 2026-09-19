@@ -11,11 +11,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789763974,
-        "narHash": "sha256-I1wJN/LNWR9ceaHLnsp9dsy6ggn308RtTs+pTFUvu7M=",
+        "lastModified": 1789780546,
+        "narHash": "sha256-Qa6V7pDTXqbvmOYAG9JAFmQrTX2vw9xoeqF0lGteKuo=",
         "owner": "wawwior",
         "repo": "dendritic",
-        "rev": "a6365107ecc0724cc951bd708a0844dd6264d3f7",
+        "rev": "5109fb4a28377018eeb3415d5dac14a1a51d03a7",
         "type": "github"
       },
       "original": {
