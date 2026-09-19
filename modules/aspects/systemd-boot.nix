@@ -1,5 +1,5 @@
 {
-  flake.aspects.bootable = {
+  flake.aspects.systemd-boot = {
     nixos = { pkgs, ... }: {
       boot = {
         loader = {
