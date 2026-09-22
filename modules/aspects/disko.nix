@@ -12,10 +12,24 @@
       disks ? [ ],
       swap ? null,
       efi ? true,
+      luks ? false,
     }:
     let
       boot = builtins.head disks;
       disks' = lib.drop 1 disks;
+      maybeLuks =
+        name: content:
+        if luks then
+          {
+            type = "luks";
+            name = "crypt-${baseNameOf name}";
+            settings = {
+              allowDiscards = true;
+            };
+            inherit content;
+          }
+        else
+          content;
     in
     {
       name = "disko";
@@ -31,7 +45,7 @@
               type = "lvm_vg";
               lvs = {
                 root = {
-                  size = "100%FREE";
+                  size = "100%";
                   content = {
                     type = "filesystem";
                     format = "ext4";
@@ -39,6 +53,14 @@
                     mountOptions = [
                       "defaults"
                     ];
+                  };
+                };
+                swap = lib.mkIf (swap != null) {
+                  size = swap;
+                  content = {
+                    type = "swap";
+                    discardPolicy = "both";
+                    resumeDevice = true;
                   };
                 };
               };
@@ -69,17 +91,9 @@
                           mountOptions = [ "umask=0077" ];
                         };
                       };
-                      swap = lib.mkIf (swap != null) {
-                        size = swap;
-                        content = {
-                          type = "swap";
-                          discardPolicy = "both";
-                          resumeDevice = true;
-                        };
-                      };
                       primary = {
                         size = "100%";
-                        content = {
+                        content = maybeLuks boot {
                           type = "lvm_pv";
                           vg = "pool";
                         };
@@ -93,7 +107,7 @@
                   ${disk} = {
                     device = disk;
                     type = "disk";
-                    content = {
+                    content = maybeLuks disk {
                       type = "lvm_pv";
                       vg = "pool";
                     };
