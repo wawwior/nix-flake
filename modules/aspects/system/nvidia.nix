@@ -1,16 +1,21 @@
 { lib, ... }: {
   flake.aspects.nvidia =
     {
-      latest ? false,
+      package ? "default",
       open ? false,
       prime ? null,
-      ...
     }:
     {
       name = "nvidia";
 
       nixos =
         { config, ... }:
+        let
+          packages = {
+            latest = config.boot.kernelPackages.nvidiaPackages.latest;
+            legacy = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+          };
+        in
         {
           services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -18,7 +23,7 @@
 
           hardware.nvidia = {
             inherit open;
-            package = lib.mkIf latest config.boot.kernelPackages.nvidiaPackages.latest;
+            package = lib.mkIf (package != "default") packages.${package};
             modesetting.enable = true;
             prime = lib.mkIf (prime != null) {
               intelBusId = prime.intel;
