@@ -191,24 +191,46 @@
 
       nixos = {
 
-        imports = [
-          inputs.disko.nixosModules.disko
-          inputs.preservation.nixosModules.default
-        ];
-
-        preservation.enable = impermanence;
+        imports = [ inputs.disko.nixosModules.disko ];
 
         disko = {
           inherit devices;
         };
-
-        fileSystems = lib.mkIf impermanence {
-          "/nix".neededForBoot = true;
-          "/persist".neededForBoot = true;
-        };
       };
 
-      includes = lib.mkIf impermanence [
+      includes = lib.optionals impermanence [
+        {
+          nixos = {
+
+            imports = [ inputs.preservation.nixosModules.default ];
+
+            preservation.enable = true;
+
+            fileSystems = {
+              "/nix".neededForBoot = true;
+              "/persist".neededForBoot = true;
+            };
+
+            services.openssh.hostKeys = [
+              {
+                type = "ed25519";
+                path = "/persist/etc/ssh/ssh_host_ed25519_key";
+              }
+            ];
+          };
+
+          preserve = {
+            directories = [
+              "/var/log"
+            ];
+            files = [
+              {
+                file = "/etc/machine-id";
+                inInitrd = true;
+              }
+            ];
+          };
+        }
         (
           { class, aspect-chain }:
           inputs.dendritic.lib.aspects.forward {
