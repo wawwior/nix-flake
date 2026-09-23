@@ -25,6 +25,8 @@
             name = "crypt-${baseNameOf name}";
             settings = {
               allowDiscards = true;
+              # deployment
+              passwordFile = "/tmp/${baseNameOf name}.key";
             };
             inherit content;
           }
