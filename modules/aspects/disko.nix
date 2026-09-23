@@ -230,6 +230,8 @@
               }
             ];
           };
+
+          systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
         }
         (
           { class, aspect-chain }:
