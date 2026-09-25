@@ -7,7 +7,7 @@
 
   flake.aspects.vicinae = {
     nixos = {
-      nixpkgs.config.overlays = [
+      nixpkgs.overlays = [
         inputs.vicinae.overlays.default
         (final: prev: {
           vicinae-extensions = inputs.vicinae-extensions.packages.${final.stdenv.hostPlatform.system};

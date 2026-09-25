@@ -14,7 +14,7 @@
 
       nixos = { pkgs, ... }: {
         imports = [ inputs.niri-flake.nixosModules.niri ];
-        nixpkgs.config.overlays = [ inputs.niri-flake.overlays.niri ];
+        nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
         niri-flake.cache.enable = false;
         programs.niri = {
           enable = true;
