@@ -1,4 +1,5 @@
-{ inputs, lib, ... }: {
+{ inputs, lib, ... }:
+{
 
   flake-file.inputs = {
     niri-flake.url = "github:epireyn/niri-flake";
