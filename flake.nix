@@ -25,6 +25,10 @@
     import-tree = {
       url = "github:vic/import-tree";
     };
+    niri-flake = {
+      url = "github:epireyn/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
