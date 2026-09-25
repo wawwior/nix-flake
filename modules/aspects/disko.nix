@@ -20,9 +20,11 @@
       disks ? [ ],
       swap ? null,
       efi ? true,
+      esp-size ? "500M",
       luks ? false,
       file-system ? "auto",
       impermanence ? false,
+      single-key ? true,
     }:
     let
       boot = builtins.head disks;
@@ -75,7 +77,7 @@
         };
         esp = {
           name = "ESP";
-          size = "500M";
+          size = esp-size;
           type = "EF00";
           content = {
             type = "filesystem";
@@ -90,7 +92,7 @@
         type = "luks";
         name = "crypt-${baseNameOf name}";
         # deployment
-        passwordFile = "/tmp/${baseNameOf name}.key";
+        passwordFile = "/tmp/${if single-key then "luks" else (baseNameOf name)}.key";
         settings = {
           allowDiscards = true;
         };
