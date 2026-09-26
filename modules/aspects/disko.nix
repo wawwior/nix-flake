@@ -214,6 +214,12 @@
                 path = "/persist/etc/ssh/ssh_host_ed25519_key";
               }
             ];
+
+            security.sudo.extraConfig = ''
+              Defaults lecture = never
+            '';
+
+            systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
           };
 
           preserve = {
@@ -227,8 +233,6 @@
               }
             ];
           };
-
-          systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
         }
         (
           { class, aspect-chain }:
