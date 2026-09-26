@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ self, inputs, ... }: {
 
   flake-file.inputs = {
     vicinae.url = "github:vicinaehq/vicinae";
@@ -21,8 +21,6 @@
       imports = [
         inputs.vicinae.homeManagerModules.default
       ];
-
-      capabilities.commands.launcher = "vicinae toggle";
 
       programs.vicinae = {
         enable = true;
@@ -55,5 +53,15 @@
         pkgs.pulseaudio
       ];
     };
+    compat.provides = [
+      {
+        target = self.aspects.capabilities;
+        aspect = {
+          home = {
+            capabilities.commands.launcher = "vicinae toggle";
+          };
+        };
+      }
+    ];
   };
 }

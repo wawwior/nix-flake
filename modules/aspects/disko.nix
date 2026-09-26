@@ -1,4 +1,5 @@
 {
+  self,
   inputs,
   lib,
   ...
@@ -221,6 +222,20 @@
 
             systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
           };
+
+          compat.provides = [
+            {
+              target = self.aspects.capabilities;
+              aspect = {
+                nixos = {
+                  capabilities.impermanence = true;
+                };
+                home = {
+                  capabilities.impermanence = true;
+                };
+              };
+            }
+          ];
 
           preserve = {
             directories = [

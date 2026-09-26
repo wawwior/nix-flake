@@ -1,7 +1,6 @@
-{
+{ self, ... }: {
   flake.aspects.kitty = {
     home = {
-      capabilities.commands.terminal = "kitty";
       programs.kitty = {
         enable = true;
         keybindings = {
@@ -10,5 +9,15 @@
         };
       };
     };
+    compat.provides = [
+      {
+        target = self.aspects.capabilities;
+        aspect = {
+          home = {
+            capabilities.commands.terminal = "kitty";
+          };
+        };
+      }
+    ];
   };
 }

@@ -49,7 +49,11 @@
             scale = 1.0;
           };
         in
-        { capabilities, ... }: {
+        {
+          capabilities ? { },
+          ...
+        }:
+        {
           programs.niri = {
             settings = {
               outputs = builtins.mapAttrs (
