@@ -1,19 +1,5 @@
-{ self, lib, ... }: {
+{ lib, ... }: {
   flake.aspects.tuigreet = {
-    compat.provides = [
-      {
-        target = self.aspects.capabilities;
-        aspect.compat.provides = [
-          {
-            target = self.aspects.niri;
-            aspect.nixos = {
-              # TODO: priorities, eventually
-              capabilities.tuigreet-cmd = "niri-session";
-            };
-          }
-        ];
-      }
-    ];
     nixos =
       {
         pkgs,
@@ -23,6 +9,7 @@
       {
         services.greetd = {
           enable = true;
+          useTextGreeter = true;
           settings = {
             default_session = {
               command = lib.concatStringsSep " " [
