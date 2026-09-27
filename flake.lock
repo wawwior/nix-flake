@@ -251,6 +251,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790523212,
+        "narHash": "sha256-Z8SuI0YgAZaF0sumKPBF85PxPtTjpo8jvtphbgoITv8=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "08c30392b1350b4f3d3fb77e23732560559f1638",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "type": "github"
+      }
+    },
     "numen": {
       "inputs": {
         "nixpkgs": [
@@ -298,6 +318,7 @@
         "import-tree": "import-tree",
         "niri-flake": "niri-flake",
         "nixpkgs": "nixpkgs",
+        "noctalia": "noctalia",
         "preservation": "preservation",
         "vicinae": "vicinae",
         "vicinae-extensions": "vicinae-extensions"
