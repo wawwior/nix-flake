@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ self, inputs, ... }: {
   flake-file.inputs = {
     noctalia = {
       url = "github:noctalia-dev/noctalia";
@@ -7,6 +7,13 @@
   };
 
   flake.aspects.noctalia = {
+    compat.provides = [
+      {
+        target = self.aspects.niri;
+        aspect = self.aspects.noctalia-niri;
+      }
+    ];
+
     nixos = {
       imports = [ inputs.noctalia.nixosModules.default ];
       programs.noctalia.enable = true;
