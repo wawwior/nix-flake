@@ -27,7 +27,7 @@
 
           systemPackages = with pkgs; [
             xwayland-satellite
-            wl-clipboard
+            wl-clipboard-rs
           ];
         };
       };
@@ -61,10 +61,10 @@
               ) outputs;
 
               gestures = {
-                hot-corners.enable = false;
+                hot-corners.enable = lib.mkDefault false;
               };
 
-              prefer-no-csd = true;
+              prefer-no-csd = lib.mkDefault true;
 
               input = {
                 focus-follows-mouse = {
@@ -72,12 +72,10 @@
                   max-scroll-amount = "1%";
                 };
                 mouse = {
-                  accel-speed = 0.0;
-                  accel-profile = "flat";
+                  accel-speed = lib.mkDefault 0.0;
                 };
-                keyboard.xkb = {
-                  layout = "de";
-                  variant = "nodeadkeys";
+                touchpad = {
+                  accel-speed = lib.mkDefault 0.0;
                 };
               };
 
@@ -90,29 +88,12 @@
                   { proportion = 1. / 2.; }
                   { proportion = 2. / 3.; }
                 ];
-                border = {
-                  width = 2;
-                };
-                gaps = 2;
-                struts = {
-                  left = 2;
-                  right = 2;
-                  bottom = 2;
-                  top = 2;
-                };
               };
 
               screenshot-path = "~/media/images/screenshots/screenshot+%Y-%m-%d+%H-%M-%S";
 
               window-rules = [
                 {
-                  geometry-corner-radius = {
-                    bottom-left = 7.0;
-                    bottom-right = 7.0;
-                    top-left = 7.0;
-                    top-right = 7.0;
-                  };
-                  clip-to-geometry = true;
                   open-maximized = true;
                 }
                 # TODO: uhh all terminals? (capability?)

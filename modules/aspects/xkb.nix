@@ -1,21 +1,33 @@
-{ lib, ... }: {
+{ self, lib, ... }: {
   flake.aspects.xkb =
-    layout:
+    layout':
     let
-      layout' = builtins.head (lib.splitString "-" layout);
-      variant = lib.removePrefix "${layout'}-" layout;
+      layout = builtins.head (lib.splitString "-" layout');
+      variant = lib.removePrefix "${layout'}-" layout';
+      xkb = {
+        inherit layout variant;
+      };
     in
     {
       nixos = {
 
-        services.xserver = {
-          xkb = {
-            layout = layout';
-            inherit variant;
-          };
-        };
+        services.xserver = { inherit xkb; };
 
         console.useXkbConfig = true;
       };
+      compat.provides = [
+        {
+          target = self.niri;
+          aspect = {
+            home = {
+              programs.niri = {
+                settings = {
+                  input.keyboard = { inherit xkb; };
+                };
+              };
+            };
+          };
+        }
+      ];
     };
 }
