@@ -17,7 +17,7 @@
       };
       compat.provides = [
         {
-          target = self.niri;
+          target = self.aspects.niri;
           aspect = {
             home = {
               programs.niri = {
