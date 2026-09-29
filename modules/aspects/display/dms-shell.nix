@@ -98,11 +98,13 @@
       {
         target = self.aspects.niri;
         aspect = {
+          nixos = {
+            systemd.user.services.niri-flake-polkit.enable = false;
+          };
           home = {
             imports = [
-              inputs.dms.homeModules.dank-material-shell
+              inputs.dms.homeModules.niri
             ];
-            systemd.user.services.niri-flake-polkit.enable = false;
             programs = {
               dank-material-shell = {
                 systemd.enable = false;
