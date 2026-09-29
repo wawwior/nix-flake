@@ -333,6 +333,7 @@
               dank-material-shell = {
                 systemd.enable = false;
                 niri = {
+                  includes.enable = false;
                   enableKeybinds = false;
                   enableSpawn = true;
                 };
@@ -340,9 +341,33 @@
               niri.settings = {
                 window-rules = [
                   {
+                    geometry-corner-radius = 16;
+                    clip-to-geometry = true;
+                    tiled-state = true;
                     draw-border-with-background = false;
                   }
+                  {
+                    match = {
+                      app-id = "^com.danklinux.dms$";
+                    };
+                    background-effect.xray = false;
+                  }
                 ];
+                layer-rules = [
+                  {
+                    background-effect.xray = false;
+                  }
+                ];
+                recent-windows.highlight.corner-radius = 16;
+                layout = {
+                  gaps = 4;
+                  border = {
+                    width = 4;
+                  };
+                  focus-ring = {
+                    width = 2;
+                  };
+                };
               };
             };
           };
