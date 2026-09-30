@@ -14,6 +14,11 @@
         inputs.dms.nixosModules.dank-material-shell
       ];
 
+      services = {
+        upower.enable = true;
+        power-profiles-daemon.enable = true;
+      };
+
       programs.dank-material-shell = {
         lockscreen.securityKey.enable = true;
       };
@@ -127,7 +132,7 @@
                   id = "power";
                 }
                 {
-                  enabled = false;
+                  enabled = true;
                   id = "settings";
                 }
                 {
