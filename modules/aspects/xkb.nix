@@ -1,16 +1,14 @@
 { self, lib, ... }: {
   flake.aspects.xkb =
-    layout':
+    layout:
     let
-      layout = builtins.head (lib.splitString "-" layout');
-      variant = lib.removePrefix "${layout'}-" layout';
       xkb = {
-        inherit layout variant;
+        layout = builtins.head (lib.splitString "-" layout);
+        variant = lib.removePrefix "${xkb.layout}-" layout;
       };
     in
     {
       nixos = {
-
         services.xserver = { inherit xkb; };
 
         console.useXkbConfig = true;
