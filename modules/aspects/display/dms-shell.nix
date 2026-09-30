@@ -9,15 +9,14 @@
     dms.url = "github:AvengeMedia/DankMaterialShell";
   };
   flake.aspects.dms-shell = {
+    includes = with self.aspects; [
+      upower
+      power-profiles-daemon
+    ];
     nixos = {
       imports = [
         inputs.dms.nixosModules.dank-material-shell
       ];
-
-      services = {
-        upower.enable = true;
-        power-profiles-daemon.enable = true;
-      };
 
       programs.dank-material-shell = {
         lockscreen.securityKey.enable = true;
@@ -38,10 +37,11 @@
           appDrawerSectionViewModes = {
             apps = "list";
           };
+          audioVisualizerEnabled = false;
           avatarRing = "none";
           barConfigs = [
             {
-              autoHide = true;
+              autoHide = false;
               autoHideDelay = 250;
               barLengthMode = "full";
               borderColor = "surfaceText";
@@ -65,7 +65,11 @@
                   showOccupiedWorkspacesOnly = true;
                   workspaceIndicatorStyle = "pills";
                 }
-                "music"
+                {
+                  enabled = true;
+                  id = "music";
+                  mediaSize = 2;
+                }
               ];
               name = "Main Bar";
               noBackground = false;
@@ -85,7 +89,7 @@
               spacing = 4;
               squareCorners = false;
               transparency = 1;
-              useOverlayLayer = true;
+              useOverlayLayer = false;
               visible = true;
               widgetFollowInterfaceStyle = true;
               widgetTransparency = 1;
@@ -94,6 +98,7 @@
           barElevationEnabled = false;
           blurBorderSeeded = true;
           blurEnabled = true;
+          blurWallpaperOnOverview = true;
           builtInPluginSettings = {
             dms_clipboard_search = {
               trigger = "cb";
@@ -112,12 +117,14 @@
           controlCenterWidgets = [
             {
               background = true;
-              badge = true;
+              badge = false;
+              col = 0;
               compositor = false;
               enabled = true;
               h = 1.5;
               hostname = true;
               id = "userCard";
+              row = 0;
               uptime = true;
               w = 6.5;
             }
@@ -140,58 +147,76 @@
                   id = "edit";
                 }
               ];
+              col = 6.5;
               enabled = true;
               h = 1.5;
               id = "quickActions";
               powerAccent = false;
+              row = 0;
               w = 1.5;
             }
             {
+              col = 0;
               enabled = true;
               h = 1;
               id = "volumeSlider";
+              row = 1.5;
               w = 4;
             }
             {
+              col = 4;
               enabled = true;
               h = 1;
               id = "brightnessSlider";
+              row = 1.5;
               w = 4;
             }
             {
+              col = 4;
               enabled = true;
               h = 1;
               id = "wifi";
+              row = 2.5;
               w = 4;
             }
             {
+              col = 0;
               enabled = true;
               h = 1;
               id = "bluetooth";
+              row = 2.5;
               w = 4;
             }
             {
+              col = 4;
               enabled = true;
               h = 1;
               id = "audioOutput";
+              row = 3.5;
               w = 4;
             }
             {
+              col = 0;
               enabled = true;
               h = 1;
               id = "audioInput";
+              row = 3.5;
               w = 4;
             }
             {
+              col = 4;
               enabled = true;
               h = 1;
               id = "nightMode";
+              row = 4.5;
               w = 4;
             }
             {
+              col = 0;
               enabled = true;
               h = 1;
               id = "doNotDisturb";
+              row = 4.5;
               w = 4;
             }
           ];
@@ -221,6 +246,10 @@
           dashOptions = {
             clock = {
               seconds = true;
+            };
+            media = {
+              albumArtBackdrop = false;
+              titleFont = "ui";
             };
             notifications = {
               panelRows = 4;
@@ -319,12 +348,13 @@
             }
           ];
           foregroundLayerTransparency = 0.5;
+          lockScreenShowWeather = false;
           networkPreference = "ethernet";
           niriOverviewOverlayEnabled = false;
           popupTransparency = 0.65;
           screenPreferences = {
             lockScreen = [ "all" ];
-            wallpaper = [ ];
+            wallpaper = [ "all" ];
           };
         };
       };
@@ -375,6 +405,17 @@
                   {
                     background-effect.xray = false;
                   }
+                  {
+                    matches = [
+                      {
+                        namespace = "dms:blurwallpaper";
+                      }
+                      {
+                        namespace = "quickshell";
+                      }
+                    ];
+                    place-within-backdrop = true;
+                  }
                 ];
                 recent-windows.highlight.corner-radius = 16;
                 layout = {
@@ -385,6 +426,7 @@
                   focus-ring = {
                     width = 2;
                   };
+                  background-color = "transparent";
                 };
               };
             };
