@@ -1,4 +1,10 @@
-{ self, inputs, ... }: {
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
+{
   flake-file.inputs = {
     dms.url = "github:AvengeMedia/DankMaterialShell";
   };
@@ -341,15 +347,22 @@
               niri.settings = {
                 window-rules = [
                   {
-                    geometry-corner-radius = 16;
+                    geometry-corner-radius = lib.genAttrs [
+                      "bottom-left"
+                      "bottom-right"
+                      "top-left"
+                      "top-right"
+                    ] (_: 16.0);
                     clip-to-geometry = true;
                     tiled-state = true;
                     draw-border-with-background = false;
                   }
                   {
-                    match = {
-                      app-id = "^com.danklinux.dms$";
-                    };
+                    matches = [
+                      {
+                        app-id = "^com.danklinux.dms$";
+                      }
+                    ];
                     background-effect.xray = false;
                   }
                 ];
