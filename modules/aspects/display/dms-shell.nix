@@ -13,7 +13,20 @@
         inputs.dms.nixosModules.dank-material-shell
       ];
 
+      systemd.user.services.dms-daemon = {
+        enable = true;
+        after = [ "multi-user.target" ];
+        wantedBy = [ "graphical.target" ];
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = "dms run -d";
+        };
+      };
+
       programs.dank-material-shell = {
+        enable = true;
+        enableVPN = false;
+        enableAudioWavelength = false;
         lockscreen.securityKey.enable = true;
       };
     };
