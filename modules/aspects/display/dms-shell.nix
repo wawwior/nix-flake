@@ -55,6 +55,13 @@
               leftWidgets = [
                 {
                   enabled = true;
+                  id = "launcherButton";
+                  launcherLogoColorOverride = "";
+                  launcherLogoMode = "os";
+                  launcherLogoSizeOffset = 2;
+                }
+                {
+                  enabled = true;
                   id = "workspaceSwitcher";
                   showOccupiedWorkspacesOnly = true;
                   workspaceIndicatorStyle = "pills";
@@ -95,16 +102,35 @@
           blurWallpaperOnOverview = true;
           builtInPluginSettings = {
             dms_clipboard_search = {
+              enabled = false;
               trigger = "cb";
             };
+            dms_colorpicker = {
+              enabled = false;
+            };
+            dms_notepad = {
+              enabled = false;
+            };
             dms_power = {
+              enabled = false;
               trigger = "pw";
             };
             dms_qr_generator = {
+              enabled = false;
               trigger = "qrg";
             };
+            dms_settings = {
+              enabled = false;
+            };
             dms_settings_search = {
+              enabled = false;
               trigger = "?";
+            };
+            dms_sysmon = {
+              enabled = false;
+            };
+            dms_vpn = {
+              enabled = false;
             };
           };
           configVersion = 34;
@@ -344,9 +370,29 @@
             }
           ];
           foregroundLayerTransparency = 0.5;
+          launcherPluginVisibility = {
+            dms_clipboard_search = {
+              allowWithoutTrigger = false;
+            };
+            dms_power = {
+              allowWithoutTrigger = false;
+            };
+            dms_qr_generator = {
+              allowWithoutTrigger = false;
+            };
+            dms_settings_search = {
+              allowWithoutTrigger = false;
+            };
+            dms_vpn = {
+              allowWithoutTrigger = false;
+            };
+          };
+          launcherStyle = "spotlight";
           lockScreenShowWeather = false;
           matugenSpec = "2025";
+          modalDarkenBackground = false;
           networkPreference = "ethernet";
+          niriOverviewLauncherStyle = "spotlight";
           popupTransparency = 0.7;
           screenPreferences = {
             lockScreen = [ "all" ];
@@ -356,6 +402,14 @@
       };
     };
     compat.provides = [
+      {
+        target = self.aspects.capabilities;
+        aspect = {
+          home = {
+            capabilities.commands.launcher = "dms ipc call spotlight toggle";
+          };
+        };
+      }
       {
         target = self.aspects.niri;
         aspect = {
@@ -395,14 +449,6 @@
                 layer-rules = [
                   {
                     background-effect.xray = false;
-                  }
-                  {
-                    matches = [
-                      {
-                        namespace = "dms:blurwallpaper";
-                      }
-                    ];
-                    place-within-backdrop = true;
                   }
                 ];
               };
