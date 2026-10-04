@@ -30,7 +30,6 @@
       programs.dank-material-shell = {
         enable = true;
         enableVPN = false;
-        enableDynamicTheming = false;
         enableAudioWavelength = false;
 
         settings = {
