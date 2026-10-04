@@ -351,7 +351,6 @@
           lockScreenShowWeather = false;
           networkPreference = "ethernet";
           niriOverviewOverlayEnabled = false;
-          popupTransparency = 0.65;
           screenPreferences = {
             lockScreen = [ "all" ];
             wallpaper = [ "all" ];
