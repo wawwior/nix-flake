@@ -450,6 +450,15 @@
                   {
                     background-effect.xray = false;
                   }
+                  {
+                    matches = [
+                      {
+                        namespace = "quickshell";
+                      }
+                    ];
+
+                    place-within-backdrop = true;
+                  }
                 ];
               };
             };
