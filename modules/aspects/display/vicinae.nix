@@ -36,16 +36,12 @@
               name = "stylix";
             };
           };
-          launcher_window = {
-            opacity = 1.0;
-          };
         };
         extensions = with pkgs.vicinae-extensions; [
           nix
           # TODO: PR
           # bluetooth
           pulseaudio
-          power-profile
         ];
       };
 
