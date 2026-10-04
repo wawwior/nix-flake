@@ -1,9 +1,4 @@
-{
-  self,
-  inputs,
-  lib,
-  ...
-}:
+{ self, inputs, ... }:
 {
   flake-file.inputs = {
     dms.url = "github:AvengeMedia/DankMaterialShell";
@@ -219,6 +214,8 @@
               w = 4;
             }
           ];
+          currentThemeCategory = "dynamic";
+          currentThemeName = "dynamic";
           dashCards = [
             {
               col = 0;
@@ -348,8 +345,9 @@
           ];
           foregroundLayerTransparency = 0.5;
           lockScreenShowWeather = false;
+          matugenSpec = "2025";
           networkPreference = "ethernet";
-          niriOverviewOverlayEnabled = false;
+          popupTransparency = 0.7;
           screenPreferences = {
             lockScreen = [ "all" ];
             wallpaper = [ "all" ];
@@ -370,35 +368,30 @@
             ];
             programs = {
               dank-material-shell = {
-                systemd.enable = false;
+                systemd = {
+                  enable = true;
+                  restartIfChanged = true;
+                };
                 niri = {
-                  includes.enable = false;
                   enableKeybinds = false;
-                  enableSpawn = true;
+                  enableSpawn = false;
+                  includes = {
+                    enable = true;
+
+                    override = true;
+                    filesToInclude = [
+                      "alttab"
+                      "colors"
+                      "cursor"
+                      "layout"
+                      "outputs"
+                      "windowrules"
+                      "wpblur"
+                    ];
+                  };
                 };
               };
               niri.settings = {
-                window-rules = [
-                  {
-                    geometry-corner-radius = lib.genAttrs [
-                      "bottom-left"
-                      "bottom-right"
-                      "top-left"
-                      "top-right"
-                    ] (_: 16.0);
-                    clip-to-geometry = true;
-                    tiled-state = true;
-                    draw-border-with-background = false;
-                  }
-                  {
-                    matches = [
-                      {
-                        app-id = "^com.danklinux.dms$";
-                      }
-                    ];
-                    background-effect.xray = false;
-                  }
-                ];
                 layer-rules = [
                   {
                     background-effect.xray = false;
@@ -408,24 +401,10 @@
                       {
                         namespace = "dms:blurwallpaper";
                       }
-                      {
-                        namespace = "quickshell";
-                      }
                     ];
                     place-within-backdrop = true;
                   }
                 ];
-                recent-windows.highlight.corner-radius = 16;
-                layout = {
-                  gaps = 4;
-                  border = {
-                    width = 4;
-                  };
-                  focus-ring = {
-                    width = 2;
-                  };
-                  background-color = "transparent";
-                };
               };
             };
           };
