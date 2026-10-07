@@ -457,51 +457,91 @@
         target = self.aspects.niri;
         aspect = {
           nixos = {
-            systemd.user.services.niri-flake-polkit.enable = false;
-          };
-          home = {
-            imports = [
-              inputs.dms.homeModules.niri
-            ];
-            programs = {
-              dank-material-shell = {
-                niri = {
-                  enableKeybinds = false;
-                  enableSpawn = false;
-                  includes = {
-                    enable = true;
-
-                    override = true;
-                    filesToInclude = [
-                      "alttab"
-                      "colors"
-                      "cursor"
-                      "layout"
-                      "outputs"
-                      "windowrules"
-                      "wpblur"
-                    ];
-                  };
-                };
-              };
-              niri.settings = {
-                layer-rules = [
-                  {
-                    background-effect.xray = false;
-                  }
-                  {
-                    matches = [
-                      {
-                        namespace = "quickshell";
-                      }
-                    ];
-
-                    place-within-backdrop = true;
-                  }
-                ];
-              };
+            systemd.user.services = {
+              niri-flake-polkit.enable = false;
             };
           };
+          home =
+            {
+              pkgs,
+              capabilities ? { },
+              ...
+            }:
+            {
+              imports = [
+                inputs.dms.homeModules.niri
+              ];
+              programs = {
+                dank-material-shell = {
+                  niri = {
+                    enableKeybinds = false;
+                    enableSpawn = false;
+                    includes = {
+                      enable = true;
+
+                      override = true;
+                      filesToInclude = [
+                        "alttab"
+                        "colors"
+                        "cursor"
+                        "layout"
+                        "outputs"
+                        "windowrules"
+                        "wpblur"
+                      ];
+                    };
+                  };
+                };
+                niri.settings = {
+
+                  spawn-at-startup = [
+                    {
+                      command = [
+                        (lib.getExe (
+                          pkgs.writeShellApplication {
+                            name = "boot-wallpaper";
+                            runtimeInputs = [
+                              pkgs.swaybg
+                              pkgs.niri
+                              pkgs.jq
+                              pkgs.coreutils
+                            ];
+                            text = ''
+                              swaybg -i ${capabilities.wallpaper} -m fill &
+                              pid=$!
+                              trap 'kill $pid 2>/dev/null || true' EXIT
+
+                              for _ in $(seq 1 150); do
+                                if niri msg --json layers | jq -e 'any(.[]; .layer == "Background" and .namespace != "wallpaper")' > /dev/null; then
+                                  sleep 0.5
+                                  exit 0
+                                fi
+                                sleep 0.1
+                              done
+                            '';
+                          }
+                        ))
+                      ];
+                    }
+                  ];
+
+                  layer-rules = [
+                    {
+                      background-effect.xray = false;
+                    }
+                    {
+                      matches = [
+                        {
+                          namespace = "quickshell";
+                        }
+                      ];
+
+                      place-within-backdrop = true;
+                    }
+                  ];
+                };
+              };
+            };
         };
       }
     ];
