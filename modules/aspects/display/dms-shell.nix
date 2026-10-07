@@ -23,6 +23,10 @@
         enableVPN = false;
         enableAudioWavelength = false;
         lockscreen.securityKey.enable = true;
+        systemd = {
+          enable = true;
+          restartIfChanged = true;
+        };
       };
     };
     home =
@@ -461,10 +465,6 @@
             ];
             programs = {
               dank-material-shell = {
-                systemd = {
-                  enable = true;
-                  restartIfChanged = true;
-                };
                 niri = {
                   enableKeybinds = false;
                   enableSpawn = false;
