@@ -1,14 +1,24 @@
-{ self, ... }: {
+{ self, lib, ... }: {
   flake.aspects.kitty = {
-    home = {
-      programs.kitty = {
-        enable = true;
-        keybindings = {
-          # maybe? ergonomic enough?
-          "ctrl+shift+space" = "new_os_window_with_cwd";
+    home =
+      {
+        capabilities ? { },
+        ...
+      }:
+      {
+        programs.kitty = {
+          enable = true;
+          keybindings = {
+            # maybe? ergonomic enough?
+            "ctrl+shift+space" = "new_os_window_with_cwd";
+          };
+        }
+        // lib.optionalAttrs (capabilities.fonts.monospace or null != null) {
+          font = {
+            inherit (capabilities.fonts.monospace) package name;
+          };
         };
       };
-    };
     compat.provides = [
       {
         target = self.aspects.capabilities;
