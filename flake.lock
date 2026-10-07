@@ -363,15 +363,15 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1791295595,
-        "narHash": "sha256-TbsqgTemqxWzQQ91a/vLNKGOmSCADdSrE+WUFX8np2k=",
-        "owner": "InioX",
+        "lastModified": 1791403531,
+        "narHash": "sha256-FFSKhEhAp4Dk5nwFI0ACDWfsBB5FsuKltax0/Samv44=",
+        "owner": "wawwior",
         "repo": "matugen",
-        "rev": "d7a40deee8082e10cecf8b21fe524bf0ef008eb6",
+        "rev": "59dbf011475ce76921d883b9d0e12a4a40bbcbab",
         "type": "github"
       },
       "original": {
-        "owner": "InioX",
+        "owner": "wawwior",
         "repo": "matugen",
         "type": "github"
       }

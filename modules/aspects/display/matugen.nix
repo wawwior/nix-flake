@@ -1,7 +1,7 @@
 { inputs, lib, ... }:
 {
   flake-file.inputs = {
-    matugen.url = "github:InioX/matugen";
+    matugen.url = "github:wawwior/matugen";
   };
   flake.aspects.matugen =
     {
