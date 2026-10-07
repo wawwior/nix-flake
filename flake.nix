@@ -37,6 +37,10 @@
     import-tree = {
       url = "github:vic/import-tree";
     };
+    matugen = {
+      url = "github:InioX/matugen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri-flake = {
       url = "github:epireyn/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";

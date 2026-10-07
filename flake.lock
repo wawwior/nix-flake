@@ -355,6 +355,27 @@
         "type": "github"
       }
     },
+    "matugen": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1791295595,
+        "narHash": "sha256-TbsqgTemqxWzQQ91a/vLNKGOmSCADdSrE+WUFX8np2k=",
+        "owner": "InioX",
+        "repo": "matugen",
+        "rev": "d7a40deee8082e10cecf8b21fe524bf0ef008eb6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "InioX",
+        "repo": "matugen",
+        "type": "github"
+      }
+    },
     "niri-flake": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -553,6 +574,7 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
+        "matugen": "matugen",
         "niri-flake": "niri-flake",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
@@ -599,7 +621,7 @@
           "nixpkgs"
         ],
         "nur": "nur",
-        "systems": "systems",
+        "systems": "systems_2",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
         "tinted-tmux": "tinted-tmux",
@@ -621,6 +643,21 @@
     },
     "systems": {
       "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "systems_2": {
+      "locked": {
         "lastModified": 1774449309,
         "narHash": "sha256-brhZ8DmuGtzkCYHJg4HEd602amKm89Y9ytsFZ5uWD1w=",
         "owner": "nix-systems",
@@ -635,7 +672,7 @@
         "type": "github"
       }
     },
-    "systems_2": {
+    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -650,7 +687,7 @@
         "type": "github"
       }
     },
-    "systems_3": {
+    "systems_4": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -736,7 +773,7 @@
         ],
         "numen": "numen",
         "soulver-cpp": "soulver-cpp",
-        "systems": "systems_2"
+        "systems": "systems_3"
       },
       "locked": {
         "lastModified": 1790323373,
@@ -758,7 +795,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "systems": "systems_3",
+        "systems": "systems_4",
         "vicinae": [
           "vicinae"
         ]
