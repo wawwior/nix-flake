@@ -18,6 +18,7 @@
           programs.matugen = {
             enable = true;
             source_color = source-color;
+            jsonFormat = "hex";
           }
           // lib.optionalAttrs (capabilities ? wallpaper) {
             inherit (capabilities) wallpaper;

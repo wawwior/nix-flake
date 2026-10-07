@@ -257,8 +257,7 @@
                 w = 4;
               }
             ];
-            currentThemeCategory = "dynamic";
-            currentThemeName = "dynamic";
+            currentThemeName = lib.mkDefault "dynamic";
             dashCards = [
               {
                 col = 0;
@@ -419,6 +418,29 @@
         };
       };
     compat.provides = [
+      {
+        target = self.aspects.matugen;
+        aspect = {
+          nixos = { pkgs, ... }: {
+            programs.matugen.templates.dms-colors = {
+              input_path = pkgs.writeText "dms-colors.json" ''
+                { <* for name, value in colors *>
+                  "{{name}}": "{{value.default.hex}}"<* if not {{ loop.last }} *>,<* endif *><* endfor *>                 
+                }
+              '';
+              output_path = [ "~/dms-colors.json" ];
+            };
+          };
+          home =
+            { config, ... }:
+            {
+              programs.dank-material-shell.settings = {
+                currentThemeName = "custom";
+                customThemeFile = "${config.programs.matugen.theme.files}/dms-colors.json";
+              };
+            };
+        };
+      }
       {
         target = self.aspects.capabilities;
         aspect = {
