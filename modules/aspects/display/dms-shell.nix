@@ -1,4 +1,9 @@
-{ self, inputs, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   flake-file.inputs = {
     dms.url = "github:AvengeMedia/DankMaterialShell";
@@ -13,16 +18,6 @@
         inputs.dms.nixosModules.dank-material-shell
       ];
 
-      systemd.user.services.dms-daemon = {
-        enable = true;
-        after = [ "multi-user.target" ];
-        wantedBy = [ "graphical.target" ];
-        serviceConfig = {
-          Type = "simple";
-          ExecStart = "dms run -d";
-        };
-      };
-
       programs.dank-material-shell = {
         enable = true;
         enableVPN = false;
@@ -30,390 +25,399 @@
         lockscreen.securityKey.enable = true;
       };
     };
-    home = {
-      imports = [
-        inputs.dms.homeModules.dank-material-shell
-      ];
+    home =
+      {
+        capabilities ? { },
+        ...
+      }:
+      {
+        imports = [
+          inputs.dms.homeModules.dank-material-shell
+        ];
 
-      programs.dank-material-shell = {
-        enable = true;
-        enableVPN = false;
-        enableAudioWavelength = false;
+        programs.dank-material-shell = {
+          enable = true;
+          enableVPN = false;
+          enableAudioWavelength = false;
 
-        settings = {
-          appDrawerSectionViewModes = {
-            apps = "list";
+          session = lib.optionalAttrs (capabilities ? wallpaper) {
+            wallpaperPath = "${capabilities.wallpaper}";
           };
-          audioVisualizerEnabled = false;
-          avatarRing = "none";
-          barConfigs = [
-            {
-              autoHide = false;
-              autoHideDelay = 250;
-              barLengthMode = "full";
-              borderColor = "surfaceText";
-              borderEnabled = false;
-              borderOpacity = 1;
-              borderThickness = 1;
-              bottomGap = 0;
-              centerWidgets = [ "clock" ];
-              enabled = true;
-              followInterfaceStyle = true;
-              fontScale = 1;
-              gothCornerRadiusOverride = false;
-              gothCornerRadiusValue = 12;
-              gothCornersEnabled = false;
-              id = "default";
-              innerPadding = 4;
-              leftWidgets = [
-                {
-                  enabled = true;
-                  id = "launcherButton";
-                  launcherLogoColorOverride = "";
-                  launcherLogoMode = "os";
-                  launcherLogoSizeOffset = 2;
-                }
-                {
-                  enabled = true;
-                  id = "workspaceSwitcher";
-                  showOccupiedWorkspacesOnly = true;
-                  workspaceIndicatorStyle = "pills";
-                }
-                {
-                  enabled = true;
-                  id = "music";
-                  mediaSize = 2;
-                }
-              ];
-              name = "Main Bar";
-              noBackground = false;
-              openOnOverview = true;
-              popupGapsAuto = true;
-              popupGapsManual = 4;
-              position = 0;
-              rightWidgets = [
-                "cpuUsage"
-                "memUsage"
-                "battery"
-                "controlCenterButton"
-              ];
-              screenPreferences = [ "all" ];
-              showOnLastDisplay = true;
-              showOnWindowsOpen = true;
-              spacing = 4;
-              squareCorners = false;
-              transparency = 1;
-              useOverlayLayer = false;
-              visible = true;
-              widgetFollowInterfaceStyle = true;
-              widgetTransparency = 1;
-            }
-          ];
-          barElevationEnabled = false;
-          blurBorderSeeded = true;
-          blurEnabled = true;
-          blurWallpaperOnOverview = true;
-          builtInPluginSettings = {
-            dms_clipboard_search = {
-              enabled = false;
-              trigger = "cb";
+
+          settings = {
+            appDrawerSectionViewModes = {
+              apps = "list";
             };
-            dms_colorpicker = {
-              enabled = false;
+            audioVisualizerEnabled = false;
+            avatarRing = "none";
+            barConfigs = [
+              {
+                autoHide = false;
+                autoHideDelay = 250;
+                barLengthMode = "full";
+                borderColor = "surfaceText";
+                borderEnabled = false;
+                borderOpacity = 1;
+                borderThickness = 1;
+                bottomGap = 0;
+                centerWidgets = [ "clock" ];
+                enabled = true;
+                followInterfaceStyle = true;
+                fontScale = 1;
+                gothCornerRadiusOverride = false;
+                gothCornerRadiusValue = 12;
+                gothCornersEnabled = false;
+                id = "default";
+                innerPadding = 4;
+                leftWidgets = [
+                  {
+                    enabled = true;
+                    id = "launcherButton";
+                    launcherLogoColorOverride = "";
+                    launcherLogoMode = "os";
+                    launcherLogoSizeOffset = 2;
+                  }
+                  {
+                    enabled = true;
+                    id = "workspaceSwitcher";
+                    showOccupiedWorkspacesOnly = true;
+                    workspaceIndicatorStyle = "pills";
+                  }
+                  {
+                    enabled = true;
+                    id = "music";
+                    mediaSize = 2;
+                  }
+                ];
+                name = "Main Bar";
+                noBackground = false;
+                openOnOverview = true;
+                popupGapsAuto = true;
+                popupGapsManual = 4;
+                position = 0;
+                rightWidgets = [
+                  "cpuUsage"
+                  "memUsage"
+                  "battery"
+                  "controlCenterButton"
+                ];
+                screenPreferences = [ "all" ];
+                showOnLastDisplay = true;
+                showOnWindowsOpen = true;
+                spacing = 4;
+                squareCorners = false;
+                transparency = 1;
+                useOverlayLayer = false;
+                visible = true;
+                widgetFollowInterfaceStyle = true;
+                widgetTransparency = 1;
+              }
+            ];
+            barElevationEnabled = false;
+            blurBorderSeeded = true;
+            blurEnabled = true;
+            blurWallpaperOnOverview = true;
+            builtInPluginSettings = {
+              dms_clipboard_search = {
+                enabled = false;
+                trigger = "cb";
+              };
+              dms_colorpicker = {
+                enabled = false;
+              };
+              dms_notepad = {
+                enabled = false;
+              };
+              dms_power = {
+                enabled = false;
+                trigger = "pw";
+              };
+              dms_qr_generator = {
+                enabled = false;
+                trigger = "qrg";
+              };
+              dms_settings = {
+                enabled = false;
+              };
+              dms_settings_search = {
+                enabled = false;
+                trigger = "?";
+              };
+              dms_sysmon = {
+                enabled = false;
+              };
+              dms_vpn = {
+                enabled = false;
+              };
             };
-            dms_notepad = {
-              enabled = false;
+            configVersion = 34;
+            controlCenterWidgets = [
+              {
+                background = true;
+                badge = false;
+                col = 0;
+                compositor = false;
+                enabled = true;
+                h = 1.5;
+                hostname = true;
+                id = "userCard";
+                row = 0;
+                uptime = true;
+                w = 6.5;
+              }
+              {
+                actions = [
+                  {
+                    enabled = true;
+                    id = "lock";
+                  }
+                  {
+                    enabled = true;
+                    id = "power";
+                  }
+                  {
+                    enabled = true;
+                    id = "settings";
+                  }
+                  {
+                    enabled = true;
+                    id = "edit";
+                  }
+                ];
+                col = 6.5;
+                enabled = true;
+                h = 1.5;
+                id = "quickActions";
+                powerAccent = false;
+                row = 0;
+                w = 1.5;
+              }
+              {
+                col = 0;
+                enabled = true;
+                h = 1;
+                id = "volumeSlider";
+                row = 1.5;
+                w = 4;
+              }
+              {
+                col = 4;
+                enabled = true;
+                h = 1;
+                id = "brightnessSlider";
+                row = 1.5;
+                w = 4;
+              }
+              {
+                col = 4;
+                enabled = true;
+                h = 1;
+                id = "wifi";
+                row = 2.5;
+                w = 4;
+              }
+              {
+                col = 0;
+                enabled = true;
+                h = 1;
+                id = "bluetooth";
+                row = 2.5;
+                w = 4;
+              }
+              {
+                col = 4;
+                enabled = true;
+                h = 1;
+                id = "audioOutput";
+                row = 3.5;
+                w = 4;
+              }
+              {
+                col = 0;
+                enabled = true;
+                h = 1;
+                id = "audioInput";
+                row = 3.5;
+                w = 4;
+              }
+              {
+                col = 4;
+                enabled = true;
+                h = 1;
+                id = "nightMode";
+                row = 4.5;
+                w = 4;
+              }
+              {
+                col = 0;
+                enabled = true;
+                h = 1;
+                id = "doNotDisturb";
+                row = 4.5;
+                w = 4;
+              }
+            ];
+            currentThemeCategory = "dynamic";
+            currentThemeName = "dynamic";
+            dashCards = [
+              {
+                col = 0;
+                h = 1;
+                id = "clock";
+                row = 0;
+                w = 3;
+              }
+              {
+                col = 3;
+                h = 4;
+                id = "notifications";
+                row = 0;
+                w = 3;
+              }
+              {
+                col = 0;
+                h = 3;
+                id = "calendar";
+                row = 1;
+                w = 3;
+              }
+            ];
+            dashOptions = {
+              clock = {
+                seconds = true;
+              };
+              media = {
+                albumArtBackdrop = false;
+                titleFont = "ui";
+              };
+              notifications = {
+                panelRows = 4;
+              };
+              overview = {
+                panelRows = 4;
+              };
             };
-            dms_power = {
-              enabled = false;
-              trigger = "pw";
+            dashTabs = [
+              {
+                enabled = true;
+                id = "overview";
+              }
+              {
+                enabled = false;
+                id = "media";
+              }
+              {
+                enabled = false;
+                id = "wallpaper";
+              }
+              {
+                enabled = true;
+                id = "weather";
+              }
+              {
+                enabled = false;
+                id = "notifications";
+              }
+            ];
+            dmsWindowsFloatingSeeded = [ "niri" ];
+            dockConfigs = [
+              {
+                autoHide = false;
+                borderColor = "surfaceText";
+                borderEnabled = false;
+                borderOpacity = 1;
+                borderThickness = 1;
+                bottomGap = 0;
+                editOnRightClick = false;
+                enabled = false;
+                followInterfaceStyle = true;
+                groupByApp = false;
+                iconSize = 40;
+                id = "dock";
+                indicatorStyle = "circle";
+                isolateDisplays = false;
+                itemSpacing = 4;
+                launcherEnabled = false;
+                launcherLogoBrightness = 0.5;
+                launcherLogoColorOverride = "";
+                launcherLogoContrast = 1;
+                launcherLogoCustomPath = "";
+                launcherLogoMode = "apps";
+                launcherLogoSizeOffset = 0;
+                margin = 0;
+                maxVisibleApps = 0;
+                maxVisibleRunningApps = 0;
+                mode = "compact";
+                name = "Dock";
+                openOnOverview = false;
+                order = [ ];
+                position = 1;
+                restoreSpecialWorkspaceOnClick = false;
+                screenPreferences = [ "all" ];
+                separatePinnedAndRunningApps = false;
+                showOnFullscreen = false;
+                showOnLastDisplay = true;
+                showOverflowBadge = true;
+                showTrash = false;
+                smartAutoHide = false;
+                spacing = 4;
+                taskbarAlign = "center";
+                transparency = 1;
+                trashCustomCommand = "";
+                trashFileManager = "default";
+                useOverlayLayer = false;
+                widgetExpansion = "popout";
+                widgets = [
+                  {
+                    enabled = true;
+                    id = "dock_launcher";
+                    widgetId = "dockLauncher";
+                  }
+                  {
+                    enabled = true;
+                    id = "dock_apps";
+                    widgetId = "appsDock";
+                  }
+                  {
+                    enabled = true;
+                    id = "dock_trash";
+                    widgetId = "dockTrash";
+                  }
+                ];
+              }
+            ];
+            foregroundLayerTransparency = 0.5;
+            launcherPluginVisibility = {
+              dms_clipboard_search = {
+                allowWithoutTrigger = false;
+              };
+              dms_power = {
+                allowWithoutTrigger = false;
+              };
+              dms_qr_generator = {
+                allowWithoutTrigger = false;
+              };
+              dms_settings_search = {
+                allowWithoutTrigger = false;
+              };
+              dms_vpn = {
+                allowWithoutTrigger = false;
+              };
             };
-            dms_qr_generator = {
-              enabled = false;
-              trigger = "qrg";
+            launcherStyle = "spotlight";
+            lockScreenShowWeather = false;
+            matugenSpec = "2025";
+            modalDarkenBackground = false;
+            networkPreference = "ethernet";
+            niriOverviewLauncherStyle = "spotlight";
+            popupTransparency = 0.7;
+            screenPreferences = {
+              lockScreen = [ "all" ];
+              wallpaper = [ "all" ];
             };
-            dms_settings = {
-              enabled = false;
-            };
-            dms_settings_search = {
-              enabled = false;
-              trigger = "?";
-            };
-            dms_sysmon = {
-              enabled = false;
-            };
-            dms_vpn = {
-              enabled = false;
-            };
-          };
-          configVersion = 34;
-          controlCenterWidgets = [
-            {
-              background = true;
-              badge = false;
-              col = 0;
-              compositor = false;
-              enabled = true;
-              h = 1.5;
-              hostname = true;
-              id = "userCard";
-              row = 0;
-              uptime = true;
-              w = 6.5;
-            }
-            {
-              actions = [
-                {
-                  enabled = true;
-                  id = "lock";
-                }
-                {
-                  enabled = true;
-                  id = "power";
-                }
-                {
-                  enabled = true;
-                  id = "settings";
-                }
-                {
-                  enabled = true;
-                  id = "edit";
-                }
-              ];
-              col = 6.5;
-              enabled = true;
-              h = 1.5;
-              id = "quickActions";
-              powerAccent = false;
-              row = 0;
-              w = 1.5;
-            }
-            {
-              col = 0;
-              enabled = true;
-              h = 1;
-              id = "volumeSlider";
-              row = 1.5;
-              w = 4;
-            }
-            {
-              col = 4;
-              enabled = true;
-              h = 1;
-              id = "brightnessSlider";
-              row = 1.5;
-              w = 4;
-            }
-            {
-              col = 4;
-              enabled = true;
-              h = 1;
-              id = "wifi";
-              row = 2.5;
-              w = 4;
-            }
-            {
-              col = 0;
-              enabled = true;
-              h = 1;
-              id = "bluetooth";
-              row = 2.5;
-              w = 4;
-            }
-            {
-              col = 4;
-              enabled = true;
-              h = 1;
-              id = "audioOutput";
-              row = 3.5;
-              w = 4;
-            }
-            {
-              col = 0;
-              enabled = true;
-              h = 1;
-              id = "audioInput";
-              row = 3.5;
-              w = 4;
-            }
-            {
-              col = 4;
-              enabled = true;
-              h = 1;
-              id = "nightMode";
-              row = 4.5;
-              w = 4;
-            }
-            {
-              col = 0;
-              enabled = true;
-              h = 1;
-              id = "doNotDisturb";
-              row = 4.5;
-              w = 4;
-            }
-          ];
-          currentThemeCategory = "dynamic";
-          currentThemeName = "dynamic";
-          dashCards = [
-            {
-              col = 0;
-              h = 1;
-              id = "clock";
-              row = 0;
-              w = 3;
-            }
-            {
-              col = 3;
-              h = 4;
-              id = "notifications";
-              row = 0;
-              w = 3;
-            }
-            {
-              col = 0;
-              h = 3;
-              id = "calendar";
-              row = 1;
-              w = 3;
-            }
-          ];
-          dashOptions = {
-            clock = {
-              seconds = true;
-            };
-            media = {
-              albumArtBackdrop = false;
-              titleFont = "ui";
-            };
-            notifications = {
-              panelRows = 4;
-            };
-            overview = {
-              panelRows = 4;
-            };
-          };
-          dashTabs = [
-            {
-              enabled = true;
-              id = "overview";
-            }
-            {
-              enabled = false;
-              id = "media";
-            }
-            {
-              enabled = false;
-              id = "wallpaper";
-            }
-            {
-              enabled = true;
-              id = "weather";
-            }
-            {
-              enabled = false;
-              id = "notifications";
-            }
-          ];
-          dmsWindowsFloatingSeeded = [ "niri" ];
-          dockConfigs = [
-            {
-              autoHide = false;
-              borderColor = "surfaceText";
-              borderEnabled = false;
-              borderOpacity = 1;
-              borderThickness = 1;
-              bottomGap = 0;
-              editOnRightClick = false;
-              enabled = false;
-              followInterfaceStyle = true;
-              groupByApp = false;
-              iconSize = 40;
-              id = "dock";
-              indicatorStyle = "circle";
-              isolateDisplays = false;
-              itemSpacing = 4;
-              launcherEnabled = false;
-              launcherLogoBrightness = 0.5;
-              launcherLogoColorOverride = "";
-              launcherLogoContrast = 1;
-              launcherLogoCustomPath = "";
-              launcherLogoMode = "apps";
-              launcherLogoSizeOffset = 0;
-              margin = 0;
-              maxVisibleApps = 0;
-              maxVisibleRunningApps = 0;
-              mode = "compact";
-              name = "Dock";
-              openOnOverview = false;
-              order = [ ];
-              position = 1;
-              restoreSpecialWorkspaceOnClick = false;
-              screenPreferences = [ "all" ];
-              separatePinnedAndRunningApps = false;
-              showOnFullscreen = false;
-              showOnLastDisplay = true;
-              showOverflowBadge = true;
-              showTrash = false;
-              smartAutoHide = false;
-              spacing = 4;
-              taskbarAlign = "center";
-              transparency = 1;
-              trashCustomCommand = "";
-              trashFileManager = "default";
-              useOverlayLayer = false;
-              widgetExpansion = "popout";
-              widgets = [
-                {
-                  enabled = true;
-                  id = "dock_launcher";
-                  widgetId = "dockLauncher";
-                }
-                {
-                  enabled = true;
-                  id = "dock_apps";
-                  widgetId = "appsDock";
-                }
-                {
-                  enabled = true;
-                  id = "dock_trash";
-                  widgetId = "dockTrash";
-                }
-              ];
-            }
-          ];
-          foregroundLayerTransparency = 0.5;
-          launcherPluginVisibility = {
-            dms_clipboard_search = {
-              allowWithoutTrigger = false;
-            };
-            dms_power = {
-              allowWithoutTrigger = false;
-            };
-            dms_qr_generator = {
-              allowWithoutTrigger = false;
-            };
-            dms_settings_search = {
-              allowWithoutTrigger = false;
-            };
-            dms_vpn = {
-              allowWithoutTrigger = false;
-            };
-          };
-          launcherStyle = "spotlight";
-          lockScreenShowWeather = false;
-          matugenSpec = "2025";
-          modalDarkenBackground = false;
-          networkPreference = "ethernet";
-          niriOverviewLauncherStyle = "spotlight";
-          popupTransparency = 0.7;
-          screenPreferences = {
-            lockScreen = [ "all" ];
-            wallpaper = [ "all" ];
           };
         };
       };
-    };
     compat.provides = [
       {
         target = self.aspects.capabilities;
