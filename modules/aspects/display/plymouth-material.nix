@@ -4,13 +4,12 @@
   };
 
   flake.aspects.plymouth-material = {
+    includes = [ self.aspects.plymouth ];
     nixos = { pkgs, ... }: {
       imports = [ inputs.plymouth-material.nixosModules.material ];
 
       boot = {
-        initrd.systemd.enable = true;
         plymouth = {
-          enable = true;
           theme = "material";
           material.settings = {
             font =
