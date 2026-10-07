@@ -549,6 +549,26 @@
         "type": "github"
       }
     },
+    "plymouth-material": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789207938,
+        "narHash": "sha256-TzRKySl6fEfuVOZpvjXJsofrd8JPH7OGc5ZTuUOgu2U=",
+        "owner": "krozzzis",
+        "repo": "plymouth-theme-material",
+        "rev": "cb09c140ba0ff538ff54b78788db6612c3bd026e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "krozzzis",
+        "repo": "plymouth-theme-material",
+        "type": "github"
+      }
+    },
     "preservation": {
       "locked": {
         "lastModified": 1757436102,
@@ -578,6 +598,7 @@
         "niri-flake": "niri-flake",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
+        "plymouth-material": "plymouth-material",
         "preservation": "preservation",
         "stylix": "stylix",
         "vicinae": "vicinae",
