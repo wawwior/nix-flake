@@ -363,11 +363,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1791403531,
-        "narHash": "sha256-FFSKhEhAp4Dk5nwFI0ACDWfsBB5FsuKltax0/Samv44=",
+        "lastModified": 1791405635,
+        "narHash": "sha256-YUkmRhKRdiW02U/5wSHIhuJz40ZfLa8y3UNhTYkx1L8=",
         "owner": "wawwior",
         "repo": "matugen",
-        "rev": "59dbf011475ce76921d883b9d0e12a4a40bbcbab",
+        "rev": "ba8bf2f86986af02b3aaa860b3a1bf37083a929f",
         "type": "github"
       },
       "original": {
