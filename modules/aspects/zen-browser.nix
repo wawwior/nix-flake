@@ -28,11 +28,11 @@
                 siteSettings = true;
               };
             };
-          };
-          zen = {
-            welcome-screen.seen = true;
-            view = {
-              use-single-toolbar = true;
+            zen = {
+              welcome-screen.seen = true;
+              view = {
+                use-single-toolbar = true;
+              };
             };
           };
         };
