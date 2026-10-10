@@ -495,6 +495,8 @@
                 };
                 niri.settings = {
 
+                  layout.background-color = "transparent";
+
                   spawn-at-startup = [
                     {
                       command = [
