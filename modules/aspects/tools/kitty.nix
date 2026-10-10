@@ -1,4 +1,10 @@
-{ self, lib, ... }: {
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
+{
   flake.aspects.kitty = {
     home =
       {
@@ -31,12 +37,9 @@
       {
         target = self.aspects.matugen;
         aspect = {
-          nixos = { pkgs, ... }: {
+          nixos = {
             programs.matugen.templates.kitty = {
-              input_path = pkgs.fetchurl {
-                url = "https://raw.githubusercontent.com/InioX/matugen-themes/e4a9dbbd820f9f1c55b88b21b59e520bf6a702ed/templates/kitty-colors.conf";
-                sha256 = "1dqwhbx3cczp00946fliph0bln2d6bwvdngrpl6kkvvqn72y87vc";
-              };
+              input_path = "${inputs.matugen-themes}/templates/kitty-colors.conf";
               output_path = "~/kitty.conf";
             };
           };

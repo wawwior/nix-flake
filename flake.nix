@@ -41,6 +41,10 @@
       url = "github:wawwior/matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    matugen-themes = {
+      url = "github:InioX/matugen-themes";
+      flake = false;
+    };
     niri-flake = {
       url = "github:epireyn/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,8 +83,10 @@
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs.home-manager.follows = "home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
   };
 }

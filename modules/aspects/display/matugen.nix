@@ -2,6 +2,10 @@
 {
   flake-file.inputs = {
     matugen.url = "github:wawwior/matugen";
+    matugen-themes = {
+      url = "github:InioX/matugen-themes";
+      flake = false;
+    };
   };
   flake.aspects.matugen =
     {
