@@ -179,7 +179,7 @@
               programs.niri = {
                 settings = {
                   includes = [
-                    "${config.programs.mutagen.theme.files}/niri-colors.kdl"
+                    "${config.programs.matugen.theme.files}/niri-colors.kdl"
                   ];
                 };
               };
