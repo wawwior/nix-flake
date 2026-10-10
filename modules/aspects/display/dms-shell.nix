@@ -542,6 +542,15 @@
                       place-within-backdrop = true;
                     }
                   ];
+
+                  window-rules = [
+                    {
+                      matches = [
+                        { app-id = "^com.danklinux.dms$"; }
+                      ];
+                      background-effect.xray = false;
+                    }
+                  ];
                 };
               };
             };
