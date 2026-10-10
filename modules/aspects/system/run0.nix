@@ -2,7 +2,10 @@
   flake.aspects.run0 = {
     nixos = {
       security = {
-        run0.enableSudoAlias = true;
+        run0 = {
+          enable = true;
+          enableSudoAlias = true;
+        };
         polkit.enable = true;
         sudo.enable = false;
         wrappers = {
