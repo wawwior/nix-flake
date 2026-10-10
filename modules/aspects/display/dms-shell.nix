@@ -414,6 +414,8 @@
             networkPreference = "ethernet";
             niriOverviewLauncherStyle = "spotlight";
             popupTransparency = 0.7;
+            runDmsMatugenTemplates = false;
+            runUserMatugenTemplates = false;
             screenPreferences = {
               lockScreen = [ "all" ];
               wallpaper = [ "all" ];
@@ -482,7 +484,6 @@
                       override = true;
                       filesToInclude = [
                         "alttab"
-                        "colors"
                         "cursor"
                         "layout"
                         "outputs"

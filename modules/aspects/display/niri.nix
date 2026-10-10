@@ -1,4 +1,9 @@
-{ inputs, lib, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
 
   flake-file.inputs = {
@@ -157,5 +162,30 @@
             };
           };
         };
+
+      compat.provides = [
+        {
+          target = self.aspects.matugen;
+          aspect = {
+            nixos = {
+              programs.matugen.templates = {
+                niri = {
+                  input_path = "${inputs.matugen-themes}/templates/niri-colors.kdl";
+                  output_path = "~/niri-colors.kdl";
+                };
+              };
+            };
+            home = { config, ... }: {
+              programs.niri = {
+                settings = {
+                  includes = [
+                    "${config.programs.mutagen.theme.files}/niri-colors.kdl"
+                  ];
+                };
+              };
+            };
+          };
+        }
+      ];
     };
 }
