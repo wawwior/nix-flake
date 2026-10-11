@@ -63,13 +63,6 @@
     preservation = {
       url = "github:nix-community/preservation";
     };
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     vicinae = {
       url = "github:vicinaehq/vicinae";
       inputs.nixpkgs.follows = "nixpkgs";
