@@ -84,20 +84,20 @@
         };
       };
 
-      with-luks = name: content: {
+      with-luks = disk: content: {
         type = "luks";
-        name = "crypt-${baseNameOf name}";
+        name = "crypt-${disk.name}";
         # deployment
-        passwordFile = "/tmp/${if single-key then "luks" else (baseNameOf name)}.key";
+        passwordFile = "/tmp/${if single-key then "luks" else (disk.name)}.key";
         settings = {
           allowDiscards = true;
         };
         inherit content;
       };
 
-      single-disk = name: {
+      single-disk = disk: {
+        inherit (disk) device;
         type = "disk";
-        device = name;
         content = {
           type = "gpt";
           partitions =
@@ -106,34 +106,34 @@
             // {
               root = {
                 size = "100%";
-                content = (if luks then with-luks name else (_: _)) content.${content-type};
+                content = (if luks then with-luks disk else (_: _)) content.${content-type};
               };
             };
         };
       };
 
       lvm-part =
-        name:
-        (if luks then with-luks name else (_: _)) {
+        disk:
+        (if luks then with-luks disk else (_: _)) {
           type = "lvm_pv";
           vg = "pool";
         };
 
-      lvm-disk = name: {
+      lvm-disk = disk: {
+        inherit (disk) device;
         type = "disk";
-        device = name;
-        content = lvm-part name;
+        content = lvm-part disk;
       };
 
-      lvm-boot-disk = name: {
+      lvm-boot-disk = disk: {
+        inherit (disk) device;
         type = "disk";
-        device = name;
         content = {
           type = "gpt";
           partitions = bootable // {
             root = {
               size = "100%";
-              content = lvm-part name;
+              content = lvm-part disk;
             };
           };
         };
@@ -161,8 +161,7 @@
       };
 
       boot-disk = (if use-lvm then lvm-boot-disk else single-disk) boot;
-
-      lvm-disks = lib.genAttrs disks' lvm-disk;
+      lvm-disks = lib.listToAttrs (map (disk: lib.nameValuePair disk.name (lvm-disk disk.device)) disks');
 
       devices = {
         nodev = lib.mkIf impermanence {
@@ -178,7 +177,7 @@
           pool = lvm-pool;
         };
         disk = {
-          ${boot} = boot-disk;
+          ${boot.name} = boot-disk;
         }
         // lvm-disks;
       };
