@@ -19,21 +19,15 @@
             default = "startpage";
           };
           settings = {
-            browser.ctrlTab.sortByRecentlyUsed = true;
-            privacy = {
-              fingerprintingProtection = true;
-              clearOnShutdown_v2 = {
-                cookiesAndStorage = false;
-                formdata = true;
-                siteSettings = true;
-              };
-            };
-            zen = {
-              welcome-screen.seen = true;
-              view = {
-                use-single-toolbar = true;
-              };
-            };
+            "browser.ctrlTab.sortByRecentlyUsed" = true;
+
+            "privacy.fingerprintingProtection" = true;
+            "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+            "privacy.clearOnShutdown_v2.formdata" = true;
+            "privacy.clearOnShutdown_v2.siteSettings" = true;
+
+            "zen.welcome-screen.seen" = true;
+            "zen.view.use-single-toolbar" = true;
           };
         };
         policies = {
