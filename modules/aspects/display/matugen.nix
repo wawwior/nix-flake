@@ -14,9 +14,12 @@
     {
       nixos =
         {
-          capabilities ? { },
+          config,
           ...
         }:
+        let
+          capabilities = config.capabilities or { };
+        in
         {
           imports = [ inputs.matugen.nixosModules.default ];
           programs.matugen = {

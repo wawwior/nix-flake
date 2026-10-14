@@ -31,9 +31,12 @@
     };
     home =
       {
-        capabilities ? { },
+        config,
         ...
       }:
+      let
+        capabilities = config.capabilities or { };
+      in
       {
         imports = [
           inputs.dms.homeModules.dank-material-shell
@@ -466,9 +469,12 @@
           home =
             {
               pkgs,
-              capabilities ? { },
+              config,
               ...
             }:
+            let
+              capabilities = config.capabilities or { };
+            in
             {
               imports = [
                 inputs.dms.homeModules.niri

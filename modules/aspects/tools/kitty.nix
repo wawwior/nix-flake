@@ -8,9 +8,12 @@
   flake.aspects.kitty = {
     home =
       {
-        capabilities ? { },
+        config,
         ...
       }:
+      let
+        capabilities = config.capabilities or { };
+      in
       {
         programs.kitty = {
           enable = true;

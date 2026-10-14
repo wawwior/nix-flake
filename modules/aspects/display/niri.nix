@@ -55,7 +55,7 @@
           };
         in
         {
-          capabilities ? { },
+          config,
           ...
         }:
         {
@@ -116,7 +116,7 @@
 
               binds =
                 let
-                  commands = capabilities.commands or { };
+                  commands = config.capabilities.commands or { };
                   bind =
                     bind: cmd:
                     lib.optionalAttrs (commands.${cmd} or null != null) {

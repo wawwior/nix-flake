@@ -3,9 +3,12 @@
     nixos =
       {
         pkgs,
-        capabilities ? { },
+        config,
         ...
       }:
+      let
+        capabilities = config.capabilitites or { };
+      in
       {
         services.greetd = {
           enable = true;

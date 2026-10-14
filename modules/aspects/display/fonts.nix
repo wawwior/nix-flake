@@ -7,9 +7,12 @@
     {
       nixos =
         {
-          capabilities ? { },
+          config,
           ...
         }:
+        let
+          capabilities = config.capabilities or { };
+        in
         {
           fonts = {
             packages = lib.mapAttrsToList (_: font: font.package) (capabilities.fonts or { });
@@ -24,13 +27,13 @@
 
       home =
         {
-          capabilities ? { },
+          config,
           ...
         }:
         {
           gtk = {
             enable = true;
-            font = capabilities.fonts.default or { };
+            font = config.capabilities.fonts.default or { };
           };
         };
 
