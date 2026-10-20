@@ -1,4 +1,10 @@
-{ self, inputs, ... }: {
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
+{
   flake.aspects = {
 
     helix = {
@@ -103,20 +109,49 @@
         {
           target = self.aspects.matugen;
           aspect = {
-            nixos = {
+            nixos = { pkgs, ... }: {
               programs.matugen.templates = {
                 helix = {
                   input_path = "${inputs.matugen-themes}/templates/helix.toml";
                   output_path = "~/helix.toml";
                 };
+                helix-colors = {
+                  input_path = (pkgs.formats.toml { }).generate "helix-colors.toml" (
+                    {
+                      inherits = "matugen";
+                    }
+                    // lib.mapAttrs (_: color: "{{colors.${color}.default.hex}}") {
+                      "keyword" = "primary";
+                      "keyword.control" = "purple";
+                      "string" = "green";
+                      "constant.character.escape" = "cyan";
+                      "constant.numeric" = "orange";
+                      "constant.builtin" = "orange";
+                      "function" = "blue";
+                      "function.macro" = "purple";
+                      "type" = "yellow";
+                      "type.builtin" = "yellow";
+                      "constructor" = "blue";
+                      "variable.parameter" = "red";
+                      "namespace" = "cyan";
+                      "attribute" = "cyan";
+                      "tag" = "red";
+                      "operator" = "secondary";
+                    }
+                  );
+                  output_path = "~/helix-colors.toml";
+                };
               };
             };
             home = { config, ... }: {
               programs.helix = {
-                settings.theme = "matugen";
+                settings.theme = "matugen-colors";
               };
-              xdg.configFile."helix/themes/matugen.toml".source =
-                "${config.programs.matugen.theme.files}/helix.toml";
+              xdg.configFile = {
+                "helix/themes/matugen.toml".source = "${config.programs.matugen.theme.files}/helix.toml";
+                "helix/themes/matugen-colors.toml".source =
+                  "${config.programs.matugen.theme.files}/helix-colors.toml";
+              };
             };
           };
         }
