@@ -117,27 +117,77 @@
                 };
                 helix-colors = {
                   input_path = (pkgs.formats.toml { }).generate "helix-colors.toml" (
+                    let
+                      colors = {
+                        "attribute" = "orange";
+                        "constant" = "orange";
+                        "constant.character.escape" = "cyan";
+                        "constant.numeric" = "orange";
+                        "constant.builtin" = "orange";
+                        "constructor" = "blue";
+                        "function" = "blue";
+                        "keyword" = "purple";
+                        "keyword.control" = "purple";
+                        "label" = "purple";
+                        "namespace" = "purple";
+                        "special" = "blue";
+                        "string" = "green";
+                        "tag" = "red";
+                        "type" = "yellow";
+                        "variable" = "red";
+                        "variable.parameter" = "red";
+                        "variable.other.member" = "blue";
+
+                        "diff.delta" = "orange";
+                        "diff.minus" = "red";
+                        "diff.plus" = "green";
+
+                        "error" = "red";
+                        "warning" = "orange";
+                        "info" = "blue";
+
+                        "markup.bold" = "yellow";
+                        "markup.heading.1" = "blue";
+                        "markup.heading.2" = "red";
+                        "markup.heading.3" = "orange";
+                        "markup.heading.4" = "yellow";
+                        "markup.heading.5" = "green";
+                        "markup.heading.6" = "cyan";
+                        "markup.italic" = "purple";
+                        "markup.link.text" = "red";
+                        "markup.link.url" = "orange";
+                        "markup.list" = "red";
+                        "markup.quote" = "cyan";
+                        "markup.raw" = "green";
+
+                        "ui.text.directory" = "blue";
+                        "ui.virtual.jump-label" = "yellow";
+                      };
+
+                      modifiers = {
+                        "markup.bold" = [ "bold" ];
+                        "markup.heading.1" = [ "bold" ];
+                        "markup.heading.2" = [ "bold" ];
+                        "markup.heading.3" = [ "bold" ];
+                        "markup.heading.4" = [ "bold" ];
+                        "markup.heading.5" = [ "bold" ];
+                        "markup.heading.6" = [ "bold" ];
+                        "markup.italic" = [ "italic" ];
+                        "markup.link.url" = [ "underlined" ];
+                        "ui.virtual.jump-label" = [ "bold" ];
+                      };
+
+                    in
                     {
                       inherits = "matugen";
                     }
-                    // lib.mapAttrs (_: color: "{{colors.${color}.default.hex}}") {
-                      "keyword" = "primary";
-                      "keyword.control" = "purple";
-                      "string" = "green";
-                      "constant.character.escape" = "cyan";
-                      "constant.numeric" = "orange";
-                      "constant.builtin" = "orange";
-                      "function" = "blue";
-                      "function.macro" = "purple";
-                      "type" = "yellow";
-                      "type.builtin" = "yellow";
-                      "constructor" = "blue";
-                      "variable.parameter" = "red";
-                      "namespace" = "cyan";
-                      "attribute" = "cyan";
-                      "tag" = "red";
-                      "operator" = "secondary";
-                    }
+                    // lib.mapAttrs (
+                      scope: color:
+                      {
+                        fg = "{{colors.${color}.default.hex}}";
+                      }
+                      // lib.optionalAttrs (modifiers ? ${scope}) { modifiers = modifiers.${scope}; }
+                    ) colors
                   );
                   output_path = "~/helix-colors.toml";
                 };
