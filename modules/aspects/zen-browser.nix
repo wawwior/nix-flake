@@ -26,18 +26,24 @@
             "privacy.clearOnShutdown_v2.formdata" = true;
             "privacy.clearOnShutdown_v2.siteSettings" = true;
 
+            "browser.aboutwelcome.enabled" = false;
             "zen.welcome-screen.seen" = true;
-            "zen.view.use-single-toolbar" = true;
+            "startup.homepage_welcome_url" = "";
+            "startup.homepage_welcome_url.additional" = "";
+
+            "zen.urlbar.behavior" = "normal";
           };
         };
         policies = {
+          OverrideFirstRunPage = "";
+          OverridePostUpdatePage = "";
+          DontCheckDefaultBrowser = true;
+          NoDefaultBookmarks = true;
+          DisableTelemetry = true;
           DisableAppUpdate = true;
           DisableFeedbackCommands = true;
           DisableFirefoxStudies = true;
           DisablePocket = true;
-          DisableTelemetry = true;
-          DontCheckDefaultBrowser = true;
-          NoDefaultBookmarks = true;
           OfferToSaveLogins = false;
           EnableTrackingProtection = {
             Value = true;
