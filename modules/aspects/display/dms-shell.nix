@@ -6,7 +6,7 @@
 }:
 {
   flake-file.inputs = {
-    dms.url = "github:AvengeMedia/DankMaterialShell";
+    dms.url = "github:duxlabs-dev/dux-shell";
   };
   flake.aspects.dms-shell = {
     includes = with self.aspects; [
