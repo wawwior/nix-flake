@@ -406,10 +406,12 @@
             greeterWidgetInstances = [
               {
                 config = {
-                  autoPosition = true;
+                  autoPosition = false;
                   colorMode = "default";
                   customColor = "#ffffff";
                   displayPreferences = [ "all" ];
+                  fontFamily = "";
+                  rounded = false;
                   showAnalogNumbers = false;
                   showAnalogSeconds = true;
                   showDate = false;
@@ -417,8 +419,8 @@
                   style = "expressive";
                   syncPositionAcrossScreens = true;
                   transparency = 0;
-                  twoTone = true;
-                  weight = 0;
+                  twoTone = false;
+                  weight = 600;
                 };
                 enabled = true;
                 id = "lock_clock";
@@ -441,7 +443,7 @@
                   displayPreferences = [ "all" ];
                   passwordVisibility = "always";
                   profileVisibility = "always";
-                  style = "expressive";
+                  style = "pill";
                   syncPositionAcrossScreens = true;
                 };
                 enabled = true;
@@ -469,6 +471,19 @@
                 enabled = false;
                 id = "lock_power";
                 widgetType = "lockPower";
+              }
+              {
+                config = {
+                  colorMode = "default";
+                  customColor = "#ffffff";
+                  displayPreferences = [ "all" ];
+                  format = "short";
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = true;
+                id = "lw_1792933096360_2drt8csh9";
+                name = "Date";
+                widgetType = "lockDate";
               }
               {
                 config = {
@@ -502,10 +517,12 @@
             lockScreenWidgetInstances = [
               {
                 config = {
-                  autoPosition = true;
+                  autoPosition = false;
                   colorMode = "default";
                   customColor = "#ffffff";
                   displayPreferences = [ "all" ];
+                  fontFamily = "";
+                  rounded = false;
                   showAnalogNumbers = false;
                   showAnalogSeconds = true;
                   showDate = false;
@@ -513,8 +530,8 @@
                   style = "expressive";
                   syncPositionAcrossScreens = true;
                   transparency = 0;
-                  twoTone = true;
-                  weight = 0;
+                  twoTone = false;
+                  weight = 600;
                 };
                 enabled = true;
                 id = "lock_clock";
@@ -537,7 +554,7 @@
                   displayPreferences = [ "all" ];
                   passwordVisibility = "always";
                   profileVisibility = "always";
-                  style = "expressive";
+                  style = "pill";
                   syncPositionAcrossScreens = true;
                 };
                 enabled = true;
@@ -575,6 +592,19 @@
                 enabled = false;
                 id = "lock_power";
                 widgetType = "lockPower";
+              }
+              {
+                config = {
+                  colorMode = "default";
+                  customColor = "#ffffff";
+                  displayPreferences = [ "all" ];
+                  format = "short";
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = true;
+                id = "lw_1792933096360_2drt8csh9";
+                name = "Date";
+                widgetType = "lockDate";
               }
             ];
             matugenSpec = "2025";
