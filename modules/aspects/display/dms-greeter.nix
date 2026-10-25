@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
 
   flake-file.inputs = {
-    dank-greeter.url = "github:AvengeMedia/dank-greeter";
+    dank-greeter.url = "github:duxlabs-dev/dux-greeter";
   };
 
   flake.aspects.dms-greeter = configHome: {
