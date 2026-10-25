@@ -157,78 +157,66 @@
                 enabled = false;
               };
             };
-            configVersion = 34;
+            configVersion = 42;
             controlCenterWidgets = [
               {
-                background = true;
-                badge = false;
-                col = 0;
-                compositor = false;
+                col = 5;
                 enabled = true;
-                h = 1.5;
-                hostname = true;
-                id = "userCard";
-                row = 0;
-                uptime = true;
-                w = 6.5;
+                h = 1;
+                id = "settings";
+                row = 5;
+                small = true;
+                w = 1;
               }
               {
-                actions = [
-                  {
-                    enabled = true;
-                    id = "lock";
-                  }
-                  {
-                    enabled = true;
-                    id = "power";
-                  }
-                  {
-                    enabled = true;
-                    id = "settings";
-                  }
-                  {
-                    enabled = true;
-                    id = "edit";
-                  }
-                ];
-                col = 6.5;
+                col = 6;
                 enabled = true;
-                h = 1.5;
-                id = "quickActions";
-                powerAccent = false;
-                row = 0;
-                w = 1.5;
+                h = 1;
+                id = "lock";
+                row = 5;
+                small = true;
+                w = 1;
+              }
+              {
+                col = 7;
+                enabled = true;
+                h = 1;
+                id = "power";
+                row = 5;
+                small = true;
+                w = 1;
               }
               {
                 col = 0;
                 enabled = true;
                 h = 1;
                 id = "volumeSlider";
-                row = 1.5;
-                w = 4;
+                row = 0;
+                w = 8;
               }
               {
-                col = 4;
+                col = 0;
+                deviceName = "backlight:intel_backlight";
                 enabled = true;
                 h = 1;
                 id = "brightnessSlider";
-                row = 1.5;
-                w = 4;
-              }
-              {
-                col = 4;
-                enabled = true;
-                h = 1;
-                id = "wifi";
-                row = 2.5;
-                w = 4;
+                row = 1;
+                w = 8;
               }
               {
                 col = 0;
                 enabled = true;
                 h = 1;
+                id = "wifi";
+                row = 2;
+                w = 4;
+              }
+              {
+                col = 4;
+                enabled = true;
+                h = 1;
                 id = "bluetooth";
-                row = 2.5;
+                row = 2;
                 w = 4;
               }
               {
@@ -236,7 +224,7 @@
                 enabled = true;
                 h = 1;
                 id = "audioOutput";
-                row = 3.5;
+                row = 3;
                 w = 4;
               }
               {
@@ -244,7 +232,7 @@
                 enabled = true;
                 h = 1;
                 id = "audioInput";
-                row = 3.5;
+                row = 3;
                 w = 4;
               }
               {
@@ -252,7 +240,7 @@
                 enabled = true;
                 h = 1;
                 id = "nightMode";
-                row = 4.5;
+                row = 4;
                 w = 4;
               }
               {
@@ -260,7 +248,25 @@
                 enabled = true;
                 h = 1;
                 id = "doNotDisturb";
-                row = 4.5;
+                row = 4;
+                w = 4;
+              }
+              {
+                col = 4;
+                enabled = true;
+                h = 1;
+                id = "edit";
+                row = 5;
+                small = true;
+                w = 1;
+              }
+              {
+                col = 0;
+                enabled = true;
+                h = 1;
+                id = "runningApps";
+                row = 5;
+                small = true;
                 w = 4;
               }
             ];
@@ -350,6 +356,10 @@
                 launcherLogoCustomPath = "";
                 launcherLogoMode = "apps";
                 launcherLogoSizeOffset = 0;
+                magnification = false;
+                magnificationExpand = false;
+                magnificationProfile = "parabolic";
+                magnificationScale = 130;
                 margin = 0;
                 maxVisibleApps = 0;
                 maxVisibleRunningApps = 0;
@@ -393,6 +403,83 @@
               }
             ];
             foregroundLayerTransparency = 0.5;
+            greeterWidgetInstances = [
+              {
+                config = {
+                  autoPosition = true;
+                  colorMode = "default";
+                  customColor = "#ffffff";
+                  displayPreferences = [ "all" ];
+                  showAnalogNumbers = false;
+                  showAnalogSeconds = true;
+                  showDate = false;
+                  showDigitalSeconds = false;
+                  style = "expressive";
+                  syncPositionAcrossScreens = true;
+                  transparency = 0;
+                  twoTone = true;
+                  weight = 0;
+                };
+                enabled = true;
+                id = "lock_clock";
+                widgetType = "desktopClock";
+              }
+              {
+                config = {
+                  colorMode = "default";
+                  customColor = "#ffffff";
+                  displayPreferences = [ "all" ];
+                  format = "short";
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = false;
+                id = "lock_date";
+                widgetType = "lockDate";
+              }
+              {
+                config = {
+                  displayPreferences = [ "all" ];
+                  passwordVisibility = "always";
+                  profileVisibility = "always";
+                  style = "expressive";
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = true;
+                id = "lock_auth";
+                widgetType = "lockAuth";
+              }
+              {
+                config = {
+                  background = false;
+                  displayPreferences = [ "all" ];
+                  showMediaPlayer = true;
+                  showWeather = false;
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = true;
+                id = "lock_status";
+                widgetType = "lockStatus";
+              }
+              {
+                config = {
+                  displayPreferences = [ "all" ];
+                  shape = "round";
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = false;
+                id = "lock_power";
+                widgetType = "lockPower";
+              }
+              {
+                config = {
+                  displayPreferences = [ "all" ];
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = true;
+                id = "greeter_session";
+                widgetType = "greeterSession";
+              }
+            ];
             launcherPluginVisibility = {
               dms_clipboard_search = {
                 allowWithoutTrigger = false;
@@ -412,6 +499,84 @@
             };
             launcherStyle = "spotlight";
             lockScreenShowWeather = false;
+            lockScreenWidgetInstances = [
+              {
+                config = {
+                  autoPosition = true;
+                  colorMode = "default";
+                  customColor = "#ffffff";
+                  displayPreferences = [ "all" ];
+                  showAnalogNumbers = false;
+                  showAnalogSeconds = true;
+                  showDate = false;
+                  showDigitalSeconds = false;
+                  style = "expressive";
+                  syncPositionAcrossScreens = true;
+                  transparency = 0;
+                  twoTone = true;
+                  weight = 0;
+                };
+                enabled = true;
+                id = "lock_clock";
+                widgetType = "desktopClock";
+              }
+              {
+                config = {
+                  colorMode = "default";
+                  customColor = "#ffffff";
+                  displayPreferences = [ "all" ];
+                  format = "short";
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = false;
+                id = "lock_date";
+                widgetType = "lockDate";
+              }
+              {
+                config = {
+                  displayPreferences = [ "all" ];
+                  passwordVisibility = "always";
+                  profileVisibility = "always";
+                  style = "expressive";
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = true;
+                id = "lock_auth";
+                widgetType = "lockAuth";
+              }
+              {
+                config = {
+                  displayPreferences = [ "all" ];
+                  mode = 2;
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = true;
+                id = "lock_notifications";
+                widgetType = "lockNotifications";
+              }
+              {
+                config = {
+                  background = false;
+                  displayPreferences = [ "all" ];
+                  showMediaPlayer = true;
+                  showWeather = false;
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = true;
+                id = "lock_status";
+                widgetType = "lockStatus";
+              }
+              {
+                config = {
+                  displayPreferences = [ "all" ];
+                  shape = "round";
+                  syncPositionAcrossScreens = true;
+                };
+                enabled = false;
+                id = "lock_power";
+                widgetType = "lockPower";
+              }
+            ];
             matugenSpec = "2025";
             modalDarkenBackground = false;
             networkPreference = "ethernet";
@@ -423,6 +588,7 @@
               lockScreen = [ "all" ];
               wallpaper = [ "all" ];
             };
+            wellbeingEnabled = false;
           };
         };
       };
