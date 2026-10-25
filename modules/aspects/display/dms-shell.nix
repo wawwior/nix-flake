@@ -32,6 +32,7 @@
     home =
       {
         config,
+        pkgs,
         ...
       }:
       let
@@ -41,6 +42,10 @@
         imports = [
           inputs.dms.homeModules.dank-material-shell
         ];
+
+        xdg.configFile."dms/.changelog-2.0".source = pkgs.writeText ".changelog-2.0" ''
+          2.0
+        '';
 
         programs.dank-material-shell = {
           enable = true;
