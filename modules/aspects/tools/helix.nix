@@ -33,6 +33,9 @@
               inline-diagnostics = {
                 cursor-line = "error";
               };
+              file-picker = {
+                hidden = false;
+              };
             };
             keys = {
               normal = {
