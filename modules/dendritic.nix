@@ -11,9 +11,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     dendritic = {
       url = "github:wawwior/dendritic";
-      inputs = lib.genAttrs [ "import-tree" "flake-parts" ] (input: {
-        follows = input;
-      });
     };
   };
 
