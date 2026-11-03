@@ -655,7 +655,17 @@
         target = self.aspects.capabilities;
         aspect = {
           home = {
-            capabilities.commands.launcher = "dms ipc call spotlight toggle";
+            capabilities.commands = {
+              launcher = "dms ipc call spotlight toggle";
+
+              raiseVolume = "dms ipc call audio increment 5";
+              lowerVolume = "dms ipc call audio decrement 5";
+              mute = "dms ipc call audio mute";
+              micMute = "dms ipc call mic mute";
+
+              brightnessUp = "dms ipc call brightness increment 5";
+              brightnessDown = "dms ipc call brightness decrement 5";
+            };
           };
         };
       }
