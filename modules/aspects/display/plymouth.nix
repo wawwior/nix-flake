@@ -2,9 +2,6 @@
   flake.aspects.plymouth = {
     nixos = { pkgs, ... }: {
       boot = {
-        initrd = {
-          verbose = false;
-        };
         plymouth = {
           enable = true;
         };
