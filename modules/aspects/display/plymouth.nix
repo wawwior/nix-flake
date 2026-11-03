@@ -3,7 +3,6 @@
     nixos = { pkgs, ... }: {
       boot = {
         initrd = {
-          systemd.enable = true;
           verbose = false;
         };
         plymouth = {
