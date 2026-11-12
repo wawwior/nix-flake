@@ -3,12 +3,17 @@
     nixos = {
       programs.steam.enable = true;
 
-      nixpkgs.config.allowUnfreePredicate = (
-        pkg:
-        builtins.elem (lib.getName pkg) [
-          "steam"
-        ]
-      );
+      nixpkgs.config.allowUnfreePackages = [
+        "steam"
+        "steam-unwrapped"
+      ];
+    };
+    home = {
+      preservation.preserveAt."/persist" = {
+        directories = [
+          ".local/share/Steam"
+        ];
+      };
     };
   };
 }
