@@ -37,14 +37,11 @@
 
           boot.kernelModules = [ "nvidia-uvm" ];
 
-          nixpkgs.config.allowUnfreePredicate = (
-            pkg:
-            builtins.elem (lib.getName pkg) [
-              "nvidia-x11"
-              "nvidia-settings"
-              "nvidia-kernel-modules"
-            ]
-          );
+          nixpkgs.config.allowUnfreePackages = [
+            "nvidia-x11"
+            "nvidia-settings"
+            "nvidia-kernel-modules"
+          ];
         };
     };
 }
