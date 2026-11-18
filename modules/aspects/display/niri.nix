@@ -27,17 +27,10 @@
           package = pkgs.niri-unstable;
         };
 
-        environment = {
-          variables = {
-            NIXOS_OZONE_WL = "1";
-            ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          };
-
-          systemPackages = with pkgs; [
-            xwayland-satellite
-            wl-clipboard-rs
-          ];
-        };
+        environment.systemPackages = with pkgs; [
+          xwayland-satellite
+          wl-clipboard-rs
+        ];
       };
 
       home =
@@ -99,6 +92,11 @@
               };
 
               screenshot-path = "~/media/images/screenshots/screenshot+%Y-%m-%d+%H-%M-%S";
+
+              environment = {
+                "NIXOS_OZONE_WL" = "1";
+                "ELECTRON_OZONE_PLATFORM_HINT" = "auto";
+              };
 
               window-rules = [
                 {
