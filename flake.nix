@@ -15,16 +15,16 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dms = {
-      url = "github:duxlabs-dev/dux-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     dux-files = {
       url = "github:duxlabs-dev/dux-files";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dux-greeter = {
       url = "github:duxlabs-dev/dux-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dux-shell = {
+      url = "github:duxlabs-dev/dux-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-file = {

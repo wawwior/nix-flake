@@ -8,7 +8,7 @@
     {
       includes =
         (with self.aspects; [
-          dms-shell
+          dux-shell
           dux-files
           plymouth-material
           (dux-greeter settings-home)

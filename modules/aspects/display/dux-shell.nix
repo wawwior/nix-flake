@@ -6,16 +6,16 @@
 }:
 {
   flake-file.inputs = {
-    dms.url = "github:duxlabs-dev/dux-shell";
+    dux-shell.url = "github:duxlabs-dev/dux-shell";
   };
-  flake.aspects.dms-shell = {
+  flake.aspects.dux-shell = {
     includes = with self.aspects; [
       upower
       power-profiles-daemon
     ];
     nixos = {
       imports = [
-        inputs.dms.nixosModules.dank-material-shell
+        inputs.dux-shell.nixosModules.dank-material-shell
       ];
 
       programs.dank-material-shell = {
@@ -40,7 +40,7 @@
       in
       {
         imports = [
-          inputs.dms.homeModules.dank-material-shell
+          inputs.dux-shell.homeModules.dank-material-shell
         ];
 
         xdg.configFile."dms/.changelog-2.0".source = pkgs.writeText ".changelog-2.0" ''
@@ -688,7 +688,7 @@
             in
             {
               imports = [
-                inputs.dms.homeModules.niri
+                inputs.dux-shell.homeModules.niri
               ];
               programs = {
                 dank-material-shell = {

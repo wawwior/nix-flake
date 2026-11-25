@@ -3,22 +3,6 @@
     "dank-qml-common": {
       "flake": false,
       "locked": {
-        "lastModified": 1792829559,
-        "narHash": "sha256-8J9RuGpmYCFRcpLlRQunqL0FqjsNSzlsK/QFZV2hm1A=",
-        "owner": "duxlabs-dev",
-        "repo": "dux-qml-common",
-        "rev": "bb917ea0718892c875ca0955939f63b31dc64e1e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "duxlabs-dev",
-        "repo": "dux-qml-common",
-        "type": "github"
-      }
-    },
-    "dank-qml-common_2": {
-      "flake": false,
-      "locked": {
         "lastModified": 1795539633,
         "narHash": "sha256-wP/W13eBoS/2uKAkhJxflCjUfkFT9oAA+Y4K883wYys=",
         "owner": "duxlabs-dev",
@@ -32,7 +16,7 @@
         "type": "github"
       }
     },
-    "dank-qml-common_3": {
+    "dank-qml-common_2": {
       "flake": false,
       "locked": {
         "lastModified": 1795443720,
@@ -40,6 +24,22 @@
         "owner": "duxlabs-dev",
         "repo": "dux-qml-common",
         "rev": "73bd713f8603bd65864c76dc820f2120b7b82f22",
+        "type": "github"
+      },
+      "original": {
+        "owner": "duxlabs-dev",
+        "repo": "dux-qml-common",
+        "type": "github"
+      }
+    },
+    "dank-qml-common_3": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795596765,
+        "narHash": "sha256-4WDSS8mvfHBG2Lmwzvg7sWXP+LamfRumA6TREw2myvU=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-qml-common",
+        "rev": "a8408379c5cc51abec6ece6472f7c9ad490bcbdf",
         "type": "github"
       },
       "original": {
@@ -92,31 +92,9 @@
         "type": "github"
       }
     },
-    "dms": {
-      "inputs": {
-        "dank-qml-common": "dank-qml-common",
-        "flake-compat": "flake-compat",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1792923542,
-        "narHash": "sha256-eJib1DYTwKvgZUaFz6s6vaS1B9GRRYMeFUVmcbKYOdo=",
-        "owner": "duxlabs-dev",
-        "repo": "dux-shell",
-        "rev": "e689cd2ce77dd83d7eb7ca394dc34a3e6f709b6a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "duxlabs-dev",
-        "repo": "dux-shell",
-        "type": "github"
-      }
-    },
     "dux-files": {
       "inputs": {
-        "dank-qml-common": "dank-qml-common_2",
+        "dank-qml-common": "dank-qml-common",
         "dux-qt-base": "dux-qt-base",
         "nixpkgs": [
           "nixpkgs"
@@ -138,7 +116,7 @@
     },
     "dux-greeter": {
       "inputs": {
-        "dank-qml-common": "dank-qml-common_3",
+        "dank-qml-common": "dank-qml-common_2",
         "dux-qt-base": "dux-qt-base_2",
         "nixpkgs": [
           "nixpkgs"
@@ -197,6 +175,50 @@
       "original": {
         "owner": "duxlabs-dev",
         "repo": "dux-qt-base",
+        "type": "github"
+      }
+    },
+    "dux-qt-base_3": {
+      "inputs": {
+        "nixpkgs": [
+          "dux-shell",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795538649,
+        "narHash": "sha256-3UpeTixe9NFABM3NA/Y6tU+0GwZn706++27PkrH6S3o=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-qt-base",
+        "rev": "1f768a313e9813e505e17d9436403fdcbce02c64",
+        "type": "github"
+      },
+      "original": {
+        "owner": "duxlabs-dev",
+        "repo": "dux-qt-base",
+        "type": "github"
+      }
+    },
+    "dux-shell": {
+      "inputs": {
+        "dank-qml-common": "dank-qml-common_3",
+        "dux-qt-base": "dux-qt-base_3",
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795597801,
+        "narHash": "sha256-kOPImPLFEKZSXMeP/WUf+qZECBPbveXWbno+jtaK1vo=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-shell",
+        "rev": "458dcf6fa80eb28c74ea05c6890763fdbcb2b81e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "duxlabs-dev",
+        "repo": "dux-shell",
         "type": "github"
       }
     },
@@ -541,9 +563,9 @@
       "inputs": {
         "dendritic": "dendritic",
         "disko": "disko",
-        "dms": "dms",
         "dux-files": "dux-files",
         "dux-greeter": "dux-greeter",
+        "dux-shell": "dux-shell",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
