@@ -1,4 +1,4 @@
-{ self, ... }: {
+{
   flake.aspects.zsh = {
 
     nixos = { pkgs, ... }: {
@@ -18,16 +18,5 @@
     home = {
       programs.zsh.enable = true;
     };
-
-    compat.provides = [
-      {
-        target = self.aspects.preservation;
-        aspect = {
-          nixos = {
-            system.userActivationScripts.zshrc = "touch .zshrc";
-          };
-        };
-      }
-    ];
   };
 }
