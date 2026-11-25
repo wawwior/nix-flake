@@ -161,7 +161,7 @@
       };
 
       boot-disk = (if use-lvm then lvm-boot-disk else single-disk) boot;
-      lvm-disks = lib.listToAttrs (map (disk: lib.nameValuePair disk.name (lvm-disk disk.device)) disks');
+      lvm-disks = lib.listToAttrs (map (disk: lib.nameValuePair disk.name (lvm-disk disk)) disks');
 
       devices = {
         nodev = lib.mkIf impermanence {
