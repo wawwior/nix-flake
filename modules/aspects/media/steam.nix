@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ self, ... }: {
   flake.aspects.steam = {
     nixos = {
       programs.steam.enable = true;
@@ -8,12 +8,19 @@
         "steam-unwrapped"
       ];
     };
-    home = {
-      preservation.preserveAt."/persist" = {
-        directories = [
-          ".local/share/Steam"
-        ];
-      };
-    };
+    compat.provides = [
+      {
+        target = self.aspects.preservation;
+        aspect = {
+          home = {
+            preservation.preserveAt."/persist" = {
+              directories = [
+                ".local/share/Steam"
+              ];
+            };
+          };
+        };
+      }
+    ];
   };
 }
