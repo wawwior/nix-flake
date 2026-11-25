@@ -59,11 +59,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790524084,
-        "narHash": "sha256-gBao6SwUbbFM97MOiOJ1Ip+Ca9SLWz1XsBhtBm0NBes=",
+        "lastModified": 1795640172,
+        "narHash": "sha256-PGx5y0+zuyJPblR9JBccgeFnEm5D6t0Hr5vaEvorj94=",
         "owner": "wawwior",
         "repo": "dendritic",
-        "rev": "e614e7d6242de59952bad265ced265d9d2d4e2cb",
+        "rev": "948e38b9595f2e186caa1abc877e4ab42b68ad83",
         "type": "github"
       },
       "original": {

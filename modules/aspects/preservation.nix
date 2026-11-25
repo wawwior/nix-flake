@@ -80,5 +80,9 @@
         };
       }
     ];
+
+    cross-tree.to-users = [
+      self.aspects.preservation
+    ];
   };
 }
