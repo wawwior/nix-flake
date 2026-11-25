@@ -23,6 +23,10 @@
       url = "github:duxlabs-dev/dux-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dux-files = {
+      url = "github:duxlabs-dev/dux-files";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-file = {
       url = "github:vic/flake-file";
     };

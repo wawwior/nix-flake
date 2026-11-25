@@ -9,6 +9,7 @@
       includes =
         (with self.aspects; [
           dms-shell
+          dux-files
           plymouth-material
           (dms-greeter settings-home)
           (matugen { inherit source-color; })
