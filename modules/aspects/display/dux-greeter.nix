@@ -1,13 +1,13 @@
 { self, inputs, ... }: {
 
   flake-file.inputs = {
-    dank-greeter.url = "github:duxlabs-dev/dux-greeter";
+    dux-greeter.url = "github:duxlabs-dev/dux-greeter";
   };
 
-  flake.aspects.dms-greeter = configHome: {
+  flake.aspects.dux-greeter = configHome: {
     nixos = {
       imports = [
-        inputs.dank-greeter.nixosModules.default
+        inputs.dux-greeter.nixosModules.default
       ];
 
       programs.dms-greeter = {

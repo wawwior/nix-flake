@@ -11,7 +11,7 @@
           dms-shell
           dux-files
           plymouth-material
-          (dms-greeter settings-home)
+          (dux-greeter settings-home)
           (matugen { inherit source-color; })
           (fonts (
             { pkgs, ... }: rec {
