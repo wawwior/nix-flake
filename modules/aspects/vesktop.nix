@@ -19,7 +19,7 @@
         };
       }
       {
-        target = self.aspects.matugen;
+        target = self.aspects.matugen-user;
         aspect = {
           nixos = {
             programs.matugen.templates.vesktop = {
@@ -28,14 +28,16 @@
             };
           };
           home = { config, ... }: {
+            home.file."${config.xdg.configHome}/vesktop/themes/matugen.css" = {
+              source = "${config.programs.matugen.theme.files}/vesktop-matugen.css";
+            };
             programs.vesktop = {
-              vencord.settings = {
-                themes = {
-                  matugen = "${config.matugen.theme.files}/vesktop-matugen.css";
+              vencord = {
+                settings = {
+                  enabledThemes = [
+                    "matugen.css"
+                  ];
                 };
-                enabledThemes = [
-                  "matugen.css"
-                ];
               };
             };
           };
