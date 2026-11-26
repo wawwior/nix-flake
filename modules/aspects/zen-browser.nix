@@ -56,6 +56,18 @@
     };
     compat.provides = [
       {
+        target = self.aspects.preservation;
+        aspect = {
+          home = {
+            preservation.preserveAt."/persist" = {
+              directories = [
+                ".config/zen"
+              ];
+            };
+          };
+        };
+      }
+      {
         target = self.aspects.matugen;
         aspect = {
           nixos = {
