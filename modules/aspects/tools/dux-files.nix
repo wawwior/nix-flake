@@ -12,6 +12,7 @@
 
         portal = {
           enable = true;
+          preferred = true;
         };
 
         systemd = {
@@ -37,6 +38,18 @@
             programs.dux-files.settings = {
               colorSource = "custom";
               customThemeFile = "${config.programs.matugen.theme.files}/dms-colors.json";
+            };
+          };
+        };
+      }
+      {
+        target = self.aspects.niri;
+        aspect = {
+          home = {
+            programs.dux-files = {
+              portal = {
+                desktop = "niri";
+              };
             };
           };
         };
