@@ -16,6 +16,8 @@
             preservation.preserveAt."/persist" = {
               directories = [
                 ".local/share/Steam"
+                # native unity games might put state here
+                ".config/unity3d"
               ];
             };
           };
